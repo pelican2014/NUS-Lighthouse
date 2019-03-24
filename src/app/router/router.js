@@ -24,7 +24,7 @@ import CurrentProjects from '@/components/current-projects/current-projects';
 import FilteredSearch from '@/components/filtered-search/filtered-search';
 import PositionDetails from '@/components/position-details/position-details';
 import BasicInformation from '@/components/basic-information/basic-information';
-import TrejectoryPosition from '@/components/trajectory-position/trajectory-position';
+import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 import PositionStats from '@/components/position-stats/position-stats';
 
 Vue.use(Router);
@@ -68,7 +68,7 @@ export default new Router({
       component: JobPostSearch,
     },
     {
-      path: './trjectory',
+      path: './trajectory',
       name: 'trajectory',
       component: TrejectoryPosition,
     },
