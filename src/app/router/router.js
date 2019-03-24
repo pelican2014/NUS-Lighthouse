@@ -70,7 +70,7 @@ export default new Router({
     {
       path: './trajectory',
       name: 'trajectory',
-      component: TrejectoryPosition,
+      component: TrajectoryPosition,
     },
     {
 
