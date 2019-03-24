@@ -4,54 +4,64 @@
 
 <script>
 import HighchartsVue from 'highcharts-vue';
-// import Histogram from 'highcharts-histogram-bellcurve';
 import Highcharts from 'highcharts';
+import loadHistogram from 'highcharts/modules/histogram-bellcurve';
 
-
-
-const data = {
-  title: {
-    text: 'Bell curve',
-  },
-  xAxis: [{
-    title: {
-      text: 'Data',
-    },
-    alignTicks: false,
-  }, {
-    title: {
-      text: 'Bell curve',
-    },
-    alignTicks: false,
-    opposite: true,
-  }],
-
-  yAxis: [{
-    title: { text: 'Data' },
-  }, {
-    title: { text: 'Bell curve' },
-    opposite: true,
-  }],
-
-  series: [{
-    type: 'bellcurve',
-    xAxis: 1,
-    yAxis: 1,
-    baseSeries: 1,
-  }, {
-    data: [3.5, 3, 3.2, 3.1, 3.6, 3.9, 3.4],
-  }],
-
-
-};
+loadHistogram(Highcharts);
 
 export default {
   components: {
     HighchartsVue,
   },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    data: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      options: data,
+      options: {
+        title: {
+          text: this.title,
+        },
+        xAxis: [{
+          title: { text: 'Data' },
+          alignTicks: false,
+        }, {
+          title: { text: 'Histogram' },
+          alignTicks: false,
+          opposite: true,
+        }],
+
+        yAxis: [{
+          title: { text: 'Data' },
+        }, {
+          title: { text: 'Bellcurve' },
+          opposite: true,
+        }],
+
+        series: [{
+          name: 'Histogram',
+          type: 'bellcurve',
+          xAxis: 1,
+          yAxis: 1,
+          baseSeries: 's1',
+          zIndex: -1,
+        }, {
+          name: 'Data',
+          type: 'scatter',
+          data: [1, 2, 3, 4, 5, 1, 3, 4, 3, 3, 2, 1, 1, 3, 2, 1],
+          id: 's1',
+          marker: {
+            radius: 1.5,
+          },
+        }],
+      },
     };
   },
 };

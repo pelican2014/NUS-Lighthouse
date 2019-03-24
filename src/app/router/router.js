@@ -1,18 +1,17 @@
 import About from '@/components/about/about';
 import Contact from '@/components/contact/contact';
 import RAChart from '@/components/ra-main-charts/ra-main-charts';
-
-// import About from '@/components/about/about';
-// import Contact from '@/components/contact/contact';
+import Histogram from '@/components/charts/histogram';
 import Home from '@/components/home/home';
 import Company from '@/components/company/company';
 import TopHeader from '@/components/top-header/top-header';
 import Subheader from '@/components/subheader/subheader';
-// import Pie from '@/components/charts/pie';
+import Pie from '@/components/charts/pie';
 import Lines from '@/components/charts/line';
-// import Bar from '@/components/charts/bar';
-// import Wordcloud from '@/components/charts/word-cloud';
-// import Area from '@/components/charts/area';
+import Bar from '@/components/charts/bar';
+import HBar from '@/components/charts/horizontal-bar';
+import Wordcloud from '@/components/charts/word-cloud';
+import Area from '@/components/charts/area';
 import SearchBar from '@/components/search-bar/search-bar';
 import IndustryExplorer from '@/components/industry-explorer/industry-explorer';
 import Vue from 'vue';
@@ -26,6 +25,7 @@ import PositionDetails from '@/components/position-details/position-details';
 import BasicInformation from '@/components/basic-information/basic-information';
 import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 import PositionStats from '@/components/position-stats/position-stats';
+import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 
 Vue.use(Router);
