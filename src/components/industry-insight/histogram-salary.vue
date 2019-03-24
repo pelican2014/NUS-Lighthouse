@@ -7,8 +7,6 @@ import HighchartsVue from 'highcharts-vue';
 // import Histogram from 'highcharts-histogram-bellcurve';
 import Highcharts from 'highcharts';
 
-
-
 const data = {
   title: {
     text: 'Bell curve',
