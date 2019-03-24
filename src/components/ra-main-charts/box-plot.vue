@@ -26,7 +26,7 @@ const data = {
   },
 
   xAxis: {
-    categories: ['Life Sci', 'Com Sci', 'Civil Eng', 'Material Sci', 'Psychology',' Economics', 'Chemical Eng', 'Info Systems', 'Biz Analytics',],
+    categories: ['Life Sci', 'Com Sci', 'Civil Eng', 'Material Sci', 'Psychology', 'Economics', 'Chemical Eng', 'Info Systems', 'Biz Analytics'],
     title: {
       text: 'Major',
     },
@@ -62,8 +62,8 @@ const data = {
       stemWidth: 2,
       whiskerColor: '#4169E1',
       whiskerLength: '20%',
-      whiskerWidth: 5
-      },
+      whiskerWidth: 5,
+    },
   },
 
   series: [{

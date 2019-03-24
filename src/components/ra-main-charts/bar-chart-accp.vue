@@ -94,6 +94,5 @@ export default {
   width: 60%;
 =======
   width: 100%;
->>>>>>> ea9fad6991089d8e9797c112b63329391c5c6b01
 }
 </style>
