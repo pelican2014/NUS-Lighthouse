@@ -50,6 +50,9 @@ export default {
         title: {
           text: this.title,
         },
+        subtitle: {
+          text: 'Source: NUS Data Lake',
+        },
         legend: {
           enabled: false,
         },
@@ -68,7 +71,7 @@ export default {
             color: 'red',
             width: 1,
             label: {
-              text: 'Theoretical mean:',
+              text: 'Theoretical mean',
               align: 'center',
               style: {
                 color: 'gray',
