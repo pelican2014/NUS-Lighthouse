@@ -2,13 +2,8 @@
 <style src="./filtered-search.scss" lang="scss"></style>
 
 <script>
-import firebase from 'firebase';
-
-const db = firebase
-  .initializeApp({
-    databaseURL: 'https://bt3103-lighthouse.firebaseio.com/',
-  })
-  .database();
+// import firebase from 'firebase';
+import db from './../../firebase/firebase';
 
 export default {
   name: 'FilteredSearch',
