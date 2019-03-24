@@ -3,12 +3,18 @@
 <script>
 import topHeader from '../top-header/top-header';
 import subheader from '../subheader/subheader';
+import searchBar from '../search-bar/search-bar';
+import industryExplorer from '../industry-explorer/industry-explorer';
+import industryInsight from '../industry-insight/industry-insight';
 
 export default {
   name: 'InternshipHomepage',
   components: {
   	topHeader,
   	subheader,
+  	searchBar,
+  	industryExplorer,
+  	industryInsight,
   },
   /*
     props: {
