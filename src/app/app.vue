@@ -2,7 +2,7 @@
 <template src="./app.html"></template>
 <script>
 
-import Header from '@/components/header/header';
+import Header from '@/components/top-header/top-header';
 import Subheader from '@/components/subheader/subheader';
 import Pie from '@/components/charts/pie.vue';
 import Bar from '@/components/charts/bar.vue';
