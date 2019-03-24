@@ -9,72 +9,58 @@ import loadWordcloud from 'highcharts/modules/wordcloud';
 
 loadWordcloud(Highcharts);
 
-
-const cloud = {
-  series: [{
-    type: 'wordcloud',
-    data: [{
-        	name: 'UCLA',
-        	weight: 2 },
-    {
-        	name: 'NUS',
-        	weight: 5,
-    },
-    {
-        	name: 'NTU',
-        	weight: 4,
-    },
-    {
-        	name: 'SMU',
-        	weight: 2,
-    },
-    {
-        	name: 'THU',
-        	weight: 3,
-    },
-    {
-        	name: 'PKU',
-        	weight: 1,
-    },
-    {
-        	name: 'MIT',
-        	weight: 3,
-    },
-    {
-        	name: 'CMU',
-        	weight: 6,
-    },
-    {
-        	name: 'NYU',
-        	weight: 3,
-    }],
-    name: 'Occurrences',
-  }],
-  title: {
-    text: 'Postgraduate Universities',
-  },
-  subtitle: {
-    	text: 'Source: NUS Data Lake',
-  },
-};
-
 export default {
   components: {
     HighchartsVue,
   },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    data: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      options: cloud,
+      options: {
+        series: [{
+          type: 'wordcloud',
+          data: this.data,
+          name: 'Occurrences',
+        }],
+        title: {
+          text: this.title,
+        },
+        subtitle: {
+          text: 'Source: NUS Data Lake',
+        },
+        plotOptions: {
+          wordcloud: {
+            colors: [
+              '#f9ee0e',
+              '#eded10',
+              '#ff9500',
+              '#5c7a1c',
+              '#a1af31',
+              '#1e3c70',
+              '#ff7d00',
+            ],
+          },
+        },
+      },
     };
   },
 };
 </script>
 
-<style scoped>
-.word-cloud{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-  width: 100%;
-}
-</style>
+  <style scoped>
+  .word-cloud{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 100%;
+ }
+ </style>

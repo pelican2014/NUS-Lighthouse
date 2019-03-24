@@ -16,59 +16,73 @@
 <script>
 import HighchartsVue from 'highcharts-vue';
 
-const data = {
-  title: {
-    text: 'Opening Positions',
-  },
-  subtitle: {
-    text: 'Source: NUS Datalake',
-  },
-  yAxis: {
-    title: {
-      text: 'Number of positions',
-    },
-  },
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle',
-  },
-  plotOptions: {
-    series: {
-      label: {
-        connectorAllowed: false,
-      },
-      pointStart: 2012,
-    },
-  },
-  series: [{
-    name: 'Positions',
-    data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
-  }],
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500,
-      },
-      chartOptions: {
-        legend: {
-          layout: 'horizontal',
-          align: 'center',
-          verticalAlign: 'bottom',
-        },
-      },
-    }],
-  },
-};
-
 
 export default {
   components: {
     HighchartsVue,
   },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    yname: {
+      type: String,
+      required: true,
+    },
+    x: {
+      type: Array,
+      required: true,
+    },
+    data: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      options: data,
+      options: {
+        chart: {
+          type: 'line',
+        },
+        title: {
+          text: this.title,
+        },
+        subtitle: {
+          text: 'Source: NUS Datalake',
+        },
+        xAxis: {
+          categories: this.x,
+        },
+        yAxis: {
+          title: {
+            text: this.yname,
+          },
+        },
+        plotOptions: {
+          line: {
+            dataLabel: {
+              enabled: true,
+            },
+            enableMouseTracking: false,
+          },
+        },
+        series: this.data,
+        responsive: {
+          rules: [{
+            condition: {
+              maxWidth: 500,
+            },
+            chartOptions: {
+              legend: {
+                layout: 'vertical',
+                align: 'center',
+                verticalAlign: 'bottom',
+              },
+            },
+          }],
+        },
+      },
     };
   },
 };

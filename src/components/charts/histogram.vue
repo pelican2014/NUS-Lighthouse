@@ -1,5 +1,5 @@
 <template>
-  <highcharts :options="options" ref="bell-curve" class="line"></highcharts>
+  <highcharts :options="options" ref="bell-curve" class="histogram"></highcharts>
 </template>
 
 <script>
@@ -12,7 +12,6 @@ loadHistogram(Highcharts);
 export default {
   components: {
     HighchartsVue,
-
   },
   props: {
     title: {
@@ -23,6 +22,10 @@ export default {
       type: Array,
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -31,7 +34,7 @@ export default {
           text: this.title,
         },
         xAxis: [{
-          title: { text: 'Data' },
+          title: { text: this.name },
           alignTicks: false,
         }, {
           title: { text: 'Histogram' },
@@ -40,23 +43,23 @@ export default {
         }],
 
         yAxis: [{
-          title: { text: 'Data' },
+          title: { text: this.name },
         }, {
-          title: { text: 'Bellcurve' },
+          title: { text: 'Histogram' },
           opposite: true,
         }],
 
         series: [{
           name: 'Histogram',
-          type: 'bellcurve',
+          type: 'histogram',
           xAxis: 1,
           yAxis: 1,
           baseSeries: 's1',
           zIndex: -1,
         }, {
-          name: 'Data',
+          name: this.name,
           type: 'scatter',
-          data: [1, 2, 3, 4, 5, 1, 3, 4, 3, 3, 2, 1, 1, 3, 2, 1],
+          data: this.data,
           id: 's1',
           marker: {
             radius: 1.5,
