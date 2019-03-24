@@ -145,5 +145,11 @@ export default new Router({
       name: 'recommended',
       component: Recommended,
     },
+    {
+      path: '/industry-insight',
+      name: 'industry-insight',
+      component: Insights,
+    },
+
   ],
 });
