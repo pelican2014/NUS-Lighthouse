@@ -6,67 +6,69 @@
 import HighchartsVue from 'highcharts-vue';
 
 
-const data = {
-  chart: {
-    plotBackgroundColor: null,
-    plotBorderWidth: null,
-    plotShadow: false,
-    type: 'pie',
-  },
-
-  title: {
-    text: 'Gender Pie Chart',
-  },
-
-  subtitle: {
-    text: 'Source: NUS Data Lake',
-  },
-  tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
-  },
-
-  plotOptions: {
-    pie: {
-      colors: [
-        '#FFC400',
-        '#436BC6',
-        '#B7D5EE',
-        '#FFDA5A',
-        '#4F97D6',
-      ],
-      allowPointSelect: true,
-      cursor: 'pointer',
-      dataLabels: {
-        enabled: true,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-
-      },
-    },
-  },
-
-  series: [{
-    name: 'Gender',
-    colorBypoint: true,
-    data: [{
-      name: 'Male',
-      y: 63,
-      sliced: true,
-      selected: true,
-    }, {
-      name: 'Female',
-      y: 37,
-    }],
-  }],
-};
-
-
 export default {
   components: {
     HighchartsVue,
   },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    data: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      options: data,
+      options: {
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false,
+          type: 'pie',
+        },
+
+        title: {
+          text: this.title,
+        },
+
+        subtitle: {
+          text: 'Source: NUS Data Lake',
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+        },
+
+        plotOptions: {
+          pie: {
+            colors: [
+              '#FFC400',
+              '#436BC6',
+              '#4F97D6',
+              '#FFDA5A',
+              '#B7D5EE',
+            ],
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: true,
+              format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+            },
+          },
+        },
+
+        series: [{
+          name: this.name,
+          colorBypoint: true,
+          data: this.data,
+        }],
+      },
     };
   },
 };
