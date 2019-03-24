@@ -30,20 +30,26 @@
     <b-container class='p-4'>
       <b-row>
         <b-col cols="3">
-          <b-img thumbnail fluid v-bind:src="research_prof.prof_photo_link" />
+          <b-container>
+            <b-img thumbnail fluid v-bind:src="research_prof.prof_photo_link" />
+          </b-container>
         </b-col>
         <b-col cols="9">
           <b-container>
-            <b-row class='prof-name'> {{research_prof.prof_name}}</b-row>
+            <b-row class='prof-name' align-v='start'> {{research_prof.prof_name}}</b-row>
             <b-row class='prof-title'>
               <p>{{research_prof.prof_title}}</p>
             </b-row>
             <b-row class='prof-department'>
               <p>{{research_prof.prof_department}}</p>
             </b-row>
-            <b-row>
-              <b-col cols="3"><i class="fa fa-map-marker-alt"></i> {{research_prof.prof_office}}</b-col>
-              <b-col><i class="fa fa-phone"></i> {{research_prof.prof_tel}}</b-col>
+            <b-row align-v='start'>
+              <p>
+                <i class="fa fa-map-marker-alt"></i>
+                <span class='prof-office'>{{research_prof.prof_office}}</span>
+                <i class="fa fa-phone"></i>
+                <span class='prof-phone'>{{research_prof.prof_tel}}</span>
+              </p>
             </b-row>
             <b-row>
               <p class='research-focus-title'>Research Focus:</p>

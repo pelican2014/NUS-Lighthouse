@@ -70,7 +70,7 @@ in the Research Section
 .prof-name {
   font-size: 36px;
   font-weight: bold;
-  margin-top: -1em;
+  margin-top:-12px;
 }
 
 .prof-title {
@@ -84,10 +84,19 @@ in the Research Section
 
 }
 
+.prof-office{
+  margin-left:0.5em;
+  margin-right:1em;
+}
+
+.prof-phone{
+  margin-left:0.5em;
+  margin-right:1em;
+}
+
 .research-focus-title {
   font-size: 18px;
   text-decoration: underline;
-  margin-top: 0.5em;
   margin-bottom: 0.2em;
 }
 
@@ -143,3 +152,5 @@ in the Teaching Section
 .module-description {
   font-size: 16px;
 }
+
+
