@@ -1,5 +1,5 @@
-<template src="./header.html"></template>
-<style src='./header.scss'></style>
+<template src="./top-header.html"></template>
+<style src='./top-header.scss' lang='scss'></style>
 
 <script>
 export default{

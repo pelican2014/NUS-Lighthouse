@@ -1,12 +1,24 @@
-<template src = './internship-homepage.html'></template>
-<style src = './internship-homepage'></style>
+<template src='./internship-homepage.html'></template>
+<style src='./internship-homepage.scss' lang='scss'></style>
 <script>
-export default{
-	name:'InternshipHomepage',
-	props:{
-		data:{
-			type:Object,
-			required:true
-		},
-	},
-}
+import topHeader from '../top-header/top-header';
+import subheader from '../subheader/subheader';
+
+export default {
+  name: 'InternshipHomepage',
+  components: {
+  	topHeader,
+  	subheader,
+  },
+  /*
+    props: {
+      data: {
+        type: Object,
+        required: true,
+      },
+    },
+    */
+
+};
+
+</script>
