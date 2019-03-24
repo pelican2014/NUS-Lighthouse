@@ -10,15 +10,12 @@ export default {
   	topHeader,
   	subheader,
   },
-  /*
-    props: {
-      data: {
-        type: Object,
-        required: true,
-      },
-    },
-    */
-
+  // props: {
+  //   data: {
+  //     type: Object,
+  //     required: true,
+  //   },
+  // },
 };
 
 </script>
