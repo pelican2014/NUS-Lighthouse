@@ -30,6 +30,9 @@ const data = {
       colors: [
         '#FFC400',
         '#436BC6',
+        '#B7D5EE',
+        '#FFDA5A',
+        '#4F97D6',
       ],
       allowPointSelect: true,
       cursor: 'pointer',
