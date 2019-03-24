@@ -27,6 +27,7 @@ import TrajectoryPosition from '@/components/trajectory-position/trajectory-posi
 import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
+import Recommended from '@/components/recommended/recommended';
 
 Vue.use(Router);
 
@@ -138,6 +139,11 @@ export default new Router({
       props: {
         field: 'Internship Opportunities',
       },
+    },
+    {
+      path: '/recommended',
+      name: 'recommended',
+      component: Recommended,
     },
   ],
 });
