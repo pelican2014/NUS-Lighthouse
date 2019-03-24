@@ -14,15 +14,12 @@ export default {
   	searchBar,
   	industryExplorer,
   },
-  /*
-    props: {
-      data: {
-        type: Object,
-        required: true,
-      },
-    },
-    */
-
+  // props: {
+  //   data: {
+  //     type: Object,
+  //     required: true,
+  //   },
+  // },
 };
 
 </script>
