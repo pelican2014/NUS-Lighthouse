@@ -29,6 +29,8 @@ import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 import Recommended from '@/components/recommended/recommended';
 
+import IndustryPage from '@/components/pages/industry-page/industry-page';
+
 Vue.use(Router);
 
 export default new Router({
@@ -144,6 +146,11 @@ export default new Router({
       path: '/recommended',
       name: 'recommended',
       component: Recommended,
+    },
+    {
+      path: '/industryPage',
+      name: 'industryPage',
+      component: IndustryPage,
     },
   ],
 });
