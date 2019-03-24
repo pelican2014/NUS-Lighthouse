@@ -4,17 +4,15 @@
     <b-container class="p-4">
       <b-row>
         <b-col cols="3">
-          <b-img thumbnail fluid v-bind:src="internship_position.position_icon_link" />
+          <b-container>
+            <b-img thumbnail fluid v-bind:src="internship_position.position_icon_link" />
+          </b-container>
         </b-col>
         <b-col cols="9">
           <b-container>
-            <b-row>
-              <b-col class='internship-position-title'>
-                <div>
-                  <span class='position-name'>Software Engineer</span>
-                  <span class='position-company'>Google</span>
-                </div>
-              </b-col>
+            <b-row align-v='start' align-h="between" class='internship-position-title'>
+              <b-col cols="8" class='position-name'>{{internship_position.position_title}}</b-col>
+              <b-col cols="4" class='position-company' align-self='end'>{{internship_position.position_company}}</b-col>
             </b-row>
             <b-row class='internship-period-row'>
               <p class='internship-period-title'> Internship Period: </p>
