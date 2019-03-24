@@ -18,6 +18,9 @@ export default {
       type: String,
       required: true,
     },
+    yours: {
+      type: String,
+    },
     data: {
       type: Object,
       required: true,
@@ -44,6 +47,18 @@ export default {
               fontFamily: 'Verdana, sans-serif',
             },
           },
+          plotLines: [{
+            value: this.yours,
+            color: 'red',
+            width: 1,
+            label: {
+              text: 'You are here',
+              align: 'center',
+              style: {
+                color: 'gray',
+              },
+            },
+          }],
         },
         yAxis: {
           min: 0,

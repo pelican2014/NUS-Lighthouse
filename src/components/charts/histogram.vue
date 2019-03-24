@@ -18,6 +18,9 @@ export default {
       type: String,
       required: true,
     },
+    yours: {
+      type: String,
+    },
     data: {
       type: Array,
       required: true,
@@ -40,6 +43,18 @@ export default {
           title: { text: 'Histogram' },
           alignTicks: false,
           opposite: true,
+          plotLines: [{
+            value: this.yours,
+            color: 'red',
+            width: 1,
+            label: {
+              text: 'You are here',
+              align: 'bottom',
+              style: {
+                color: 'gray',
+              },
+            },
+          }],
         }],
 
         yAxis: [{
