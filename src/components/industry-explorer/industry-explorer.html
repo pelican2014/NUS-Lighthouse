@@ -1,34 +1,9 @@
 <div>
-  <div v-if="by=='Industry'">
+  <div v-if="by=='Industry' || by=='Major'">
     <b-container>
       <b-row>
         <b-col>
-          <HorizontalBarChart title='Number by Interns by Industry' yname='No. of interns' v-bind:data="bardata"
-          ></HorizontalBarChart>
-
-        </b-col>
-        <b-col>
-          <Boxplot></Boxplot>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
-          <Boxplot></Boxplot>
-        </b-col>
-        <b-col>
-          <HorizontalBarChart></HorizontalBarChart>
-        </b-col>
-      </b-row>
-      <b-row>
-        <AreaChart></AreaChart>
-      </b-row>
-    </b-container>
-  </div>
-  <div v-if="by=='Major'">
-    <b-container>
-      <b-row>
-        <b-col>
-          <HorizontalBarChart></HorizontalBarChart>
+          <HorizontalBarChart title='Number by Interns by Industry' y-name='Number of interns by Industry' v-bind:data="data.bar_data"></HorizontalBarChart>
         </b-col>
         <b-col>
           <Boxplot></Boxplot>

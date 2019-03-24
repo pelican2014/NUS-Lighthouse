@@ -19,22 +19,11 @@ export default {
       type: String,
       required: true,
     },
+    data: {
+      type: Object,
+      required: true,
+    },
   },
-  data() {
-    return {
-      bardata: [
-        ['Finance', 24.2],
-        ['Manufacturing', 20.8],
-        ['C', 14.9],
-        ['D', 13.7],
-        ['E', 13.1],
-        ['F', 12.7],
-      ]
-
-
-    };
-
-  }
 };
 
 </script>
