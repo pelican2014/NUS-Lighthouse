@@ -6,7 +6,7 @@ import RAChart from '@/components/ra-main-charts/ra-main-charts';
 // import Contact from '@/components/contact/contact';
 import Home from '@/components/home/home';
 import Company from '@/components/company/company';
-import Header from '@/components/header/header';
+import TopHeader from '@/components/top-header/top-header';
 import Subheader from '@/components/subheader/subheader';
 // import Pie from '@/components/charts/pie';
 import Lines from '@/components/charts/line';
@@ -26,6 +26,7 @@ import PositionDetails from '@/components/position-details/position-details';
 import BasicInformation from '@/components/basic-information/basic-information';
 import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 import PositionStats from '@/components/position-stats/position-stats';
+import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 
 Vue.use(Router);
 
@@ -33,53 +34,53 @@ export default new Router({
   routes: [
 
     {
-      path: './',
+      path: '/',
       name: 'home',
-      component: null,
+      component: InternshipHomePage,
     },
     {
-      path: './current-projects',
+      path: '/current-projects',
       name: 'current-projects',
       component: CurrentProjects,
     },
     {
-      path: './about',
+      path: '/about',
       name: 'about',
       component: About,
     },
     {
-      path: './ra-charts',
+      path: '/ra-charts',
       name: 'ra-charts',
       component: RAChart,
     },
     {
-      path: './position-stats',
+      path: '/position-stats',
       name: 'position-stats',
       component: PositionStats,
     },
     {
-      path: './contact',
+      path: '/contact',
       name: 'contact',
       component: Contact,
     },
     {
-      path: './JobPostSearch',
+      path: '/JobPostSearch',
       name: 'JobPostSearch',
       component: JobPostSearch,
     },
     {
-      path: './trajectory',
+      path: '/trajectory',
       name: 'trajectory',
       component: TrajectoryPosition,
     },
     {
 
-      path: './RecentPublications',
+      path: '/RecentPublications',
       name: 'RecentPublications',
       component: RecentPublications,
     },
     {
-      path: './BasicInformationInternship',
+      path: '/BasicInformationInternship',
       name: 'BasicInformationInternship',
       component: BasicInformation,
       props: {
@@ -87,7 +88,7 @@ export default new Router({
       },
     },
     {
-      path: './BasicInformationResearch',
+      path: '/BasicInformationResearch',
       name: 'BasicInformationResearch',
       component: BasicInformation,
       props: {
@@ -95,7 +96,7 @@ export default new Router({
       },
     },
     {
-      path: './BasicInformationTeaching',
+      path: '/BasicInformationTeaching',
       name: 'BasicInformationTeaching',
       component: BasicInformation,
       props: {
@@ -103,35 +104,35 @@ export default new Router({
       },
     },
     {
-      path: './company-description',
+      path: '/company-description',
       name: 'company-description',
       component: Company,
     },
     {
-      path: './searchBar',
+      path: '/searchBar',
       name: 'searchBar',
       component: SearchBar,
     },
     {
-      path: './filteredSearch',
+      path: '/filteredSearch',
       name: 'filteredSearch',
       component: FilteredSearch,
     },
     {
-      path: './positionDetails',
+      path: '/positionDetails',
       name: 'positionDetails',
       component: PositionDetails,
     },
     {
-      path: './header',
-      name: 'header',
-      component: Header,
+      path: '/topHeader',
+      name: 'topHeader',
+      component: TopHeader,
       props: {
         username: 'Anonymous',
       },
     },
     {
-      path: './subheader',
+      path: '/subheader',
       name: 'subheader',
       component: Subheader,
       props: {
