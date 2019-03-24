@@ -22,6 +22,10 @@ export default {
       type: Array,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
   data() {
     return {
@@ -35,7 +39,7 @@ export default {
           text: this.title,
         },
         subtitle: {
-          text: 'Source: NUS Data Lake',
+          text: this.subtitle,
         },
         plotOptions: {
           wordcloud: {
