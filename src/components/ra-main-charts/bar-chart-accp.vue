@@ -90,9 +90,6 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-<<<<<<< HEAD
-  width: 60%;
-=======
   width: 100%;
 }
 </style>

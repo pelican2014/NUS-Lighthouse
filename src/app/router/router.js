@@ -26,6 +26,7 @@ import PositionDetails from '@/components/position-details/position-details';
 import BasicInformation from '@/components/basic-information/basic-information';
 import TrejectoryPosition from '@/components/trajectory-position/trajectory-position';
 import PositionStats from '@/components/position-stats/position-stats';
+import Background from '@/components/background-statistics/background-statistics';
 
 Vue.use(Router);
 
@@ -36,7 +37,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: null,
+      component: Background,
     },
     {
       path: '/current-projects',
