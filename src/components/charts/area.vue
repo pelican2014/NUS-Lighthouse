@@ -72,6 +72,7 @@ export default {
         },
         plotOptions: {
           area: {
+            stacking: 'normal',
             marker: {
               enabled: false,
               symbol: 'circle',
