@@ -23,6 +23,10 @@ export default {
       type: Object,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
   data() {
     return {
@@ -39,7 +43,7 @@ export default {
         },
 
         subtitle: {
-          text: 'Source: NUS Data Lake',
+          text: this.subtitle,
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',

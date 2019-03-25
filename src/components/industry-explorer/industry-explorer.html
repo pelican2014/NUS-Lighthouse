@@ -1,3 +1,4 @@
+
 <div>
   <div v-if="by=='Industry' || by=='Major'">
     <b-container>
@@ -14,7 +15,11 @@
           <Boxplot></Boxplot>
         </b-col>
         <b-col>
-          <HorizontalBarChart></HorizontalBarChart>
+          <HorizontalBarChart
+            :data="acceptance_rates_data"
+            title="Internship Acceptance Rates by Industry"
+            yname="Acceptance Rates"
+          ></HorizontalBarChart>
         </b-col>
       </b-row>
       <b-row>

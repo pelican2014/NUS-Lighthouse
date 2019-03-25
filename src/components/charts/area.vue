@@ -23,6 +23,10 @@ export default {
       type: Array,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
   data() {
     return {
@@ -34,7 +38,7 @@ export default {
           text: this.title,
         },
         subtitle: {
-          text: 'Sources: NUS Datalake',
+          text: this.subtitle,
         },
         colors: [
           '#62ba1a',
@@ -68,6 +72,7 @@ export default {
         },
         plotOptions: {
           area: {
+            stacking: 'normal',
             marker: {
               enabled: false,
               symbol: 'circle',

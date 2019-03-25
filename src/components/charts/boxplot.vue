@@ -40,6 +40,10 @@ export default {
     outliers: {
       type: Array,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
   data() {
     return {
@@ -51,7 +55,7 @@ export default {
           text: this.title,
         },
         subtitle: {
-          text: 'Source: NUS Data Lake',
+          text: this.subtitle,
         },
         legend: {
           enabled: false,
