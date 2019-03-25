@@ -3,7 +3,7 @@
     <b-container>
       <b-row>
         <b-col>
-          <HorizontalBarChart title='Number by Interns by Industry' y-name='Number of interns by Industry' v-bind:data="data.bar_data"></HorizontalBarChart>
+          <HorizontalBarChart v-bind:title='data.bar_chart.title' v-bind:yname='data.bar_chart.yname' v-bind:data="data.bar_chart.data"></HorizontalBarChart>
         </b-col>
         <b-col>
           <Boxplot></Boxplot>
