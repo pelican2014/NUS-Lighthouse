@@ -1,20 +1,20 @@
 <div>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	
-	<b-container class = 'p-4'>
+
+	<b-container class = 'p-4' v-show = 'description'>
 		<b-row>
 			<b-col cols = '3'>
-				<b-img thumbnail fluid :src = 'company.image_url'/>
+				<b-img thumbnail fluid :src = 'image_url'/>
 			</b-col>
 			<b-col cols = '9'>
 				<b-container>
 					<b-row>
-						<h3>Company Name: &nbsp <b style = 'font-size: 2rem;'>{{company.name}}</b></h3>
+						<h3>Company Name: &nbsp <b style = 'font-size: 2rem;'>{{company_name}}</b></h3>
 					</b-row>
 
 					<b-row>
 						<h3>Company Description:</h3>
-						<span>{{company.description}}</span>
+						<span>{{description}}</span>
 					</b-row>
 				</b-container>
 			</b-col>

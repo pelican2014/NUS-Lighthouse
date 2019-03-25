@@ -109,6 +109,10 @@ export default new Router({
       path: '/company-description',
       name: 'company-description',
       component: Company,
+      props: {
+        company_name: 'SINGTEL',
+        image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
+      },
     },
     {
       path: '/searchBar',
