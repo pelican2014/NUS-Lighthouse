@@ -10,6 +10,7 @@ import Boxplot from '@/components/charts/boxplot';
 import Recommended from '@/components/recommended/recommended';
 import SearchBar from '@/components/search-bar/search-bar';
 import IndustryExplorer from '@/components/industry-explorer/industry-explorer';
+import ExplorerSearch from '@/components/explorer-search/explorer-search';
 
 export default {
   name: 'PositionDetails',
@@ -21,6 +22,7 @@ export default {
     Recommended,
     SearchBar,
     IndustryExplorer,
+    ExplorerSearch,
   },
   data() {
   	return {
