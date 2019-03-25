@@ -28,6 +28,7 @@ import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 import Recommended from '@/components/recommended/recommended';
+import Background from '@/components/background-statistics/background-statistics';
 
 Vue.use(Router);
 
@@ -144,6 +145,16 @@ export default new Router({
       path: '/recommended',
       name: 'recommended',
       component: Recommended,
+    },
+    {
+      path: '/industry-insight',
+      name: 'industry-insight',
+      component: Insights,
+    },
+    {
+      path: '/background-statistics',
+      name: 'background-statistics',
+      component: Background,
     },
   ],
 });
