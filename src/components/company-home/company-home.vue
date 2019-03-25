@@ -10,35 +10,32 @@ import Stats from '@/components/position-stats/position-stats';
 import OpeningPosition from '@/components/opening-positions/opening-positions';
 
 
-export default{
-	name: 'company-home',
-	components: {
-		Header,
-		Subheader,
-		Company,
-		Stats,
-		OpeningPosition,
-	},
-	props:{
-
-	},
-	data() {
-		return{
-
-		};
-	},
-	computed: {
-
-	},
-	firebase:{
-		company_dict: {
-			db.ref('company'),
-			asObject: true,
-		},
-		internship_dict: {
-			db.ref('internship'),
-			asObject: true,
-		},
-	},
+export default {
+  name: 'company-name',
+  components: {
+  	Header,
+  	Subheader,
+  	Company,
+    Stats,
+    OpeningPosition,
+  },
+  props: {
+  	company_id: {
+  		type: String,
+  		required: true,
+    },
+  },
+  computed: {
+  },
+  firebase: {
+  	internship_dict: {
+  		source: db.ref('internship'),
+  		asObject: true,
+  	},
+  	company_dict: {
+  		source: db.ref('company'),
+  		asObject: true,
+  	},
+  },
 };
 </script>
