@@ -36,7 +36,7 @@ export default {
       // concatenate other industries that are out of top 9 in number
       const others = _.concat(_.map(sorted_industries.slice(0, -9)), industry => results[industry]);
       const final_results = _.pick(results, sorted_industries.slice(-9));
-      final_results.Others = _.concat(_.values(_.pick(results, others)));
+      final_results['Others'] = _.concat(_.values(_.pick(results, others)));
 
       return final_results;
     },

@@ -2,11 +2,6 @@
 <style src="./industry-page.scss" lang="scss"></style>
 
 <script>
-import BarChart from '@/components/charts/bar';
-import AreaChart from '@/components/charts/area';
-import HorizontalBarChart from '@/components/charts/horizontal-bar';
-import Boxplot from '@/components/charts/boxplot';
-
 import Recommended from '@/components/recommended/recommended';
 import SearchBar from '@/components/search-bar/search-bar';
 import IndustryExplorer from '@/components/industry-explorer/industry-explorer';
@@ -15,10 +10,6 @@ import ExplorerSearch from '@/components/explorer-search/explorer-search';
 export default {
   name: 'PositionDetails',
   components: {
-    BarChart,
-    AreaChart,
-    HorizontalBarChart,
-    Boxplot,
     Recommended,
     SearchBar,
     IndustryExplorer,
