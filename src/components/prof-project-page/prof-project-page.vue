@@ -2,7 +2,8 @@
 <!-- <style src="./prof-project-page.scss" lang="scss"></style> -->
 
 <script>
-import db from '../../firebase/firebase';
+import db from '@/firebase/firebase';
 
+ 
 
 </script>
