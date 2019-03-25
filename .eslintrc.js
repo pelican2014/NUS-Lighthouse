@@ -32,6 +32,7 @@ module.exports = {
     'no-continue': 0,
     'no-mixed-spaces-and-tabs': 0,
     'no-tabs': 0,
+    'dot-notation': 0,
 
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
