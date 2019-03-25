@@ -27,9 +27,10 @@ import TrajectoryPosition from '@/components/trajectory-position/trajectory-posi
 import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
-// import Recommended from '@/components/recommended/recommended';
 import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
+import Recommended from '@/components/recommended/recommended';
+import Background from '@/components/background-statistics/background-statistics';
 
 Vue.use(Router);
 
@@ -38,10 +39,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: CompanyHome,
-      props: {
-        company_id: '02eb568a3d2b51986946b727abb94db3439070cf46453797427ca29f1fcb22e6',
-      },
+      component: null,
     },
     {
       path: '/current-projects',
@@ -151,10 +149,20 @@ export default new Router({
         field: 'Internship Opportunities',
       },
     },
-    // {
-    //   path: '/recommended',
-    //   name: 'recommended',
-    //   component: Recommended,
-    // },
+    {
+      path: '/recommended',
+      name: 'recommended',
+      component: Recommended,
+    },
+    {
+      path: '/industry-insight',
+      name: 'industry-insight',
+      component: Insights,
+    },
+    {
+      path: '/background-statistics',
+      name: 'background-statistics',
+      component: Background,
+    },
   ],
 });
