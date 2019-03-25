@@ -2,8 +2,7 @@
 <style src="./filtered-search.scss" lang="scss"></style>
 
 <script>
-// import firebase from 'firebase';
-import db from './../../firebase/firebase';
+import db from '@/firebase';
 
 export default {
   name: 'FilteredSearch',

@@ -27,8 +27,13 @@ import TrajectoryPosition from '@/components/trajectory-position/trajectory-posi
 import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
+<<<<<<< HEAD
 import Recommended from '@/components/recommended/recommended';
 import Background from '@/components/background-statistics/background-statistics';
+=======
+// import Recommended from '@/components/recommended/recommended';
+import OpeningPositions from '@/components/opening-positions/opening-positions';
+>>>>>>> d02848de2869c4b51eeee86f1c45de1a07741f52
 
 Vue.use(Router);
 
@@ -38,7 +43,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: InternshipHomePage,
+      component: OpeningPositions,
     },
     {
       path: '/current-projects',
@@ -109,6 +114,10 @@ export default new Router({
       path: '/company-description',
       name: 'company-description',
       component: Company,
+      props: {
+        company_name: 'SINGTEL',
+        image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
+      },
     },
     {
       path: '/searchBar',
@@ -141,6 +150,7 @@ export default new Router({
         field: 'Internship Opportunities',
       },
     },
+<<<<<<< HEAD
     {
       path: '/recommended',
       name: 'recommended',
@@ -156,5 +166,12 @@ export default new Router({
       name: 'background-statistics',
       component: Background,
     },
+=======
+    // {
+    //   path: '/recommended',
+    //   name: 'recommended',
+    //   component: Recommended,
+    // },
+>>>>>>> d02848de2869c4b51eeee86f1c45de1a07741f52
   ],
 });
