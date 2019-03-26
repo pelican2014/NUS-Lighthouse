@@ -178,8 +178,8 @@ export default {
     salary_hist() {
       const breakpoints = [3000, 4000, 5000, 6000, 7000];
       const first = breakpoints[0];
-      const last = breakpoints.slice(-1)[0]
-      const trimmed = _.map(this.grad_internship, o => {
+      const last = breakpoints.slice(-1)[0];
+      const trimmed = _.map(this.grad_internship, (o) => {
         if (o.starting_salary > last) {
           return 7000;
         } else if (o.starting_salary < first ) {
@@ -188,9 +188,7 @@ export default {
           return Math.floor(o.starting_salary / 1000);
         }
       });
-      console.log(trimmed);
       const counts = _.map(_.countBy(trimmed), (count, point) => {
-        console.log(point);
         point *= 1000;
         if (point < first) {
           return { name: '<' + first, y: count };
