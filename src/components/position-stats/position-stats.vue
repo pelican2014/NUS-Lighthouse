@@ -2,6 +2,7 @@
 <style src="./position-stats.scss" lang="scss"></style>
 
 <script>
+import _ from 'lodash';
 import db from '@/firebase';
 import Pie from '@/components/charts/pie';
 import Lines from '@/components/charts/line';
@@ -122,6 +123,32 @@ export default{
         }
       }
       return results;
+    },
+    CAP_hist() {
+      const breakpoints = [0, 1, 2, 3, 4, 5];
+      const first = breakpoints[0];
+      const last = breakpoints.slice(-1)[0];
+      const trimmed = _.map(this.CAP, (o) => {
+        if (o > last) {
+          return 5;
+        } else if (o < first) {
+          return 0;
+        } else {
+          return Math.floor(o);
+        }
+      });
+      const counts = _.map(_.countBy(trimmed), (count, point) => {
+        const current_point = point;
+        if (current_point < first) {
+          return { name: '<' + first, y: count };
+        } else if (current_point >= last) {
+          return { name: '>=' + last, y: count };
+        } else {
+          const next_point = Number(current_point) + 1;
+          return { name: current_point + ' to ' + next_point, y: count };
+        }
+      });
+      return counts;
     },
     interns() {
       const results = {};

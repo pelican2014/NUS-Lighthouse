@@ -32,6 +32,7 @@ import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
 import Background from '@/components/background-statistics/background-statistics';
 import InitialPage from '@/components/initial-page/initial-page';
+import PositionInfo from '@/components/basic-information/position-info';
 
 Vue.use(Router);
 
@@ -40,7 +41,11 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: InitialPage,
+      component: PositionInfo,
+      props: {
+        image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
+        position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',
+      },
       // component: CompanyHome,
       // props: {
       //   company_id: '06775d9a4d67bcdd1485a82de0486ccf3501d53d0caf44b9ead2423cfce2a510',
@@ -137,6 +142,9 @@ export default new Router({
       path: '/positionDetails',
       name: 'positionDetails',
       component: PositionDetails,
+      props: {
+        position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',
+      },
     },
     {
       path: '/topHeader',

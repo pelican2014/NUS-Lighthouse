@@ -63,7 +63,8 @@ export default {
         },
         plotOptions: {
           column: {
-            pointPadding: 0.2,
+            pointPadding: 0.1,
+            groupPadding: 0.1,
             borderWidth: 0,
             color: '#FFC300',
           },
