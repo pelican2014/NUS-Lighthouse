@@ -27,6 +27,8 @@ import TrajectoryPosition from '@/components/trajectory-position/trajectory-posi
 import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
+import OpeningPositions from '@/components/opening-positions/opening-positions';
+import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
 import Background from '@/components/background-statistics/background-statistics';
 
@@ -34,11 +36,10 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-
     {
       path: '/',
       name: 'home',
-      component: InternshipHomePage,
+      component: null,
     },
     {
       path: '/current-projects',
@@ -59,6 +60,9 @@ export default new Router({
       path: '/position-stats',
       name: 'position-stats',
       component: PositionStats,
+      props: {
+        company_id: '02eb568a3d2b51986946b727abb94db3439070cf46453797427ca29f1fcb22e6',
+      },
     },
     {
       path: '/contact',
@@ -109,6 +113,10 @@ export default new Router({
       path: '/company-description',
       name: 'company-description',
       component: Company,
+      props: {
+        company_name: 'UOB',
+        image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
+      },
     },
     {
       path: '/searchBar',
@@ -156,6 +164,5 @@ export default new Router({
       name: 'background-statistics',
       component: Background,
     },
-
   ],
 });

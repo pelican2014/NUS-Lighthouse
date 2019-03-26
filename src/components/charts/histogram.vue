@@ -29,12 +29,19 @@ export default {
       type: String,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         title: {
           text: this.title,
+        },
+        subtitle: {
+          text: this.subtitle,
         },
         xAxis: [{
           title: { text: this.name },
@@ -80,8 +87,8 @@ export default {
             radius: 1.5,
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>

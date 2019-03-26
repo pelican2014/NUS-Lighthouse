@@ -13,9 +13,7 @@ import BarChartRace from '@/components/background-statistics/bar-chart-race';
 import BarChartNationality from '@/components/background-statistics/bar-chart-nationality';
 import WordCloudModule from '@/components/background-statistics/word-cloud-module';
 import HistogramCAP from '@/components/background-statistics/histogram-cap';
-
-
-import db from '../../firebase/firebase';
+import db from '@/firebase';
 
 export default {
   name: 'Backgroud Statistics',
@@ -108,7 +106,6 @@ export default {
           if (ra.race !== '') {
             race_list.push(ra.race);
           }
-
         }
       }
       race_list.sort();
@@ -140,7 +137,6 @@ export default {
           if (ra.nationality !== '') {
             country_list.push(ra.nationality);
           }
-
         }
       }
       country_list.sort();
@@ -183,11 +179,11 @@ export default {
         prev = year_list[i];
       }
 
-      const result = { x: year, data: [ { name: 'number of RAs', data: freq, } ] };
+      const result = { x: year, data: [{ name: 'number of RAs', data: freq }] };
       return result;
     },
     cap() {
-      const cap_list = []
+      const cap_list = [];
       for (const item_id in this.ra_dict) {
         if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
           const ra = this.ra_dict[item_id];

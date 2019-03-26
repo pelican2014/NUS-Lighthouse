@@ -57,8 +57,8 @@ export default {
           baseSeries: 's1',
           data: this.data,
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>

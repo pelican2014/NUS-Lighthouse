@@ -2,13 +2,7 @@
 <style src="./search-bar.scss" lang="scss"></style>
 
 <script>
-import firebase from 'firebase';
-
-const db = firebase
-  .initializeApp({
-    databaseURL: 'https://bt3103-lighthouse.firebaseio.com/',
-  })
-  .database();
+import db from '@/firebase';
 
 export default {
   name: 'ExplorerSearch',

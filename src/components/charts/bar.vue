@@ -25,10 +25,14 @@ export default {
       type: Object,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           type: 'column',
         },
@@ -36,7 +40,7 @@ export default {
           text: this.title,
         },
         subtitle: {
-          text: 'Source: NUS datalake',
+          text: this.subtitle,
         },
         xAxis: {
           type: 'category',
@@ -95,8 +99,8 @@ export default {
             },
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>

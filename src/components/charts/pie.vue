@@ -23,10 +23,18 @@ export default {
       type: Object,
       required: true,
     },
+    // transform: {
+    //   type: Function,
+    //   required: true,
+    // },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           plotBackgroundColor: null,
           plotBorderWidth: null,
@@ -39,7 +47,7 @@ export default {
         },
 
         subtitle: {
-          text: 'Source: NUS Data Lake',
+          text: this.subtitle,
         },
         tooltip: {
           pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
@@ -66,10 +74,11 @@ export default {
         series: [{
           name: this.name,
           colorBypoint: true,
+          // data: this.transform(this.data),
           data: this.data,
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>

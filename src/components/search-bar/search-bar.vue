@@ -2,7 +2,7 @@
 <style src="./search-bar.scss" lang="scss"></style>
 
 <script>
-import db from '../../firebase/firebase';
+import db from '@/firebase';
 
 export default {
   name: 'SearchBar',

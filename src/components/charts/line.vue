@@ -38,10 +38,14 @@ export default {
       type: Array,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           type: 'line',
         },
@@ -49,7 +53,7 @@ export default {
           text: this.title,
         },
         subtitle: {
-          text: 'Source: NUS Datalake',
+          text: this.subtitle,
         },
         xAxis: {
           categories: this.x,
@@ -82,8 +86,8 @@ export default {
             },
           }],
         },
-      },
-    };
+      };
+    },
   },
 };
 </script>

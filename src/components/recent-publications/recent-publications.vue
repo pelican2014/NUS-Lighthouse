@@ -1,9 +1,8 @@
 <template src="./recent-publications.html"></template>
 <style src="./recent-publications.scss" lang="scss"></style>
 <script>
-
+import db from '@/firebase';
 import eachPublication from './each-publication';
-import db from '../../firebase/firebase';
 
 export default {
   name: 'RecentPublications',

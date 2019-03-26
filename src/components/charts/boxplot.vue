@@ -40,10 +40,14 @@ export default {
     outliers: {
       type: Array,
     },
+    subtitle: {
+      type: String,
+      default: 'Source: NUS Datalake',
+    },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           type: 'boxplot',
         },
@@ -51,7 +55,7 @@ export default {
           text: this.title,
         },
         subtitle: {
-          text: 'Source: NUS Data Lake',
+          text: this.subtitle,
         },
         legend: {
           enabled: false,
@@ -100,8 +104,8 @@ export default {
             pointFormat: 'Observation: {point.y}',
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>
