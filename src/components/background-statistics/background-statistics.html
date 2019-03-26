@@ -1,6 +1,6 @@
 <b-container class="bv-example-row">
   <div class="background-header">
-    Total Number of Past Interns: {{ totalNum }}
+    Total Number of Past RAs: {{ totalNum }}
   </div>
   <b-row>
     <b-col><PieChart title = 'Gender' name = 'gender' :data = 'gender'></PieChart></b-col>
@@ -10,9 +10,8 @@
   <b-row>
     <b-col><BarChart title = 'Race' yname = 'number of people' :data = 'race'></BarChart></b-col>
     <b-col><PieChart title = 'Major' name = 'major' :data = 'major'></PieChart></b-col>
-
   </b-row>
-
+  
   <b-row>
     <b-col><Histogram title = 'Cumulative Average Points' name = 'CAP' :yours = 4.4 :data = 'cap'></Histogram></b-col>
     <b-col><LineChart title = 'number of RAs' yname = 'number of people':x = 'number.x' :data = 'number.data'></LineChart></b-col>

@@ -55,6 +55,7 @@ export default {
             color: '#FFA500',
             dashStyle: 'LongDash',
             width: 3,
+            zIndex: 5,
             label: {
               text: 'You are here',
               align: 'left',
@@ -72,14 +73,6 @@ export default {
           title: { text: 'Histogram' },
           opposite: true,
         }],
-        plotOptions: {
-          histogram: {
-            color: '#6495ED',
-            // binWidth: 0.1,
-            baseSeries: 's1',
-
-          },
-        },
         series: [{
           name: 'Histogram',
           type: 'histogram',
@@ -87,7 +80,14 @@ export default {
           yAxis: 1,
           zIndex: 2,
           baseSeries: 's1',
+        }, {
+          name: 'Data',
+          type: 'scatter',
           data: this.data,
+          id: 's1',
+          marker: {
+            radius: 0,
+          },
         }],
       };
     },

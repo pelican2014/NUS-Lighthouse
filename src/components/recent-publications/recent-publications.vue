@@ -17,12 +17,12 @@ export default {
   },
   computed: {
     data() {
-      const prof_id = 2;
+      // const prof_id = 2;
       const professors = this.data_dict['.value'];
       if (professors == null) {
         return [];
       }
-      const prof = professors[prof_id];
+      const prof = professors[this.prof_id];
       if (prof && 'Publications' in prof) {
         return prof.Publications;
       }

@@ -9,11 +9,17 @@ export default {
   components: {
     eachProject,
   },
+  props: {
+    prof_id: {
+      Type: Number,
+      required: true,
+    },
+  },
   computed: {
     projects() {
       const profs = this.prof_dict['.value'];
-      const prof_id = 1; // change to prof id
-      const prof = profs[prof_id];
+      // const prof_id = 1; // change to prof id
+      const prof = profs[this.prof_id];
       return prof.Projects;
     },
   },
