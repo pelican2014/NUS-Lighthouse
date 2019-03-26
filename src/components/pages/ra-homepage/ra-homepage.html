@@ -1,4 +1,20 @@
-<div>
-  <topHeader username='Alice'></topHeader>
-  <subheader field="Internship"></subheader>
-</div>
+<b-container>
+  <b-row>
+    <b-col><HorizontalBarChart></HorizontalBarChart></b-col>
+    <b-col><Boxplot></Boxplot></b-col>
+  </b-row>
+  <b-row>
+    <b-col>
+      <Boxplot
+        title="bbb"
+        xname="bbb"
+        :xcategory="cap.xcategory"
+        yname="bbb"
+        :data="cap.data"
+      ></Boxplot>
+    </b-col>
+  </b-row>
+  <b-row>
+    <AreaChart></AreaChart>
+  </b-row>
+</b-container>

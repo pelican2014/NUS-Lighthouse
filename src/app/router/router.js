@@ -31,7 +31,9 @@ import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
 import BackgroundStatistics from '@/components/background-statistics/background-statistics';
+
 import IndustryPage from '@/components/pages/industry-page/industry-page';
+import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 
 Vue.use(Router);
 
@@ -169,6 +171,11 @@ export default new Router({
       path: '/industry-insight',
       name: 'industry-insight',
       component: Insights,
+    },
+    {
+      path: '/raPage',
+      name: 'raPage',
+      component: RAPage,
     },
   ],
 });
