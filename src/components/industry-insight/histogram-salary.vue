@@ -1,68 +1,60 @@
 <template>
-  <highcharts :options="options" ref="bell-curve" class="line"></highcharts>
+  <highcharts :options="options" ref="histogram-chart" class="histogram"></highcharts>
 </template>
 
 <script>
 import HighchartsVue from 'highcharts-vue';
-import Highcharts from 'highcharts';
 import loadHistogram from 'highcharts/modules/histogram-bellcurve';
+import Highcharts from 'highcharts';
 
 loadHistogram(Highcharts);
+
+const data = {
+  title: {
+    text: 'Fresh Graduate Starting Salary',
+  },
+  xAxis: {
+    title: {
+      text: 'Histogram',
+    },
+  },
+
+
+  yAxis: [{
+    title: { text: 'Data' },
+  }, {
+    title: { text: 'Histogram' },
+    opposite: true,
+  }],
+
+  plotOptions: {
+    histogram: {
+      color: '#6495ED',
+      // binWidth: 0.1,
+      baseSeries: 's1',
+
+    },
+  },
+
+  series: [{
+    type: 'histogram',
+    name: 'Starting Salary',
+    id: 's1',
+    data: [4300, 4400, 4050, 4500, 4070, 5100, 4400, 4500, 4500, 4800, 4100, 4100, 4200, 4500, 4800,
+      5000, 4900, 4000, 4100, 4100, 3900, 4000, 4100, 4700, 5300, 5500, 4000, 4100, 5500, 5700,
+      4200, 4400, 4600, 4700, 4900, 4900, 4700, 4600, 4500, 4500, 4650, 5200, 5300, 5400, 5500],
+  }],
+
+
+};
 
 export default {
   components: {
     HighchartsVue,
-
-  },
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    data: {
-      type: Array,
-      required: true,
-    },
   },
   data() {
     return {
-      options: {
-        title: {
-          text: this.title,
-        },
-        xAxis: [{
-          title: { text: 'Data' },
-          alignTicks: false,
-        }, {
-          title: { text: 'Histogram' },
-          alignTicks: false,
-          opposite: true,
-        }],
-
-        yAxis: [{
-          title: { text: 'Data' },
-        }, {
-          title: { text: 'Bellcurve' },
-          opposite: true,
-        }],
-
-        series: [{
-          name: 'Histogram',
-          type: 'bellcurve',
-          xAxis: 1,
-          yAxis: 1,
-          baseSeries: 's1',
-          zIndex: -1,
-        }, {
-          name: 'Data',
-          type: 'scatter',
-          data: [1, 2, 3, 4, 5, 1, 3, 4, 3, 3, 2, 1, 1, 3, 2, 1],
-          id: 's1',
-          marker: {
-            radius: 1.5,
-          },
-        }],
-      },
+      options: data,
     };
   },
 };
@@ -73,6 +65,6 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 100%;
 }
 </style>

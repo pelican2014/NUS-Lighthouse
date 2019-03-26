@@ -2,7 +2,10 @@ import topHeader from '../top-header/top-header';
 import subheader from '../subheader/subheader';
 import searchBar from '../search-bar/search-bar';
 import industryExplorer from '../industry-explorer/industry-explorer';
-import db from './../../firebase/firebase';
+import recommended from '@/components/recommended/recommended';
+import explorerSearch from '@/components/explorer-search/explorer-search';
+import db from '@/firebase';
+
 
 export default {
   name: 'InternshipHomepage',
@@ -11,6 +14,7 @@ export default {
     subheader,
     searchBar,
     industryExplorer,
+    recommended
   },
   // props: {
   //   data: {
@@ -47,6 +51,12 @@ export default {
           data: this.openPositionBy('Industry'),
         },
       };
+    },
+  },
+  firebase: {
+    internship: {
+      source: db.ref('internship'),
+      asArray: true,
     },
   },
 

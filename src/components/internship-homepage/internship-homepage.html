@@ -2,14 +2,24 @@
   <topHeader username='Alice'></topHeader>
   <subheader field="Internship"></subheader>
   <searchBar></searchBar>
+  <recommended></recommended>
   <br>
-  <div> Explore by: </div>
+  <p class='explore'> Explore by: </p>
   <div>
-  <b-tabs content-class="mt-3">
-    <b-tab title="Industry"  title-item-class=" text-center tabtitle" title-link-class="title-link"active><industryExplorer by='Industry' v-bind:data='getIndustryData' ></industryExplorer></b-tab>
-    <b-tab title="Major"  title-item-class=" text-center tabtitle" title-link-class="title-link" ><industryExplorer by='Major' v-bind:data='data'></industryExplorer></b-tab>
-    <b-tab title="Company"  title-item-class=" text-center tabtitle tab-item" title-link-class="title-link"><industryExplorer by='Company'></industryExplorer></b-tab>
-  </b-tabs>
-</div>
-
+    <b-tabs content-class="mt-3">
+      <b-tab title="Industry" title-item-class=" text-center tabtitle" title-link-class="title-link" active>
+        <explorerSearch>
+        </explorerSearch>
+        <industryExplorer by='industry' :internship='internship'></industryExplorer>
+      </b-tab>
+      <b-tab title="Major" title-item-class=" text-center tabtitle" title-link-class="title-link">
+        <industryExplorer by='major' :internship='internship'>
+        </industryExplorer>
+      </b-tab>
+      <b-tab title="Company" title-item-class=" text-center tabtitle tab-item" title-link-class="title-link">
+        <industryExplorer :internship='internship' by='company'>
+        </industryExplorer>
+      </b-tab>
+    </b-tabs>
+  </div>
 </div>

@@ -28,6 +28,7 @@ import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 import Recommended from '@/components/recommended/recommended';
+import Background from '@/components/background-statistics/background-statistics';
 
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 
@@ -39,7 +40,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: InternshipHomePage,
+      component: null,
     },
     {
       path: '/current-projects',
@@ -110,6 +111,10 @@ export default new Router({
       path: '/company-description',
       name: 'company-description',
       component: Company,
+      props: {
+        company_name: 'SINGTEL',
+        image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
+      },
     },
     {
       path: '/searchBar',
@@ -151,6 +156,21 @@ export default new Router({
       path: '/industryPage',
       name: 'industryPage',
       component: IndustryPage,
+    },
+    {
+      path: '/industry-insight',
+      name: 'industry-insight',
+      component: Insights,
+    },
+    {
+      path: '/background-statistics',
+      name: 'background-statistics',
+      component: Background,
+    },
+    {
+      path: '/internship-homepage',
+      name: 'internship-homepage',
+      component: InternshipHomePage,
     },
   ],
 });
