@@ -175,6 +175,35 @@ export default {
       return result;
     },
 
+    salary_hist() {
+      const breakpoints = [3000, 4000, 5000, 6000, 7000];
+      const first = breakpoints[0];
+      const last = breakpoints.slice(-1)[0]
+      const trimmed = _.map(this.grad_internship, o => {
+        if (o.starting_salary > last) {
+          return 7000;
+        } else if (o.starting_salary < first ) {
+          return 0;
+        } else {
+          return Math.floor(o.starting_salary / 1000);
+        }
+      });
+      console.log(trimmed);
+      const counts = _.map(_.countBy(trimmed), (count, point) => {
+        console.log(point);
+        point *= 1000;
+        if (point < first) {
+          return { name: '<' + first, y: count };
+        } else if (point >= last) {
+          return { name: '>=' + last, y: count };
+        } else {
+          const next_point = breakpoints[breakpoints.indexOf(point) + 1];
+          return { name: point + ' to ' + next_point, y: count };
+        }
+      });
+      return counts;
+    },
+
     salary_line() {
       const year_groups = _.groupBy(this.grad_internship, o => o.year);
       let mean_data = _.map(year_groups, (group, year) => ({

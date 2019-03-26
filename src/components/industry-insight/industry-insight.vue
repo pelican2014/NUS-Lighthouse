@@ -13,7 +13,7 @@
 import Pie from '@/components/charts/pie';
 import Bar from '@/components/charts/bar';
 import LineChart from '@/components/charts/line';
-import Histogram from '@/components/charts/histogram';
+// import Histogram from '@/components/charts/histogram';
 
 export default {
   name: 'MainChart',
@@ -38,6 +38,10 @@ export default {
       type: Array,
       required: true,
     },
+    salary_hist: {
+      type: Array,
+      required: true,
+    },
     salary_line: {
       type: Object,
       required: true,
@@ -47,7 +51,7 @@ export default {
     Pie,
     Bar,
     LineChart,
-    Histogram,
+    // Histogram,
     // PieChartGender,
     // PieChartFaculty,
     // PieChartYear,
