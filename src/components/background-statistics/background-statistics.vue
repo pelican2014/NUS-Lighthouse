@@ -4,6 +4,8 @@
 <script>
 import PieChart from '@/components/background-statistics/pie-chart';
 import BarChart from '@/components/background-statistics/bar-chart';
+import LineChart from '@/components/background-statistics/line-chart';
+import Histogram from '@/components/background-statistics/histogram';
 import PieChartFaculty from '@/components/background-statistics/pie-chart-faculty';
 import PieChartYear from '@/components/background-statistics/pie-chart-year';
 // import PieChartMajor from '@/components/background-statistics/pie-chart';
@@ -20,6 +22,8 @@ export default {
   components: {
     PieChart,
     BarChart,
+    LineChart,
+    Histogram,
     PieChartFaculty,
     PieChartYear,
     BarChartRace,
@@ -75,6 +79,7 @@ export default {
         }
       }
 
+      majors.sort();
       for (let i = 0; i < majors.length; i += 1) {
         if (majors[i] !== prev) {
           major.push(majors[i]);
@@ -106,7 +111,7 @@ export default {
 
         }
       }
-
+      race_list.sort();
       for (let i = 0; i < race_list.length; i += 1) {
         if (race_list[i] !== prev) {
           race.push(race_list[i]);
@@ -138,7 +143,7 @@ export default {
 
         }
       }
-
+      country_list.sort();
       for (let i = 0; i < country_list.length; i += 1) {
         if (country_list[i] !== prev) {
           country.push(country_list[i]);
@@ -155,7 +160,41 @@ export default {
         result.push(dict);
       }
       return result;
+    },
+    number() {
+      const year = [];
+      const freq = [];
+      let prev;
+      const year_list = [];
+      for (const item_id in this.ra_dict) {
+        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+          const ra = this.ra_dict[item_id];
+          year_list.push(ra.year);
+        }
+      }
+      year_list.sort();
+      for (let i = 0; i < year_list.length; i += 1) {
+        if (year_list[i] !== prev) {
+          year.push(year_list[i]);
+          freq.push(1);
+        } else {
+          freq[freq.length - 1] += 1;
+        }
+        prev = year_list[i];
+      }
 
+      const result = { x: year, data: [ { name: 'number of RAs', data: freq, } ] };
+      return result;
+    },
+    cap() {
+      const cap_list = []
+      for (const item_id in this.ra_dict) {
+        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+          const ra = this.ra_dict[item_id];
+          cap_list.push(ra.cap);
+        }
+      }
+      return cap_list;
     },
   },
   firebase: {
