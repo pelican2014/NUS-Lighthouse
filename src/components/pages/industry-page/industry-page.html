@@ -1,4 +1,11 @@
 <div>
-  <FilteredSearch></FilteredSearch>
-  <IndustryInsight></IndustryInsight>
+  <FilteredSearch @update-filter-a="update_industry" @update-filter-b="update_major"></FilteredSearch>
+  <IndustryInsight
+    :number="number"
+    :gender="gender"
+    :faculty="faculty"
+    :year="year"
+    :nationality="nationality"
+    :salary_line="salary_line"
+  ></IndustryInsight>
 </div>

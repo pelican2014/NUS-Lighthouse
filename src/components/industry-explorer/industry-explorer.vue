@@ -20,7 +20,7 @@ export default {
     Boxplot,
   },
   computed: {
-    internship_groups() {
+    internship_group() {
       const results = {};
       for (const entry of this.internship) {
         if (!(entry.industry in results)) {
@@ -53,7 +53,9 @@ export default {
       const last_year_data = _.map(this.internship_groups, group => _.filter(group, { year }));
       return [];
     },
+
   },
+
   firebase: {
     internship: {
       source: db.ref('internship'),
