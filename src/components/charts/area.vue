@@ -28,9 +28,9 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    optiones() {
+      return {
         chart: {
           type: 'area',
         },
@@ -85,8 +85,8 @@ export default {
           },
         },
         series: this.data,
-      },
-    };
+      };
+    },
   },
 };
 </script>

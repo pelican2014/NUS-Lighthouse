@@ -34,9 +34,9 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         title: {
           text: this.title,
         },
@@ -87,8 +87,8 @@ export default {
             radius: 1.5,
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>
