@@ -12,7 +12,7 @@ export default {
   computed: {
     projects() {
       const profs = this.prof_dict['.value'];
-      const prof_id = 1;
+      const prof_id = 1; // change to prof id
       const prof = profs[prof_id];
       return prof.Projects;
     },

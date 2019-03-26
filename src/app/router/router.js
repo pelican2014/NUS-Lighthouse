@@ -31,6 +31,7 @@ import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
 import Background from '@/components/background-statistics/background-statistics';
+import ProfPage from '@/components/prof-project-page/prof-project-page';
 
 Vue.use(Router);
 
@@ -163,6 +164,11 @@ export default new Router({
       path: '/background-statistics',
       name: 'background-statistics',
       component: Background,
+    },
+    {
+      path: '/prof_project',
+      name: 'prof_project',
+      component: ProfPage,
     },
   ],
 });
