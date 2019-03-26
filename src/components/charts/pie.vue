@@ -20,13 +20,9 @@ export default {
       required: true,
     },
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
-    // transform: {
-    //   type: Function,
-    //   required: true,
-    // },
     subtitle: {
       type: String,
       default: 'Source: NUS Datalake',
@@ -62,6 +58,7 @@ export default {
               '#FFDA5A',
               '#B7D5EE',
             ],
+            size: 140,
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {

@@ -34,6 +34,18 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
+  watch: {
+    data(val) {
+      this.fetchData();
+    },
+  },
+  methods: {
+    fetchData() {
+      // this.options.addSeries(this.data);
+      const series = this.$children[0].chart.series[0];
+      series.setData(this.data);
+    },
+  },
   computed: {
     options() {
       return {
@@ -52,18 +64,20 @@ export default {
           opposite: true,
           plotLines: [{
             value: this.yours,
-            color: 'red',
-            width: 1,
+            color: '#FFA500',
+            dashStyle: 'LongDash',
+            width: 3,
+            zIndex: 8,
             label: {
               text: 'You are here',
-              align: 'bottom',
+              align: 'left',
               style: {
-                color: 'gray',
+                color: '#000080',
+                fontSize: '15pxs',
               },
             },
           }],
         }],
-
         yAxis: [{
           title: { text: this.name },
         }, {
@@ -71,21 +85,21 @@ export default {
           opposite: true,
         }],
 
+        plotOptions: {
+          histogram: {
+            color: '#6495ED',
+            binWidth: 0.2,
+            baseSeries: 's1',
+          },
+        },
         series: [{
           name: 'Histogram',
           type: 'histogram',
+          id: 's1',
           xAxis: 1,
           yAxis: 1,
-          baseSeries: 's1',
-          zIndex: -1,
-        }, {
-          name: this.name,
-          type: 'scatter',
-          data: this.data,
-          id: 's1',
-          marker: {
-            radius: 1.5,
-          },
+          zIndex: 1,
+          data: [0],
         }],
       };
     },
@@ -98,6 +112,6 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 100%;
 }
 </style>

@@ -2,7 +2,6 @@
 	<h3 class ='title'> Total number of interns: {{number}}</h3>
 	<b-row class = 'row'>
 		<b-col class = 'col'>
-			<!-- <Pie title = 'Gender' name = 'gender' :data = 'internship_dict' :transform = 'get_gender'></Pie> -->
 			<Pie title = 'Gender' name = 'gender' :data = 'gender'></Pie>
 		</b-col>
 		<b-col class = 'col'>
@@ -21,11 +20,10 @@
 
 	<b-row class = 'row'>
 		<b-col class = 'col'>
-			<Histogram title = 'CAP distribution' name = 'Number' :data = 'CAP' yours = '4.5'></Histogram>
+			<Histogram title = 'CAP distribution' name = 'Number' :data = 'CAP' yours = '5'></Histogram>
 		</b-col>
 		<b-col class = 'col'>
-			<Lines title = 'Number of Interns' yname = 'Number' :x = 'xlabel' :data = 'interns'></Lines>
+			<Lines title = 'Number of Interns' yname = 'Number' :x = 'interns[0]' :data = 'interns[1]'></Lines>
 		</b-col>
 	</b-row>
-
 </div>
