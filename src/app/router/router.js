@@ -28,6 +28,7 @@ import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 import Recommended from '@/components/recommended/recommended';
+import BackgroundStatistics from '@/components/background-statistics/background-statistics';
 
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 
@@ -152,5 +153,10 @@ export default new Router({
       name: 'industryPage',
       component: IndustryPage,
     },
+    {
+      path: '/backgroundStatistics',
+      name: 'backgroundStatistics',
+      component: BackgroundStatistics,
+    }
   ],
 });

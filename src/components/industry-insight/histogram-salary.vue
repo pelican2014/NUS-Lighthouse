@@ -1,67 +1,60 @@
 <template>
-  <highcharts :options="options" ref="bell-curve" class="line"></highcharts>
+  <highcharts :options="options" ref="histogram-chart" class="histogram"></highcharts>
 </template>
 
 <script>
 import HighchartsVue from 'highcharts-vue';
-import Highcharts from 'highcharts';
 import loadHistogram from 'highcharts/modules/histogram-bellcurve';
+import Highcharts from 'highcharts';
 
 loadHistogram(Highcharts);
+
+const data = {
+  title: {
+    text: 'Starting Salary Distribution',
+  },
+  xAxis: {
+    title: {
+      text: 'Histogram',
+    },
+  },
+
+
+  yAxis: [{
+    title: { text: 'Data' },
+  }, {
+    title: { text: 'Histogram' },
+    opposite: true,
+  }],
+
+  plotOptions: {
+    histogram: {
+      color: '#6495ED',
+      binWidth: 0.1,
+      baseSeries: 's1',
+
+    },
+  },
+
+  series: [{
+    type: 'histogram',
+    name: 'Salary',
+    id: 's1',
+    data: [4.3, 4.4, 4.5, 4.5, 4.7, 4.3, 4.4, 4.5, 4.5, 4.5, 4.1, 4.1, 4.2, 4.5, 4.5,
+      4.0, 4.0, 4.0, 4.1, 4.1, 3.9, 4.0, 4.1, 4.5, 4.5, 3.9, 4.0, 4.1, 4.5, 4.5,
+      4.2, 4.4, 4.5, 4.5, 4.7, 4.9, 4.7, 4.6, 4.5, 4.5, 4.4, 4.4, 4.5, 4.5, 4.6],
+  }],
+
+
+};
 
 export default {
   components: {
     HighchartsVue,
   },
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    data: {
-      type: Array,
-      required: true,
-    },
-  },
   data() {
     return {
-      options: {
-        title: {
-          text: this.title,
-        },
-        xAxis: [{
-          title: { text: 'Data' },
-          alignTicks: false,
-        }, {
-          title: { text: 'Histogram' },
-          alignTicks: false,
-          opposite: true,
-        }],
-
-        yAxis: [{
-          title: { text: 'Data' },
-        }, {
-          title: { text: 'Bellcurve' },
-          opposite: true,
-        }],
-
-        series: [{
-          name: 'Histogram',
-          type: 'bellcurve',
-          xAxis: 1,
-          yAxis: 1,
-          baseSeries: 's1',
-          zIndex: -1,
-        }, {
-          name: 'Data',
-          type: 'scatter',
-          data: [1, 2, 3, 4, 5, 1, 3, 4, 3, 3, 2, 1, 1, 3, 2, 1],
-          id: 's1',
-          marker: {
-            radius: 1.5,
-          },
-        }],
-      },
+      options: data,
     };
   },
 };
@@ -72,6 +65,6 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 100%;
 }
 </style>
