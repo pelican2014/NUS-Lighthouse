@@ -30,9 +30,9 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           type: 'column',
         },
@@ -99,8 +99,8 @@ export default {
             },
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>

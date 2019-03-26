@@ -45,9 +45,9 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           type: 'boxplot',
         },
@@ -104,8 +104,8 @@ export default {
             pointFormat: 'Observation: {point.y}',
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>

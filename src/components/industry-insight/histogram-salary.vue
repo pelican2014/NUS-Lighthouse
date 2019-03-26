@@ -11,7 +11,7 @@ loadHistogram(Highcharts);
 
 const data = {
   title: {
-    text: 'Starting Salary Distribution',
+    text: 'Fresh Graduate Starting Salary',
   },
   xAxis: {
     title: {
@@ -30,7 +30,7 @@ const data = {
   plotOptions: {
     histogram: {
       color: '#6495ED',
-      binWidth: 0.1,
+      // binWidth: 0.1,
       baseSeries: 's1',
 
     },
@@ -38,11 +38,11 @@ const data = {
 
   series: [{
     type: 'histogram',
-    name: 'Salary',
+    name: 'Starting Salary',
     id: 's1',
-    data: [4.3, 4.4, 4.5, 4.5, 4.7, 4.3, 4.4, 4.5, 4.5, 4.5, 4.1, 4.1, 4.2, 4.5, 4.5,
-      4.0, 4.0, 4.0, 4.1, 4.1, 3.9, 4.0, 4.1, 4.5, 4.5, 3.9, 4.0, 4.1, 4.5, 4.5,
-      4.2, 4.4, 4.5, 4.5, 4.7, 4.9, 4.7, 4.6, 4.5, 4.5, 4.4, 4.4, 4.5, 4.5, 4.6],
+    data: [4300, 4400, 4050, 4500, 4070, 5100, 4400, 4500, 4500, 4800, 4100, 4100, 4200, 4500, 4800,
+      5000, 4900, 4000, 4100, 4100, 3900, 4000, 4100, 4700, 5300, 5500, 4000, 4100, 5500, 5700,
+      4200, 4400, 4600, 4700, 4900, 4900, 4700, 4600, 4500, 4500, 4650, 5200, 5300, 5400, 5500],
   }],
 
 
