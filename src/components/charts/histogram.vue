@@ -52,13 +52,15 @@ export default {
           opposite: true,
           plotLines: [{
             value: this.yours,
-            color: 'red',
-            width: 1,
+            color: '#FFA500',
+            dashStyle: 'LongDash',
+            width: 3,
             label: {
               text: 'You are here',
-              align: 'bottom',
+              align: 'left',
               style: {
-                color: 'gray',
+                color: '#000080',
+                fontSize: '15pxs',
               },
             },
           }],
@@ -70,22 +72,22 @@ export default {
           title: { text: 'Histogram' },
           opposite: true,
         }],
+        plotOptions: {
+          histogram: {
+            color: '#6495ED',
+            // binWidth: 0.1,
+            baseSeries: 's1',
 
+          },
+        },
         series: [{
           name: 'Histogram',
           type: 'histogram',
           xAxis: 1,
           yAxis: 1,
+          zIndex: 2,
           baseSeries: 's1',
-          zIndex: -1,
-        }, {
-          name: this.name,
-          type: 'scatter',
           data: this.data,
-          id: 's1',
-          marker: {
-            radius: 1.5,
-          },
         }],
       };
     },
@@ -98,6 +100,6 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 100%;
 }
 </style>

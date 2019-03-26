@@ -9,6 +9,12 @@ export default {
   components: {
     eachPublication,
   },
+  props: {
+    prof_id: {
+      type: Number,
+      required: true,
+    },
+  },
   computed: {
     data() {
       const prof_id = 2;
@@ -16,12 +22,10 @@ export default {
       if (professors == null) {
         return [];
       }
-
       const prof = professors[prof_id];
       if (prof && 'Publications' in prof) {
         return prof.Publications;
       }
-
       return [];
     },
   },

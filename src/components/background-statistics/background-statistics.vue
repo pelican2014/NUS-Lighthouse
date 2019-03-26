@@ -2,18 +2,12 @@
 <style src="./background-statistics.scss" lang="scss"></style>
 
 <script>
-import PieChart from '@/components/background-statistics/pie-chart';
-import BarChart from '@/components/background-statistics/bar-chart';
-import LineChart from '@/components/background-statistics/line-chart';
-import Histogram from '@/components/background-statistics/histogram';
-import PieChartFaculty from '@/components/background-statistics/pie-chart-faculty';
-import PieChartYear from '@/components/background-statistics/pie-chart-year';
-// import PieChartMajor from '@/components/background-statistics/pie-chart';
-import BarChartRace from '@/components/background-statistics/bar-chart-race';
-import BarChartNationality from '@/components/background-statistics/bar-chart-nationality';
-import WordCloudModule from '@/components/background-statistics/word-cloud-module';
-import HistogramCAP from '@/components/background-statistics/histogram-cap';
 import db from '@/firebase';
+import PieChart from '@/components/charts/pie';
+import BarChart from '@/components/charts/bar';
+import LineChart from '@/components/charts/line';
+import Histogram from '@/components/charts/histogram';
+
 
 export default {
   name: 'Backgroud Statistics',
@@ -22,15 +16,13 @@ export default {
     BarChart,
     LineChart,
     Histogram,
-    PieChartFaculty,
-    PieChartYear,
-    BarChartRace,
-    BarChartNationality,
-    WordCloudModule,
-    HistogramCAP,
   },
   props: {
     prof_id: {
+      type: Number,
+      required: true,
+    },
+    input_cap: {
       type: Number,
       required: true,
     },
