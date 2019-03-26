@@ -182,21 +182,21 @@ export default {
       const trimmed = _.map(this.grad_internship, (o) => {
         if (o.starting_salary > last) {
           return 7000;
-        } else if (o.starting_salary < first ) {
+        } else if (o.starting_salary < first) {
           return 0;
         } else {
           return Math.floor(o.starting_salary / 1000);
         }
       });
       const counts = _.map(_.countBy(trimmed), (count, point) => {
-        point *= 1000;
-        if (point < first) {
+        const current_point = point * 1000;
+        if (current_point < first) {
           return { name: '<' + first, y: count };
-        } else if (point >= last) {
+        } else if (current_point >= last) {
           return { name: '>=' + last, y: count };
         } else {
-          const next_point = breakpoints[breakpoints.indexOf(point) + 1];
-          return { name: point + ' to ' + next_point, y: count };
+          const next_point = breakpoints[breakpoints.indexOf(current_point) + 1];
+          return { name: current_point + ' to ' + next_point, y: count };
         }
       });
       return counts;
