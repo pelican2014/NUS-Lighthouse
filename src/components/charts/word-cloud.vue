@@ -27,9 +27,9 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         series: [{
           type: 'wordcloud',
           data: this.data,
@@ -54,8 +54,8 @@ export default {
             ],
           },
         },
-      },
-    };
+      };
+    },
   },
 };
 </script>

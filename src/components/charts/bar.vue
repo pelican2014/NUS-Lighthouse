@@ -30,9 +30,9 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  data() {
-    return {
-      options: {
+  computed: {
+    options() {
+      return {
         chart: {
           type: 'column',
         },
@@ -78,7 +78,8 @@ export default {
         },
         plotOptions: {
           column: {
-            pointPadding: 0.2,
+            pointPadding: 0,
+            groupPadding: 0,
             borderWidth: 0,
             color: '#FFC300',
           },
@@ -99,8 +100,8 @@ export default {
             },
           },
         }],
-      },
-    };
+      };
+    },
   },
 };
 </script>
