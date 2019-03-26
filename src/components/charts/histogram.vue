@@ -1,14 +1,9 @@
 <template>
-  <highcharts :options="options" ref="bell-curve" class="histogram"></highcharts>
+  <highcharts :options="options" ref="histogram" class="histogram"></highcharts>
 </template>
 
 <script>
 import HighchartsVue from 'highcharts-vue';
-import Highcharts from 'highcharts';
-import loadHistogram from 'highcharts/modules/histogram-bellcurve';
-
-loadHistogram(Highcharts);
-
 export default {
   components: {
     HighchartsVue,
@@ -18,15 +13,16 @@ export default {
       type: String,
       required: true,
     },
-    yours: {
+    yname: {
       type: String,
-    },
-    data: {
-      type: Array,
       required: true,
     },
-    name: {
+    yours: {
       type: String,
+      required: false,
+    },
+    data: {
+      type: Object,
       required: true,
     },
     subtitle: {
@@ -37,23 +33,29 @@ export default {
   computed: {
     options() {
       return {
+        chart: {
+          type: 'column',
+        },
         title: {
           text: this.title,
         },
         subtitle: {
           text: this.subtitle,
         },
-        xAxis: [{
-          title: { text: this.name },
-          alignTicks: false,
-        }, {
-          title: { text: 'Histogram' },
-          alignTicks: false,
-          opposite: true,
+        xAxis: {
+          type: 'category',
+          labels: {
+            rotation: -45,
+            style: {
+              fontSize: '13px',
+              fontFamily: 'Verdana, sans-serif',
+            },
+          },
           plotLines: [{
             value: this.yours,
             color: 'red',
             width: 1,
+            zIndex: 5,
             label: {
               text: 'You are here',
               align: 'bottom',
@@ -62,30 +64,45 @@ export default {
               },
             },
           }],
-        }],
-
-        yAxis: [{
-          title: { text: this.name },
-        }, {
-          title: { text: 'Histogram' },
-          opposite: true,
-        }],
-
-        series: [{
-          name: 'Histogram',
-          type: 'histogram',
-          xAxis: 1,
-          yAxis: 1,
-          baseSeries: 's1',
-          zIndex: -1,
-        }, {
-          name: this.name,
-          type: 'scatter',
-          data: this.data,
-          id: 's1',
-          marker: {
-            radius: 1.5,
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: this.yname,
           },
+        },
+        legend: {
+          enabled: false,
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.y:.1f} </b>',
+        },
+        plotOptions: {
+          column: {
+            width: 8,
+            pointPadding: 0,
+            groupPadding: 0,
+            borderWidth: 0,
+            color: '#FFC300',
+          },
+        },
+        series: [{
+          name: this.yname,
+          data: this.data,
+          zIndex: -1,
+          // dataLabels: {
+          //   enabled: true,
+          //   // rotation: -90,
+          //   color: '#FFFFFF',
+          //   zIndex: -1,
+          //   align: 'center',
+          //   format: '{point.y:.1f}', // one decimal
+          //   y: 10, // 10 pixels down from the top
+          //   style: {
+          //     fontSize: '10px',
+          //     fontFamily: 'Verdana, sans-serif',
+          //   },
+          // },
         }],
       };
     },
@@ -94,10 +111,11 @@ export default {
 </script>
 
 <style scoped>
-.line{
+.bar {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 100%;
 }
 </style>
+

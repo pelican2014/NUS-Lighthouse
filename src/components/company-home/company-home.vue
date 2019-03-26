@@ -27,15 +27,15 @@ export default {
   },
   computed: {
   },
-  firebase: {
-  	internship_dict: {
-  		source: db.ref('internship'),
-  		asObject: true,
-  	},
-  	company_dict: {
-  		source: db.ref('company'),
-  		asObject: true,
-  	},
-  },
+  // firebase: {
+  // 	internship_dict: {
+  // 		source: db.ref('internship'),
+  // 		asObject: true,
+  // 	},
+  // 	company_dict: {
+  // 		source: db.ref('company'),
+  // 		asObject: true,
+  // 	},
+  // },
 };
 </script>
