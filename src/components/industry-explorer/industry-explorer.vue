@@ -2,7 +2,7 @@
 <style src='./industry-explorer.scss' lang='scss'></style>
 <script>
 import _ from 'lodash';
-
+import math from 'mathjs';
 import BarChart from '@/components/charts/bar';
 import AreaChart from '@/components/charts/area';
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
@@ -116,28 +116,20 @@ export default {
       }));
       const categories = _.map(categories_salary, 'category');
       const sorted_salaries = _.map(_.map(categories_salary, 'salary'), x => x.sort());
-
-      // define a function to find the median
-      const median = (arr) => {
-        const mid = Math.floor(arr.length / 2);
-        const nums = [...arr].sort((a, b) => a - b);
-        return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+      // define a function to find the points needed
+      const get_box_points = (arr) => {
+        if (!arr.length) return arr;
+        return math.quantileSeq(arr, [0, 0.25, 0.5, 0.75, 1]);
       };
 
       // get the required data for a box plot.
       const required_data = _.map(sorted_salaries,
-        x => [x[0], median(x.slice(0, Math.floor(x.length / 2) + 1)),
-          median(x),
-          median(x.slice(Math.floor(x.length / 2))), x[x.length - 1],
-        ]);
+        x => get_box_points(x),
+      );
 
       return {
         category: categories,
         salary: required_data,
-        try: _.filter(_.sortBy(_.map(results, (instance, category) => ({
-          category,
-          averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary'),
-        })), 'averageSalary'), x => x.averageSalary),
       };
     },
 
@@ -154,19 +146,16 @@ export default {
       }));
       const categories = _.map(categories_cap, 'category');
       const sorted_cap = _.map(_.map(categories_cap, 'cap'), x => x.sort());
-      // define a function to find the median
-      const median = (arr) => {
-        const mid = Math.floor(arr.length / 2);
-        const nums = [...arr].sort((a, b) => a - b);
-        return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+      // define a function to find the points needed
+      const get_box_points = (arr) => {
+        if (!arr.length) return arr;
+        return math.quantileSeq(arr, [0, 0.25, 0.5, 0.75, 1]);
       };
+
       // get the required data for a box plot.
       const required_data = _.map(sorted_cap,
-        x => [x[0],
-          median(x.slice(0, Math.floor(x.length / 2) + 1)),
-          median(x), median(x.slice(Math.floor(x.length / 2))),
-          x[x.length - 1],
-        ]);
+        x => get_box_points(x),
+      );
 
       return { category: categories, cap: required_data };
     },
