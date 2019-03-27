@@ -156,9 +156,9 @@ export default{
       const last = breakpoints.slice(-1)[0];
       const trimmed = _.map(this.salary, (o) => {
         if (o > last) {
-          return 6000;
+          return 6;
         } else if (o < first) {
-          return 1000;
+          return 1;
         } else {
           return Math.floor(o / 1000);
         }

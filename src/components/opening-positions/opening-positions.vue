@@ -4,6 +4,10 @@
 <script>
 import db from '@/firebase';
 import eachPosition from '@/components/company-position/company-position';
+import Vue from 'vue';
+import Router from 'vue-router';
+
+Vue.use(Router);
 
 export default {
   name: 'OpeningPositions',
@@ -21,9 +25,9 @@ export default {
       const results = [];
       if (this.company_dict[this.company_id]) {
         const position_dict = this.company_dict[this.company_id].positions;
-        for (const position in position_dict) {
-          if (position_dict[position]) {
-            results.push(position_dict[position].position_name);
+        for (const position_id in position_dict) {
+          if (position_dict[position_id]) {
+            results.push(position_dict[position_id].position_name);
           }
         }
       }
