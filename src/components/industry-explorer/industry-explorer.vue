@@ -119,10 +119,10 @@ export default {
       const sorted = _.map(
         _.sortBy(
           _.filter(_.map(results, (instance, category) => ({
-              category,
-              averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary'),
-            })),
-            x => x.averageSalary),
+            category,
+            averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary'),
+          })),
+          x => x.averageSalary),
           'averageSalary'),
         'category');
       const final_results = _.pick(results, sorted.slice(-10));
@@ -153,10 +153,9 @@ export default {
         try: _.filter(_.sortBy(_.map(results, (instance, category) => ({
           category,
           averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary'),
-        })), 'averageSalary'), x => x.averageSalary)
+        })), 'averageSalary'), x => x.averageSalary),
       };
     },
-
 
     cap_data() {
       const results = this.internship_instances;
@@ -189,10 +188,9 @@ export default {
     },
 
     opening_positions_data() {
-
       const results = this.last_year_internship_instances;
       const sorted_categories = _.map(_.sortBy(_.map(results, (instance, category) => ({
-        category: category,
+        category,
         numInterns: instance.length,
       })), 'numInterns'), 'category');
       const needed_data = _.pick(results, sorted_categories.slice(-10));
@@ -202,19 +200,18 @@ export default {
 
       for (const category of Object.keys(needed_data)) {
         const entries = needed_data[category];
-        // for each category, create an array to represent monthly openings 
+        // for each category, create an array to represent monthly openings
         category_openings[category] = Array(12).fill(0);
-
         for (const entry of entries) {
           for (let i = entry.starting_month; i <= entry.ending_month; i += 1) {
-              category_openings[category][i-1] += 1;
+            category_openings[category][i - 1] += 1;
           }
         }
       }
 
-      const final_data = []
-      for (const category of Object.keys(category_openings)){
-      	final_data.push({'name':category, 'data': category_openings[category]});
+      const final_data = [];
+      for (const category of Object.keys(category_openings)) {
+      	final_data.push({ name: category, data: category_openings[category] });
       }
 
       /*
