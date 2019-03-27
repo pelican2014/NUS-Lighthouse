@@ -51,7 +51,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: ProfPage,
+      component: null,
     },
     {
       path: '/about',
@@ -62,6 +62,11 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact,
+    },
+    {
+      path: '/profPage',
+      name: 'profPage',
+      component: ProfPage,
     },
     {
       path: '/industryPage',
@@ -83,7 +88,7 @@ export default new Router({
       name: 'company-page',
       component: CompanyHome,
       props: {
-        company_id: '618d009870e969636a3ee43a22d4fe5b83eebcc23744fe2cac12a0b71300b71b',
+        company_id: '05c2639182d92e2ca4e455bfc9e8afe1c6f7d722e7477e20482c5b961bfdcb48',
       },
     },
     {
