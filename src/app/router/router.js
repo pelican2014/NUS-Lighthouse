@@ -27,7 +27,7 @@ import Router from 'vue-router';
 // import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 // import PositionStats from '@/components/position-stats/position-stats';
 // import Insights from '@/components/industry-insight/industry-insight';
-import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
+import InternshipHomePage from '@/components/pages/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
@@ -79,17 +79,14 @@ export default new Router({
       name: 'company-page',
       component: CompanyHome,
       props: {
-        company_id: 'd2cdfd11ed2669239a7dc3d70e7a0d277f1531b1bc99650b005f5a944e2e5351',
+        company_id: '05c2639182d92e2ca4e455bfc9e8afe1c6f7d722e7477e20482c5b961bfdcb48',
       },
     },
     {
-      path: '/position-page',
+      path: '/position-page/:position_id',
       name: 'position-page',
       component: PositionPage,
-      props: {
-        position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',
-        username: 'Anonymous',
-      },
+      props: true,
     },
   ],
 });
