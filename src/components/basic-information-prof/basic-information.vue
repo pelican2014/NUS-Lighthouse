@@ -14,6 +14,7 @@ export default {
   computed: {
     research_prof() {
       const profs = this.prof_dict;
+      if (!profs || !profs[this.prof_id]) return null;
       const prof = profs[this.prof_id];
       const result = {
         prof_photo_link: 'https://www.comp.nus.edu.sg/images/resources/content/about/HAHN-Jungpil-2-IMG.png',

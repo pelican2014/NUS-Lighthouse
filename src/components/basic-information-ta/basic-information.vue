@@ -14,6 +14,7 @@ export default {
   computed: {
     module() {
       const mod = this.module_dict[this.module_name]; // change to this.module
+      if (!mod) return null;
       const result = {
         module_code: this.module_name, // change to this.module
         module_name: mod['course_title'],

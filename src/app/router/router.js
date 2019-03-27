@@ -33,8 +33,8 @@ import CompanyHome from '@/components/pages/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
 // import ExplorerSearch from '@/components/explorer-search/explorer-search';
 // import BackgroundStatistics from '@/components/background-statistics/background-statistics';
-// import IndustryPage from '@/components/pages/industry-page/industry-page';
-// import RAPage from '@/components/pages/ra-homepage/ra-homepage';
+import IndustryPage from '@/components/pages/industry-page/industry-page';
+import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import InitialPage from '@/components/initial-page/initial-page';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
@@ -83,7 +83,7 @@ export default new Router({
       name: 'company-page',
       component: CompanyHome,
       props: {
-        company_id: '0b8edaf4d27a3edec878a2328f1e12aac885c3f437f4dcc6bc17254964e3c969',
+        company_id: '618d009870e969636a3ee43a22d4fe5b83eebcc23744fe2cac12a0b71300b71b',
       },
     },
     {

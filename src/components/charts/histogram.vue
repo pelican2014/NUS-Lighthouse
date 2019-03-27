@@ -18,10 +18,6 @@ export default {
       type: String,
       required: true,
     },
-    yours: {
-      type: String,
-      required: false,
-    },
     data: {
       type: Array,
       required: true,
@@ -52,42 +48,42 @@ export default {
               fontFamily: 'Verdana, sans-serif',
             },
           },
-          plotLines: [{
-            value: this.yours,
-            color: 'red',
-            width: 1,
-            zIndex: 2,
-            label: {
-              text: 'You are here',
-              align: 'left',
-              style: {
-                color: '#000080',
-                fontSize: '15pxs',
-              },
-            },
-          }],
         },
-
-        yAxis: [{
-          title: { text: this.name },
-        }, {
-          title: { text: 'Histogram' },
-          opposite: true,
-        }],
+        yAxis: {
+          min: 0,
+          title: {
+            text: this.yname,
+          },
+        },
+        legend: {
+          enabled: false,
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.y:.1f} </b>',
+        },
+        plotOptions: {
+          column: {
+            pointPadding: 0,
+            borderWidth: 0,
+            groupPadding: 0,
+            shadow: false,
+            color: '#FFC300',
+          },
+        },
         series: [{
-          name: 'Histogram',
-          type: 'histogram',
-          xAxis: 1,
-          yAxis: 1,
-          zIndex: 2,
-          baseSeries: 's1',
-        }, {
-          name: 'Data',
-          type: 'scatter',
+          name: this.yname,
           data: this.data,
-          id: 's1',
-          marker: {
-            radius: 0,
+          dataLabels: {
+            enabled: true,
+            // rotation: -90,
+            color: '#FFFFFF',
+            align: 'center',
+            format: '{point.y:.1f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+              fontSize: '10px',
+              fontFamily: 'Verdana, sans-serif',
+            },
           },
         }],
       };
@@ -104,3 +100,4 @@ export default {
   width: 100%;
 }
 </style>
+
