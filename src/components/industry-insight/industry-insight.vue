@@ -46,6 +46,10 @@ export default {
       type: Object,
       required: true,
     },
+    total_num: {
+      type: Number,
+      required: true,
+    },
   },
   components: {
     Pie,
@@ -60,11 +64,11 @@ export default {
     // LineChartSalary,
     // HistogramSalary,
   },
-  data() {
-    return {
-      totalNum: 552,
-    };
-  },
+  // data() {
+  //   return {
+  //     totalNum: 552,
+  //   };
+  // },
 };
 
 
