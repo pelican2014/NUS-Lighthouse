@@ -8,7 +8,7 @@ export default {
   name: 'ExplorerSearch',
   props: {
     sub_title: {
-      default: 'Search for Industry',
+      default: 'Search for a Industry',
     },
     table_name: {
       default: 'internship',
