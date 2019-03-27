@@ -1,5 +1,5 @@
-<template src="./search-bar.html"></template>
-<style src="./search-bar.scss" lang="scss"></style>
+<template src="./explorer-search.html"></template>
+<style src="./explorer-search.scss" lang="scss"></style>
 
 <script>
 import db from '@/firebase';
@@ -8,13 +8,13 @@ export default {
   name: 'ExplorerSearch',
   props: {
     sub_title: {
-      default: 'Search for Industry',
+      default: 'Search for a Industry',
     },
     table_name: {
       default: 'internship',
     },
     name_field: {
-      default: 'company_name',
+      default: 'industry',
     },
   },
   data() {

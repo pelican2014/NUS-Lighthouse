@@ -11,33 +11,19 @@ export default {
     eachPosition,
   },
   props: {
-    company_name: {
+    company_id: {
       type: String,
       required: true,
     },
   },
-  // data() {
-  //   return {
-  //     positions: [
-  //       'Data Centre Technician Internship',
-  //       'Financial Analyst, Media Incentives',
-  //       'Global Marketing Analyst, Media Lab',
-  //       'Operations Specialist, Google People Service',
-  //       'Software Engineer, Front End Development',
-  //     ],
-  //   };
-  // },
   computed: {
     positions() {
       const results = [];
-      for (const item_id in this.company_dict) {
-        // if (typeof this.company_dict[item_id] !== 'object') continue;
-        if (this.company_dict[item_id].company_name === this.company_name) {
-          const openings = this.company_dict[item_id].positions;
-          for (const position_id in openings) {
-            if (openings[position_id]) {
-              results.push(openings[position_id].position_name);
-            }
+      if (this.company_dict[this.company_id]) {
+        const position_dict = this.company_dict[this.company_id].positions;
+        for (const position_id in position_dict) {
+          if (position_dict[position_id]) {
+            results.push({ title: position_dict[position_id].position_name, position_id });
           }
         }
       }

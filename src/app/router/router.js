@@ -1,19 +1,20 @@
 import About from '@/components/about/about';
 import Contact from '@/components/contact/contact';
-import RAChart from '@/components/ra-main-charts/ra-main-charts';
-import Histogram from '@/components/charts/histogram';
+// import Donut from '@/components/charts/donut';
+// import RAChart from '@/components/ra-main-charts/ra-main-charts';
+// import Histogram from '@/components/charts/histogram';
 import Home from '@/components/home/home';
-import Company from '@/components/company/company';
-import TopHeader from '@/components/top-header/top-header';
-import Subheader from '@/components/subheader/subheader';
-import Pie from '@/components/charts/pie';
-import Lines from '@/components/charts/line';
-import Bar from '@/components/charts/bar';
-import HBar from '@/components/charts/horizontal-bar';
-import Wordcloud from '@/components/charts/word-cloud';
-import Area from '@/components/charts/area';
-import SearchBar from '@/components/search-bar/search-bar';
-import IndustryExplorer from '@/components/industry-explorer/industry-explorer';
+// import Company from '@/components/company/company';
+// import TopHeader from '@/components/top-header/top-header';
+// import Subheader from '@/components/subheader/subheader';
+// import Pie from '@/components/charts/pie';
+// import Lines from '@/components/charts/line';
+// import Bar from '@/components/charts/bar';
+// import HBar from '@/components/charts/horizontal-bar';
+// import Wordcloud from '@/components/charts/word-cloud';
+// import Area from '@/components/charts/area';
+// import SearchBar from '@/components/search-bar/search-bar';
+// import IndustryExplorer from '@/components/industry-explorer/industry-explorer';
 import Vue from 'vue';
 import Router from 'vue-router';
 import RecentPublications from '@/components/recent-publications/recent-publications';
@@ -39,12 +40,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: null,
-    },
-    {
-      path: '/current-projects',
-      name: 'current-projects',
-      component: CurrentProjects,
+      component: ProfPage,
     },
     {
       path: '/about',
@@ -52,61 +48,31 @@ export default new Router({
       component: About,
     },
     {
-      path: '/ra-charts',
-      name: 'ra-charts',
-      component: RAChart,
-    },
-    {
-      path: '/position-stats',
-      name: 'position-stats',
-      component: PositionStats,
-      props: {
-        company_id: '02eb568a3d2b51986946b727abb94db3439070cf46453797427ca29f1fcb22e6',
-      },
-    },
-    {
       path: '/contact',
       name: 'contact',
       component: Contact,
     },
     {
-      path: '/JobPostSearch',
-      name: 'JobPostSearch',
-      component: JobPostSearch,
+      path: '/industryPage',
+      name: 'industryPage',
+      component: IndustryPage,
     },
     {
-      path: '/trajectory',
-      name: 'trajectory',
-      component: TrajectoryPosition,
+      path: '/internship-homepage',
+      name: 'internship-homepage',
+      component: InternshipHomePage,
     },
     {
-
-      path: '/RecentPublications',
-      name: 'RecentPublications',
-      component: RecentPublications,
+      path: '/raPage',
+      name: 'raPage',
+      component: RAPage,
     },
     {
-      path: '/BasicInformationInternship',
-      name: 'BasicInformationInternship',
-      component: BasicInformation,
+      path: '/company-page',
+      name: 'company-page',
+      component: CompanyHome,
       props: {
-        section: 'Internship',
-      },
-    },
-    {
-      path: '/BasicInformationResearch',
-      name: 'BasicInformationResearch',
-      component: BasicInformation,
-      props: {
-        section: 'Research',
-      },
-    },
-    {
-      path: '/BasicInformationTeaching',
-      name: 'BasicInformationTeaching',
-      component: BasicInformation,
-      props: {
-        section: 'Teaching',
+        company_id: '05c2639182d92e2ca4e455bfc9e8afe1c6f7d722e7477e20482c5b961bfdcb48',
       },
     },
     {

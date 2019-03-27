@@ -1,29 +1,29 @@
 <div>
-	<h3 class ='title'> Total number of interns: {{number}}</h3>
+	<h3 class ='title'> Total number of RAs: {{number}}</h3>
 	<b-row>
 		<b-col class = 'col'>
-			<Pie title = 'Gender' name = 'gender' :data = 'gender'></Pie>
+			<Pie title = 'Path' name = 'path' :data = 'path'></Pie>
 		</b-col>
 		<b-col class = 'col'>
-			<Pie title = 'Major' name = 'major' :data= 'major'></Pie>
+			<Pie title = 'Industry' name = 'industry' :data= 'industry'></Pie>
 		</b-col>
 	</b-row>
 
 	<b-row>
 		<b-col class = 'col'>
-			<Bar title = 'Race' yname = 'Number' :data = 'race'></Bar>
+			<Pie title = 'Graduate Course' name = 'graduate course' :data= 'graduate'></Pie>
 		</b-col>
 		<b-col class = 'col'>
-			<Lines title = 'Starting Salary' yname = 'salary' :x = 'salaryX' :data = 'salary'></Lines>
+			<Histogram title = 'Starting Salary' name = 'salary' :data = 'salary'></Histogram>
 		</b-col>
 	</b-row>
 
 	<b-row>
 		<b-col class = 'col'>
-			<Wordcloud title = 'Postgraduate University' :data = 'university' > </Wordcloud>>
+			<Wordcloud title = 'Postgraduate University' :data = 'university'></Wordcloud>
 		</b-col>
 		<b-col class = 'col'>
-			<Wordcloud title = 'Postgraduate Research Area' :data = 'researchArea'></Wordcloud>>
+			<Wordcloud title = 'PhD Research Area' :data = 'research'></Wordcloud>
 		</b-col>
 	</b-row>
 

@@ -1,5 +1,5 @@
-<template src="./background-statistics.html"></template>
-<style src="./background-statistics.scss" lang="scss"></style>
+<template src="./background-statistics-ta.html"></template>
+<style src="./background-statistics-ta.scss" lang="scss"></style>
 
 <script>
 import db from '@/firebase';
@@ -31,7 +31,7 @@ export default {
     gender() {
       let female = 0;
       let male = 0;
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to module
           const ta = ta_list[item_id];
@@ -50,7 +50,7 @@ export default {
       const freq = [];
       let prev;
       const major_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) {
           const ta = ta_list[item_id];
@@ -81,7 +81,7 @@ export default {
       const freq = [];
       let prev;
       const race_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           const ta = ta_list[item_id];
@@ -113,7 +113,7 @@ export default {
       const freq = [];
       let prev;
       const country_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           const ta = ta_list[item_id];
@@ -145,7 +145,7 @@ export default {
       const freq = [];
       let prev;
       const year_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           const ta = ta_list[item_id];
@@ -166,26 +166,49 @@ export default {
       const result = { x: year, data: [{ name: 'number of TAs', data: freq }] };
       return result;
     },
-    cap() {
-      const cap_list = [];
-      const ta_list = this.ta_dict['.value'];
-      for (const item_id in ta_list) {
-        if (ta_list[item_id].module_code === this.module) { // change to prof id
-          const ta = ta_list[item_id];
-          cap_list.push(ta.cap);
-        }
-      }
-      return cap_list;
-    },
     count() {
       let counter = 0;
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           counter += 1;
         }
       }
       return counter;
+    },
+    cap_hist() {
+      const cap_list = [];
+      const ta_list = this.ta_dict;
+      for (const item_id in this.ta_dict) {
+        if (ta_list[item_id].module_code === this.module) {
+          const ta = ta_dict[item_id];
+          cap_list.push(ta.cap);
+        }
+      }
+      const breakpoints = [1, 2, 3, 4, 5];
+      const first = breakpoints[0];
+      const last = breakpoints.slice(-1)[0];
+      const trimmed = _.map(cap_list, (o) => {
+        if (o > last) {
+          return 5;
+        } else if (o < first) {
+          return 0;
+        } else {
+          return Math.floor(o);
+        }
+      });
+      const counts = _.map(_.countBy(trimmed), (count, point) => {
+        const current_point = point;
+        if (current_point < first) {
+          return { name: '<' + first, y: count };
+        } else if (current_point >= last) {
+          return { name: '>=' + last, y: count };
+        } else {
+          const next_point = Number(current_point) + 1;
+          return { name: current_point + ' to ' + next_point, y: count };
+        }
+      });
+      return counts;
     },
   },
   firebase: {

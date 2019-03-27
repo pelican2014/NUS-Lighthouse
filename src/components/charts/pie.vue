@@ -5,7 +5,6 @@
 <script>
 import HighchartsVue from 'highcharts-vue';
 
-
 export default {
   components: {
     HighchartsVue,
@@ -20,13 +19,9 @@ export default {
       required: true,
     },
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
-    // transform: {
-    //   type: Function,
-    //   required: true,
-    // },
     subtitle: {
       type: String,
       default: 'Source: NUS Datalake',
@@ -37,11 +32,10 @@ export default {
       return {
         chart: {
           plotBackgroundColor: null,
-          plotBorderWidth: null,
+          plotBorderWidth: 0,
           plotShadow: false,
           type: 'pie',
         },
-
         title: {
           text: this.title,
         },
@@ -62,11 +56,16 @@ export default {
               '#FFDA5A',
               '#B7D5EE',
             ],
+            size: 140,
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
               enabled: true,
               format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+              distance: 10,
+              style: {
+                fontSize: 10,
+              },
             },
           },
         },
@@ -74,7 +73,6 @@ export default {
         series: [{
           name: this.name,
           colorBypoint: true,
-          // data: this.transform(this.data),
           data: this.data,
         }],
       };

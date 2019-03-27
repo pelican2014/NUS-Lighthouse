@@ -1,17 +1,13 @@
 <div id="app">
   <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
-    <b-navbar-brand use-router :to="{name: 'home'}" exact>NavBar</b-navbar-brand>
+    <b-navbar-brand use-router :to="{path: '/'}" exact>NavBar</b-navbar-brand>
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav class="mr-auto">
-        <b-nav-item use-router :to="{name: 'home'}" exact>Home</b-nav-item>
-        <b-nav-item use-router :to="{name: 'about'}">About</b-nav-item>
-
-        <b-nav-item use-router :to="{name: 'contact'}">Contact</b-nav-item>
-
-
+        <b-nav-item use-router :to="{path: '/'}" exact>Home</b-nav-item>
+        <b-nav-item use-router :to="{path: '/about'}">About</b-nav-item>
+        <b-nav-item use-router :to="{path: '/contact'}">Contact</b-nav-item>
         <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
-
         <b-nav-item-dropdown id="dropdown01" text="Dropdown to See more features">
           <b-dropdown-item  use-router :to="{name: 'current-projects'}" exact>Current Projects</b-dropdown-item>
           <b-dropdown-item  use-router :to="{name: 'ra-charts'}" exact>RA charts</b-dropdown-item>
