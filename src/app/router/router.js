@@ -27,11 +27,11 @@ import Router from 'vue-router';
 // import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 // import PositionStats from '@/components/position-stats/position-stats';
 // import Insights from '@/components/industry-insight/industry-insight';
-import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
+// import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
-import CompanyHome from '@/components/company-home/company-home';
-import Recommended from '@/components/recommended/recommended';
-import Background from '@/components/background-statistics/background-statistics';
+// import CompanyHome from '@/components/company-home/company-home';
+// import Recommended from '@/components/recommended/recommended';
+// import Background from '@/components/background-statistics/background-statistics';
 import ProfPage from '@/components/prof-project-page/prof-project-page';
 
 Vue.use(Router);
@@ -41,7 +41,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: null,
+      component: ProfPage,
     },
     {
       path: '/about',
@@ -53,65 +53,65 @@ export default new Router({
       name: 'contact',
       component: Contact,
     },
-    {
-      path: '/industryPage',
-      name: 'industryPage',
-      component: IndustryPage,
-    },
-    {
-      path: '/internship-homepage',
-      name: 'internship-homepage',
-      component: InternshipHomePage,
-    },
-    {
-      path: '/raPage',
-      name: 'raPage',
-      component: RAPage,
-    },
-    {
-      path: '/company-page',
-      name: 'company-page',
-      component: CompanyHome,
-      props: {
-        company_id: 'd2cdfd11ed2669239a7dc3d70e7a0d277f1531b1bc99650b005f5a944e2e5351',
-      },
-    },
-    {
-      path: '/position-page',
-      name: 'position-page',
-      component: PositionPage,
-      props: {
-        position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',
-        username: 'Anonymous',
-      },
-    },
-    {
-      path: '/subheader',
-      name: 'subheader',
-      component: Subheader,
-      props: {
-        field: 'Internship Opportunities',
-      },
-    },
-    {
-      path: '/recommended',
-      name: 'recommended',
-      component: Recommended,
-    },
-    {
-      path: '/industry-insight',
-      name: 'industry-insight',
-      component: Insights,
-    },
-    {
-      path: '/background-statistics',
-      name: 'background-statistics',
-      component: Background,
-    },
-    {
-      path: '/prof_project',
-      name: 'prof_project',
-      component: ProfPage,
-    },
+    // {
+    //   path: '/industryPage',
+    //   name: 'industryPage',
+    //   component: IndustryPage,
+    // },
+    // {
+    //   path: '/internship-homepage',
+    //   name: 'internship-homepage',
+    //   component: InternshipHomePage,
+    // },
+    // {
+    //   path: '/raPage',
+    //   name: 'raPage',
+    //   component: RAPage,
+    // },
+    // {
+    //   path: '/company-page',
+    //   name: 'company-page',
+    //   component: CompanyHome,
+    //   props: {
+    //     company_id: 'd2cdfd11ed2669239a7dc3d70e7a0d277f1531b1bc99650b005f5a944e2e5351',
+    //   },
+    // },
+    // {
+    //   path: '/position-page',
+    //   name: 'position-page',
+    //   component: PositionPage,
+    //   props: {
+    //     position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',
+    //     username: 'Anonymous',
+    //   },
+    // },
+    // {
+    //   path: '/subheader',
+    //   name: 'subheader',
+    //   component: Subheader,
+    //   props: {
+    //     field: 'Internship Opportunities',
+    //   },
+    // },
+    // {
+    //   path: '/recommended',
+    //   name: 'recommended',
+    //   component: Recommended,
+    // },
+    // {
+    //   path: '/industry-insight',
+    //   name: 'industry-insight',
+    //   component: Insights,
+    // },
+    // {
+    //   path: '/background-statistics',
+    //   name: 'background-statistics',
+    //   component: Background,
+    // },
+    // {
+    //   path: '/prof_project',
+    //   name: 'prof_project',
+    //   component: ProfPage,
+    // },
   ],
 });

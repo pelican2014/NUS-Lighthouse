@@ -67,7 +67,7 @@ export default {
               },
             },
           }],
-        }],
+        },
 
         yAxis: [{
           title: { text: this.name },
