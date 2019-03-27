@@ -29,7 +29,7 @@ import Router from 'vue-router';
 // import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/pages/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
-import CompanyHome from '@/components/company-home/company-home';
+import CompanyHome from '@/components/pages/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
 // import ExplorerSearch from '@/components/explorer-search/explorer-search';
 // import BackgroundStatistics from '@/components/background-statistics/background-statistics';
@@ -38,7 +38,7 @@ import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import InitialPage from '@/components/initial-page/initial-page';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
-import PositionPage from '@/components/position-page/position-page';
+import PositionPage from '@/components/pages/position-page/position-page';
 
 Vue.use(Router);
 
@@ -75,12 +75,10 @@ export default new Router({
       component: RAPage,
     },
     {
-      path: '/company-page',
+      path: '/company-page/:company_id',
       name: 'company-page',
       component: CompanyHome,
-      props: {
-        company_id: '05c2639182d92e2ca4e455bfc9e8afe1c6f7d722e7477e20482c5b961bfdcb48',
-      },
+      props: true,
     },
     {
       path: '/position-page/:position_id',

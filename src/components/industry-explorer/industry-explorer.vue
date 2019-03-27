@@ -28,7 +28,6 @@ export default {
       required: true,
     },
   },
-  methods: {},
   computed: {
     internship_instances() {
       const results = {};
