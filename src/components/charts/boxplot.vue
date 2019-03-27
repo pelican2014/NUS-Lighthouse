@@ -31,7 +31,7 @@ export default {
       required: true,
     },
     mean: {
-      type: Number,
+      type: String,
     },
     data: {
       type: Array,
@@ -88,7 +88,7 @@ export default {
           name: this.yname,
           data: this.data,
           tooltip: {
-            headerFormat: '<em>Experiment No {point.key}</em><br/>',
+            headerFormat: '<em>{point.key}</em><br/>',
           },
         }, {
           name: 'Outliers',

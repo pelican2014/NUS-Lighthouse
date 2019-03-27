@@ -1,13 +1,74 @@
-<b-container>
-  <b-row>
-    <b-col><HorizontalBarChart></HorizontalBarChart></b-col>
-    <b-col><Boxplot></Boxplot></b-col>
-  </b-row>
-  <b-row>
-    <b-col><Boxplot></Boxplot></b-col>
-    <b-col><HorizontalBarChart></HorizontalBarChart></b-col>
-  </b-row>
-  <b-row>
-    <AreaChart></AreaChart>
-  </b-row>
-</b-container>
+<div>
+  <div v-if="by=='industry'">
+    <ExplorerSearch>
+    </ExplorerSearch>
+    <b-container>
+      <b-row>
+        <b-col>
+          <HorizontalBarChart title='Number of Interns by Industry (Top 10)' subtitle='In the past 5 years' yname='No. of interns' :data='num_interns_data'></HorizontalBarChart>
+        </b-col>
+        <b-col>
+          <Boxplot title='Starting Salary by Industry (Top 10)' yname='Starting Salary of Graduates (S$)' subtitle='In the past 5 years' :xcategory='starting_salary_data.category' :data='starting_salary_data.salary'></Boxplot>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <Boxplot title='CAP of Successful Applicants by Industry (Top 10)' yname='Cumulative Average Point (CAP)' subtitle='In the past 5 years' :xcategory='cap_data.category' :data='cap_data.cap'></Boxplot>
+        </b-col>
+        <b-col>
+          <HorizontalBarChart :data='acceptance_rates_data' title='Internship Acceptance Rates by Industry (Top 10)' subtitle='In the past 5 years' yname='Acceptance Rate (%)'></HorizontalBarChart>
+        </b-col>
+      </b-row>
+      <b-row>
+        <AreaChart title = 'Opening Positions by Industry' subtitle= 'in the last year' :data="opening_positions_data"></AreaChart>
+      </b-row>
+    </b-container>
+  </div>
+  <div v-if="by=='major'">
+    <ExplorerSearch sub_title='Search for a Major' name_field='major'>
+    </ExplorerSearch>
+    <b-container>
+      <b-row>
+        <b-col>
+          <HorizontalBarChart title='Number of Interns by Major (Top 10)' subtitle='In the past 5 years' yname='No. of interns' :data='num_interns_data'></HorizontalBarChart>
+        </b-col>
+        <b-col>
+          <Boxplot title='Starting Salary by Major (Top 10)' yname='Starting Salary of Graduates (S$)' subtitle='In the past 5 years' :xcategory='starting_salary_data.category' :data='starting_salary_data.salary'></Boxplot>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <Boxplot title='CAP of Successful Applicants by Major (Top 10)' yname='Cumulative Average Point (CAP)' subtitle='In the past 5 years' :xcategory='cap_data.category' :data='cap_data.cap'></Boxplot>
+        </b-col>
+        <b-col>
+          <HorizontalBarChart :data='acceptance_rates_data' title='Internship Acceptance Rates by Major (Top 10)' subtitle='In the past 5 years' yname='Acceptance Rate (%)'></HorizontalBarChart>
+        </b-col>
+      </b-row>
+      <b-row>
+        <AreaChart title = 'Opening Positions by Major' subtitle= 'in the last year' :data="opening_positions_data"></AreaChart>
+      </b-row>
+    </b-container>
+  </div>
+  <div v-if="by=='company'">
+    <ExplorerSearch sub_title='Search for a Company' name_field='company_name'>
+    </ExplorerSearch>
+    <b-container>
+      <b-row>
+        <b-col>
+          <HorizontalBarChart title='Number of Interns by Company (Top 10)' subtitle='In the past 5 years' yname='No. of interns' :data='num_interns_data'></HorizontalBarChart>
+        </b-col>
+        <b-col>
+          <Boxplot title='Starting Salary by Company (Top 10)' yname='Starting Salary of Graduates (S$)' subtitle='In the past 5 years' :xcategory='starting_salary_data.category' :data='starting_salary_data.salary'></Boxplot>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <HorizontalBarChart :data='lowest_acceptance_rates_data' title='Internship Acceptance Rates by Company (Bottom 10)' subtitle='In the past 5 years' yname='Acceptance Rate (%)'></HorizontalBarChart>
+        </b-col>
+        <b-col>
+          <HorizontalBarChart :data='acceptance_rates_data' title='Internship Acceptance Rates by Company (Top 10)' subtitle='In the past 5 years' yname='Acceptance Rate (%)'></HorizontalBarChart>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+</div>

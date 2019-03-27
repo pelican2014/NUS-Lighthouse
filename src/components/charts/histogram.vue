@@ -1,13 +1,9 @@
 <template>
-  <highcharts :options="options" ref="bell-curve" class="histogram"></highcharts>
+  <highcharts :options="options" ref="histogram" class="histogram"></highcharts>
 </template>
 
 <script>
 import HighchartsVue from 'highcharts-vue';
-import Highcharts from 'highcharts';
-import loadHistogram from 'highcharts/modules/histogram-bellcurve';
-
-loadHistogram(Highcharts);
 
 export default {
   components: {
@@ -18,15 +14,16 @@ export default {
       type: String,
       required: true,
     },
+    yname: {
+      type: String,
+      required: true,
+    },
     yours: {
       type: String,
+      required: false,
     },
     data: {
       type: Array,
-      required: true,
-    },
-    name: {
-      type: String,
       required: true,
     },
     subtitle: {
@@ -37,19 +34,24 @@ export default {
   computed: {
     options() {
       return {
+        chart: {
+          type: 'column',
+        },
         title: {
           text: this.title,
         },
         subtitle: {
           text: this.subtitle,
         },
-        xAxis: [{
-          title: { text: this.name },
-          alignTicks: false,
-        }, {
-          title: { text: 'Histogram' },
-          alignTicks: false,
-          opposite: true,
+        xAxis: {
+          type: 'category',
+          labels: {
+            rotation: -45,
+            style: {
+              fontSize: '13px',
+              fontFamily: 'Verdana, sans-serif',
+            },
+          },
           plotLines: [{
             value: this.yours,
             color: '#FFA500',
@@ -96,7 +98,7 @@ export default {
 </script>
 
 <style scoped>
-.line{
+.bar {
   display: block;
   margin-left: auto;
   margin-right: auto;

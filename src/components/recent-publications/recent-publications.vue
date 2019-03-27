@@ -18,7 +18,7 @@ export default {
   computed: {
     data() {
       // const prof_id = 2;
-      const professors = this.data_dict['.value'];
+      const professors = this.data_dict;
       if (professors == null) {
         return [];
       }

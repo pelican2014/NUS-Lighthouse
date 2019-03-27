@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "e2e": "node test/e2e/runner.js",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "start": "npm run dev",
+    "start": "node server.js",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
     "test": "npm run unit && npm run e2e",
     "unit": "jest --config test/unit/jest.conf.js --coverage"
   },
@@ -22,6 +23,7 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "material-design-icons-iconfont": "^4.0.5",
+    "mathjs": "^5.8.0",
     "vue": "^2.6.9",
     "vue-router": "^3.0.1",
     "vuefire": "^1.4.5",

@@ -17,10 +17,20 @@ export default {
   },
   computed: {
     projects() {
-      const profs = this.prof_dict['.value'];
+      // const profs = this.prof_dict;
       // const prof_id = 1; // change to prof id
-      const prof = profs[this.prof_id];
-      return prof.Projects;
+      // const prof = profs[this.prof_id];
+      // return prof.Projects;
+
+      const professors = this.prof_dict;
+      if (professors == null) {
+        return [];
+      }
+      const prof = professors[this.prof_id];
+      if (prof && 'Projects' in prof) {
+        return prof.Projects;
+      }
+      return [];
     },
   },
   firebase: {

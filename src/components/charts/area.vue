@@ -29,7 +29,7 @@ export default {
     },
   },
   computed: {
-    optiones() {
+    options() {
       return {
         chart: {
           type: 'area',
@@ -72,6 +72,7 @@ export default {
         },
         plotOptions: {
           area: {
+            stacking: 'normal',
             marker: {
               enabled: false,
               symbol: 'circle',
