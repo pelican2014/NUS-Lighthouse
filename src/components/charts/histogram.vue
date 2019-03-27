@@ -54,56 +54,42 @@ export default {
           },
           plotLines: [{
             value: this.yours,
-            color: 'red',
-            width: 1,
+            color: '#FFA500',
+            dashStyle: 'LongDash',
+            width: 3,
             zIndex: 5,
             label: {
               text: 'You are here',
-              align: 'bottom',
+              align: 'left',
               style: {
-                color: 'gray',
+                color: '#000080',
+                fontSize: '15pxs',
               },
             },
           }],
         },
-        yAxis: {
-          min: 0,
-          title: {
-            text: this.yname,
-          },
-        },
-        legend: {
-          enabled: false,
-        },
-        tooltip: {
-          pointFormat: '{series.name}: <b>{point.y:.1f} </b>',
-        },
-        plotOptions: {
-          column: {
-            width: 8,
-            pointPadding: 0,
-            groupPadding: 0,
-            borderWidth: 0,
-            color: '#FFC300',
-          },
-        },
+
+        yAxis: [{
+          title: { text: this.name },
+        }, {
+          title: { text: 'Histogram' },
+          opposite: true,
+        }],
         series: [{
-          name: this.yname,
+          name: 'Histogram',
+          type: 'histogram',
+          xAxis: 1,
+          yAxis: 1,
+          zIndex: 2,
+          baseSeries: 's1',
+        }, {
+          name: 'Data',
+          type: 'scatter',
           data: this.data,
-          zIndex: -1,
-          // dataLabels: {
-          //   enabled: true,
-          //   // rotation: -90,
-          //   color: '#FFFFFF',
-          //   zIndex: -1,
-          //   align: 'center',
-          //   format: '{point.y:.1f}', // one decimal
-          //   y: 10, // 10 pixels down from the top
-          //   style: {
-          //     fontSize: '10px',
-          //     fontFamily: 'Verdana, sans-serif',
-          //   },
-          // },
+          id: 's1',
+          marker: {
+            radius: 0,
+          },
         }],
       };
     },
@@ -119,4 +105,3 @@ export default {
   width: 100%;
 }
 </style>
-

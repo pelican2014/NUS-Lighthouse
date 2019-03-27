@@ -1,5 +1,5 @@
 <div>
-	<h3 class ='title'> Total number of RAs: {{number}}</h3>
+	<div class ='title'> Total number of RAs: {{ totalNum }}</div>
 	<b-row>
 		<b-col class = 'col'>
 			<Pie title = 'Path' name = 'path' :data = 'path'></Pie>
@@ -14,7 +14,7 @@
 			<Pie title = 'Graduate Course' name = 'graduate course' :data= 'graduate'></Pie>
 		</b-col>
 		<b-col class = 'col'>
-			<Histogram title = 'Starting Salary' name = 'salary' :data = 'salary'></Histogram>
+			<Bar title = 'Graduate Starting Salary' yname = 'salary' :data='salary_hist'></Bar>
 		</b-col>
 	</b-row>
 

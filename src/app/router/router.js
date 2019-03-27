@@ -29,16 +29,10 @@ import Router from 'vue-router';
 // import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/pages/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
-import CompanyHome from '@/components/company-home/company-home';
+// import CompanyHome from '@/components/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
-// import ExplorerSearch from '@/components/explorer-search/explorer-search';
-// import BackgroundStatistics from '@/components/background-statistics/background-statistics';
-import IndustryPage from '@/components/pages/industry-page/industry-page';
-import RAPage from '@/components/pages/ra-homepage/ra-homepage';
-// import InitialPage from '@/components/initial-page/initial-page';
-// import PositionInfo from '@/components/basic-information/position-info';
-// import BackgroundPosition from '@/components/background-position/background-position';
-import PositionPage from '@/components/position-page/position-page';
+// import Background from '@/components/background-statistics/background-statistics';
+import ProfPage from '@/components/prof-project-page/prof-project-page';
 
 Vue.use(Router);
 
@@ -47,7 +41,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: null,
+      component: ProfPage,
     },
     {
       path: '/about',
