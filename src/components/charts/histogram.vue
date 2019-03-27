@@ -4,6 +4,7 @@
 
 <script>
 import HighchartsVue from 'highcharts-vue';
+
 export default {
   components: {
     HighchartsVue,

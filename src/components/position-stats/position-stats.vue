@@ -60,15 +60,13 @@ export default{
           }
         }
       }
-      let output = [];
+      const output = [];
       for (const major in results) {
         if (major) {
           output.push({ name: major, y: results[major] });
         }
       }
-      output.sort((a, b) => (a.y > b.y) ? -1 : 1);
-      output = output.slice(0, 10);
-      return output;
+      return _.sortBy(output, 'y').slice(-10);
     },
     race() {
       const results = {};
@@ -102,16 +100,14 @@ export default{
           }
         }
       }
-      let output = [];
+      const output = [];
       for (const nation in results) {
         if (nation) {
           const eachNation = [nation, results[nation]];
           output.push(eachNation);
         }
       }
-      output = output.sort(function(a, b) { return b[1] - a[1]; });
-      output = output.slice(0, 5);
-      return output;
+      return _.sortBy(output, 1).slice(-5);
     },
     CAP() {
       const results = [];
