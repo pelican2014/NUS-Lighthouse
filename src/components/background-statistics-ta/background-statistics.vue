@@ -177,6 +177,16 @@ export default {
       }
       return cap_list;
     },
+    count() {
+      let counter = 0;
+      const ta_list = this.ta_dict['.value'];
+      for (const item_id in ta_list) {
+        if (ta_list[item_id].module_code === this.module) { // change to prof id
+          counter += 1;
+        }
+      }
+      return counter;
+    },
   },
   firebase: {
     ta_dict: {
