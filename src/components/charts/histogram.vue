@@ -54,6 +54,7 @@ export default {
             value: this.yours,
             color: 'red',
             width: 1,
+            zIndex: 2,
             label: {
               text: 'You are here',
               align: 'bottom',
@@ -84,7 +85,7 @@ export default {
           data: this.data,
           id: 's1',
           marker: {
-            radius: 1.5,
+            radius: 0,
           },
         }],
       };

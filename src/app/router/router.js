@@ -23,14 +23,14 @@ import CurrentProjects from '@/components/current-projects/current-projects';
 import FilteredSearch from '@/components/filtered-search/filtered-search';
 import PositionDetails from '@/components/position-details/position-details';
 import BasicInformation from '@/components/basic-information/basic-information';
-import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
+import TrajectoryPosition from '@/components/trajectory-ta/trajectory-position';
 import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
-import Background from '@/components/background-statistics/background-statistics';
+import ModulePage from '@/components/module-ta-page/module-ta-page';
 
 Vue.use(Router);
 
@@ -160,9 +160,9 @@ export default new Router({
       component: Insights,
     },
     {
-      path: '/background-statistics',
-      name: 'background-statistics',
-      component: Background,
+      path: '/module-page',
+      name: 'module-page',
+      component: ModulePage,
     },
   ],
 });
