@@ -127,7 +127,7 @@ export default new Router({
     {
       path: '/company-description',
       name: 'company-description',
-      component: Company,
+      component: CompanyHome,
       props: {
         company_id: '02eb568a3d2b51986946b727abb94db3439070cf46453797427ca29f1fcb22e6',
         image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
