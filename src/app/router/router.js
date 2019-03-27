@@ -29,9 +29,17 @@ import Router from 'vue-router';
 // import Insights from '@/components/industry-insight/industry-insight';
 // // import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
-// import CompanyHome from '@/components/company-home/company-home';
+import CompanyHome from '@/components/pages/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
-import ModulePage from '@/components/module-ta-page/module-ta-page';
+// import ExplorerSearch from '@/components/explorer-search/explorer-search';
+// import BackgroundStatistics from '@/components/background-statistics/background-statistics';
+import IndustryPage from '@/components/pages/industry-page/industry-page';
+import RAPage from '@/components/pages/ra-homepage/ra-homepage';
+// import InitialPage from '@/components/initial-page/initial-page';
+// import PositionInfo from '@/components/basic-information/position-info';
+// import BackgroundPosition from '@/components/background-position/background-position';
+import PositionPage from '@/components/pages/position-page/position-page';
+import ProfPage from '@/components/prof-project-page/prof-project-page';
 
 
 Vue.use(Router);
@@ -41,95 +49,44 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: ModulePage,
+      component: ProfPage,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: About,
-    // },
-    // {
-    //   path: '/contact',
-    //   name: 'contact',
-    //   component: Contact,
-    // },
-    // {
-    //   path: '/industryPage',
-    //   name: 'industryPage',
-    //   component: IndustryPage,
-    // },
-    // {
-    //   path: '/internship-homepage',
-    //   name: 'internship-homepage',
-    //   component: InternshipHomePage,
-    // },
-    // {
-    //   path: '/raPage',
-    //   name: 'raPage',
-    //   component: RAPage,
-    // },
-    // {
-    //   path: '/company-page',
-    //   name: 'company-page',
-    //   component: CompanyHome,
-    //   props: {
-    //     company_id: '05c2639182d92e2ca4e455bfc9e8afe1c6f7d722e7477e20482c5b961bfdcb48',
-    //   },
-    // },
-    // {
-    //   path: '/company-description',
-    //   name: 'company-description',
-    //   component: Company,
-    //   props: {
-    //     company_name: 'UOB',
-    //     image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
-    //   },
-    // },
-    // {
-    //   path: '/searchBar',
-    //   name: 'searchBar',
-    //   component: SearchBar,
-    // },
-    // {
-    //   path: '/filteredSearch',
-    //   name: 'filteredSearch',
-    //   component: FilteredSearch,
-    // },
-    // {
-    //   path: '/positionDetails',
-    //   name: 'positionDetails',
-    //   component: PositionDetails,
-    // },
-    // {
-    //   path: '/topHeader',
-    //   name: 'topHeader',
-    //   component: TopHeader,
-    //   props: {
-    //     username: 'Anonymous',
-    //   },
-    // },
-    // {
-    //   path: '/subheader',
-    //   name: 'subheader',
-    //   component: Subheader,
-    //   props: {
-    //     field: 'Internship Opportunities',
-    //   },
-    // },
-    // {
-    //   path: '/recommended',
-    //   name: 'recommended',
-    //   component: Recommended,
-    // },
-    // {
-    //   path: '/industry-insight',
-    //   name: 'industry-insight',
-    //   component: Insights,
-    // },
-    // {
-    //   path: '/module-page',
-    //   name: 'module-page',
-    //   component: ModulePage,
-    // },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
+    },
+    {
+      path: '/industryPage',
+      name: 'industryPage',
+      component: IndustryPage,
+    },
+    {
+      path: '/internship-homepage',
+      name: 'internship-homepage',
+      component: InternshipHomePage,
+    },
+    {
+      path: '/raPage',
+      name: 'raPage',
+      component: RAPage,
+    },
+    {
+      path: '/company-page/:company_id',
+      name: 'company-page',
+      component: CompanyHome,
+      props: true,
+    },
+    {
+      path: '/position-page/:position_id',
+      name: 'position-page',
+      component: PositionPage,
+      props: true,
+    },
   ],
 });
