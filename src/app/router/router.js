@@ -35,7 +35,7 @@ import CompanyHome from '@/components/pages/company-home/company-home';
 // import BackgroundStatistics from '@/components/background-statistics/background-statistics';
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 import RAPage from '@/components/pages/ra-homepage/ra-homepage';
-// import InitialPage from '@/components/initial-page/initial-page';
+import InitialPage from '@/components/initial-page/initial-page';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
 import PositionPage from '@/components/pages/position-page/position-page';
