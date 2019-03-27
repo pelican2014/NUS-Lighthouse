@@ -31,7 +31,10 @@ import InternshipHomePage from '@/components/internship-homepage/internship-home
 import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
-import Background from '@/components/background-statistics/background-statistics';
+import BackgroundStatistics from '@/components/background-statistics/background-statistics';
+
+import IndustryPage from '@/components/pages/industry-page/industry-page';
+import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 import InitialPage from '@/components/initial-page/initial-page';
 import PositionInfo from '@/components/basic-information/position-info';
 import BackgroundPosition from '@/components/background-position/background-position';
@@ -170,14 +173,24 @@ export default new Router({
       component: Recommended,
     },
     {
+      path: '/industryPage',
+      name: 'industryPage',
+      component: IndustryPage,
+    },
+    {
+      path: '/backgroundStatistics',
+      name: 'backgroundStatistics',
+      component: BackgroundStatistics,
+    },
+    {
       path: '/industry-insight',
       name: 'industry-insight',
       component: Insights,
     },
     {
-      path: '/background-statistics',
-      name: 'background-statistics',
-      component: Background,
+      path: '/raPage',
+      name: 'raPage',
+      component: RAPage,
     },
   ],
 });

@@ -1,18 +1,72 @@
-<b-container class="bv-example-row">
+<div>
   <div class="chart-header">
     Total number of past interns in this industry: {{ totalNum }}
   </div>
-  <b-row>
-    <b-col><PieChartGender></PieChartGender></b-col>
-    <b-col><PieChartFaculty></PieChartFaculty></b-col>
-    <b-col><PieChartYear></PieChartYear></b-col>
-  </b-row>
-  <b-row>
-    <b-col><LineChartNum></LineChartNum></b-col>
-    <b-col><BarChartNa></BarChartNa></b-col>
-  </b-row>
-  <b-row>
-    <b-col><HistogramSalary></HistogramSalary></b-col>
-    <b-col><LineChartSalary></LineChartSalary></b-col>
-  </b-row>
-</b-container>
+  <b-container class="bv-example-row">
+    <b-row>
+      <b-col>
+        <Pie title="Gender"
+          name="Gender"
+          :data="gender"
+        ></Pie>
+      </b-col>
+      <b-col>
+        <Pie title="Faculty"
+          name="Faculty"
+          :data="faculty"
+        ></Pie>
+      </b-col>
+      <b-col>
+        <Pie title="Year"
+          name="Year"
+          :data="year"
+        ></Pie>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <LineChart title="Number of Interns"
+          yname="Number of Interns"
+          :x="number.x"
+          :data="number.data"
+        ></LineChart>
+      </b-col>
+      <b-col>
+        <Bar
+          title="Nationality"
+          yname="Number of Students"
+          :data="nationality"
+        ></Bar>
+      </b-col>
+    </b-row>
+    <b-row>
+    <b-col>
+      <Bar
+        title="Fresh Graduate Starting Salary"
+        yname="Salary"
+        :data="salary_hist"
+      ></Bar>
+    </b-col>
+      <b-col>
+        <LineChart title="Starting Salary over the Years"
+        yname="Starting Salary"
+        :x="salary_line.x"
+        :data="salary_line.data"
+        ></LineChart>
+      </b-col>
+    </b-row>
+    <!-- <b-row>
+      <b-col><PieChartGender></PieChartGender></b-col>
+      <b-col><PieChartFaculty></PieChartFaculty></b-col>
+      <b-col><PieChartYear></PieChartYear></b-col>
+    </b-row>
+    <b-row>
+      <b-col><LineChartNum></LineChartNum></b-col>
+      <b-col><BarChartNa></BarChartNa></b-col>
+    </b-row>
+    <b-row>
+      <b-col><HistogramSalary></HistogramSalary></b-col>
+      <b-col><LineChartSalary></LineChartSalary></b-col>
+    </b-row> -->
+  </b-container>
+</div>

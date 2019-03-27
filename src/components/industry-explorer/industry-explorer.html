@@ -5,7 +5,13 @@
   </b-row>
   <b-row>
     <b-col><Boxplot></Boxplot></b-col>
-    <b-col><HorizontalBarChart></HorizontalBarChart></b-col>
+    <b-col>
+      <HorizontalBarChart
+        :data="acceptance_rates_data"
+        title="Internship Acceptance Rates by Industry"
+        yname="Acceptance Rates"
+      ></HorizontalBarChart>
+    </b-col>
   </b-row>
   <b-row>
     <AreaChart></AreaChart>
