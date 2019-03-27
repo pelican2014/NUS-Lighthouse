@@ -1,5 +1,6 @@
 import About from '@/components/about/about';
 import Contact from '@/components/contact/contact';
+import Donut from '@/components/charts/donut';
 import RAChart from '@/components/ra-main-charts/ra-main-charts';
 import Histogram from '@/components/charts/histogram';
 import Home from '@/components/home/home';
@@ -43,10 +44,6 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      // component: CompanyHome,
-      // props: {
-      //   company_id: '02eb568a3d2b51986946b727abb94db3439070cf46453797427ca29f1fcb22e6',
-      // },
       component: PositionPage,
       props: {
         position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',

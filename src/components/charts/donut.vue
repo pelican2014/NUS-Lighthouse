@@ -1,10 +1,9 @@
 <template>
-  <highcharts :options="options" ref="pie-chart" class="pie"></highcharts>
+  <highcharts :options="options" ref="donut-chart" class="donut"></highcharts>
 </template>
 
 <script>
 import HighchartsVue from 'highcharts-vue';
-
 
 export default {
   components: {
@@ -35,12 +34,10 @@ export default {
           plotBackgroundColor: null,
           plotBorderWidth: 0,
           plotShadow: false,
-          type: 'pie',
         },
         title: {
           text: this.title,
         },
-
         subtitle: {
           text: this.subtitle,
         },
@@ -57,23 +54,26 @@ export default {
               '#FFDA5A',
               '#B7D5EE',
             ],
-            size: 140,
             allowPointSelect: true,
             cursor: 'pointer',
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%'],
             dataLabels: {
               enabled: true,
               format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-              distance: 10,
               style: {
-                fontSize: 10,
+              	fontWeight: 'bold',
+              	fontSize: 10,
               },
-            },
+          	},
           },
-        },
-
+      	},
         series: [{
+          type: 'pie',
           name: this.name,
           colorBypoint: true,
+          innerSize: '50%',
           data: this.data,
         }],
       };
