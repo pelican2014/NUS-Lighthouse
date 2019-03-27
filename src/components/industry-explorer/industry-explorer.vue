@@ -189,14 +189,10 @@ export default {
           }
         }
       }
-
       const final_data = [];
       for (const category of Object.keys(category_openings)) {
-
-      	final_data.push({ name: category, data: category_openings[category] });
-
+        final_data.push({ name: category, data: category_openings[category] });
       }
-
       return final_data;
     },
   },

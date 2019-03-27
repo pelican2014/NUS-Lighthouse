@@ -30,17 +30,9 @@ import Router from 'vue-router';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
-<<<<<<< HEAD
-import Recommended from '@/components/recommended/recommended';
-import ExplorerSearch from '@/components/explorer-search/explorer-search';
-
-import BackgroundStatistics from '@/components/background-statistics/background-statistics';
-
-=======
 // import Recommended from '@/components/recommended/recommended';
 // import ExplorerSearch from '@/components/explorer-search/explorer-search';
 // import BackgroundStatistics from '@/components/background-statistics/background-statistics';
->>>>>>> 110f4e3b71e703aad7cf0f27e918c2d6927c0e3a
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import InitialPage from '@/components/initial-page/initial-page';
