@@ -31,13 +31,14 @@ import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
 import Background from '@/components/background-statistics/background-statistics';
-
+import ExplorerSearch from '@/components/explorer-search/explorer-search';
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
+
     {
       path: '/',
       name: 'home',
@@ -175,6 +176,11 @@ export default new Router({
       path: '/internship-homepage',
       name: 'internship-homepage',
       component: InternshipHomePage,
+    },
+    {
+      path: '/explorer-search',
+      name: 'explorer-search',
+      component: ExplorerSearch,
     },
   ],
 });

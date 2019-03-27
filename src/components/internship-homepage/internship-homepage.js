@@ -3,7 +3,6 @@ import subheader from '../subheader/subheader';
 import searchBar from '../search-bar/search-bar';
 import industryExplorer from '../industry-explorer/industry-explorer';
 import recommended from '@/components/recommended/recommended';
-import explorerSearch from '@/components/explorer-search/explorer-search';
 import db from '@/firebase';
 
 
@@ -23,35 +22,8 @@ export default {
   //   },
   // },
   computed: {
-    getIndustryData() {
-      return {
-        num_interns: {
-          title: 'Number of Interns by Industry',
-          yname: 'No. of interns',
-          data: this.numInternBy('Industry'),
-        },
-        starting_salary: {
-          title: 'Starting Salary of Graduates by Industry',
-          yname: 'S$',
-          data: this.startingSalaryBy('Industry'),
-        },
-        cap: {
-          title: 'CAP of successful applicants',
-          yname: 'Cumulative Average Point (CAP)',
-          data: this.capBy('Industry'),
-        },
-        accept_rate: {
-          title: 'Internship Acceptance Rate by Major',
-          yname: 'Acceptance rate (%)',
-          data: this.acceptRateBy('Industry'),
-        },
-        opening_positions: {
-          title: 'Opening Positions by Industry',
-          yname: 'No. of positions',
-          data: this.openPositionBy('Industry'),
-        },
-      };
-    },
+
+
   },
   firebase: {
     internship: {
@@ -61,23 +33,6 @@ export default {
   },
 
   methods: {
-    numInternBy(typestring) {
-      return [
-        ['Tongyao', '1'],
-        ['a', 2]
-      ];
-    },
-    startingSalaryBy(typestring) {
-      return;
-    },
-    capBy(typestring) {
-      return;
-    },
-    acceptRateBy(typestring) {
-      return;
-    },
-    openPositionBy(typestring) {
-      return;
-    },
+
   },
 };

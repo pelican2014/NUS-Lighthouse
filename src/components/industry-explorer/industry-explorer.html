@@ -1,5 +1,7 @@
 <div>
   <div v-if="by=='industry'">
+    <ExplorerSearch>
+    </ExplorerSearch>
     <b-container>
       <b-row>
         <b-col>
@@ -23,6 +25,9 @@
     </b-container>
   </div>
   <div v-if="by=='major'">
+    {{starting_salary_data.try}}
+    <ExplorerSearch sub_title='Search for a Major' name_field='major'>
+    </ExplorerSearch>
     <b-container>
       <b-row>
         <b-col>
@@ -46,6 +51,8 @@
     </b-container>
   </div>
   <div v-if="by=='company'">
+    <ExplorerSearch sub_title='Search for a Company' name_field='company_name'>
+    </ExplorerSearch>
     <b-container>
       <b-row>
         <b-col>
