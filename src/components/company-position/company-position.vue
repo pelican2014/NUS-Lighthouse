@@ -10,6 +10,10 @@ export default {
       type: String,
       required: true,
     },
+    position_id: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>

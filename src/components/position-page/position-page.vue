@@ -9,6 +9,8 @@ import PositionDetails from '@/components/position-details/position-details';
 import BackgroundStats from '@/components/background-position/background-position';
 import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 
+import db from '@/firebase';
+
 export default{
   name: 'position-page',
   components: {
