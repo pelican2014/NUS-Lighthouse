@@ -37,7 +37,6 @@ export default {
           plotShadow: false,
           type: 'pie',
         },
-
         title: {
           text: this.title,
         },
@@ -58,12 +57,15 @@ export default {
               '#FFDA5A',
               '#B7D5EE',
             ],
-            size: 160,
+            size: 130,
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
               enabled: true,
               format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+              style: {
+                fontSize: 10,
+              },
             },
           },
         },
