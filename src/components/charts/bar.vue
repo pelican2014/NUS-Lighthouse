@@ -18,11 +18,8 @@ export default {
       type: String,
       required: true,
     },
-    yours: {
-      type: String,
-    },
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
     subtitle: {
@@ -51,18 +48,6 @@ export default {
               fontFamily: 'Verdana, sans-serif',
             },
           },
-          plotLines: [{
-            value: this.yours,
-            color: 'red',
-            width: 1,
-            label: {
-              text: 'You are here',
-              align: 'center',
-              style: {
-                color: 'gray',
-              },
-            },
-          }],
         },
         yAxis: {
           min: 0,
@@ -78,8 +63,8 @@ export default {
         },
         plotOptions: {
           column: {
-            pointPadding: 0,
-            groupPadding: 0,
+            pointPadding: 0.1,
+            groupPadding: 0.1,
             borderWidth: 0,
             color: '#FFC300',
           },
@@ -89,13 +74,13 @@ export default {
           data: this.data,
           dataLabels: {
             enabled: true,
-            rotation: -90,
+            // rotation: -90,
             color: '#FFFFFF',
-            align: 'right',
+            align: 'center',
             format: '{point.y:.1f}', // one decimal
             y: 10, // 10 pixels down from the top
             style: {
-              fontSize: '13px',
+              fontSize: '10px',
               fontFamily: 'Verdana, sans-serif',
             },
           },
