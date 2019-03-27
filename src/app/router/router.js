@@ -39,6 +39,7 @@ import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
 import PositionPage from '@/components/pages/position-page/position-page';
+import ProfPage from '@/components/prof-project-page/prof-project-page';
 
 Vue.use(Router);
 
@@ -47,7 +48,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: null,
+      component: ProfPage,
     },
     {
       path: '/about',

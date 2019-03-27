@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../../assets/publication-icon.png" alt="Recent Publication"
+    <img src="@/components/assets/publication-icon.png" alt="Recent Publication"
     align='left'
     class = 'publication-icon'>
     <i>{{description}}</i><br /><br />

@@ -1,5 +1,5 @@
-<template src="./background-statistics.html"></template>
-<style src="./background-statistics.scss" lang="scss"></style>
+<template src="./background-statistics-ra.html"></template>
+<style src="./background-statistics-ra.scss" lang="scss"></style>
 
 <script>
 import _ from 'lodash';
@@ -29,6 +29,15 @@ export default {
     },
   },
   computed: {
+    totalNum() {
+      let counter = 0;
+      for (const item_id in this.ra_dict) {
+        if (this.ra_dict[item_id].prof_id === 'p1') { // change to prof id
+          counter += 1;
+        }
+      }
+      return counter;
+    },
     publication() {
       const professors = this.prof_dict['.value'];
       if (professors == null) {
@@ -46,7 +55,7 @@ export default {
       let female = 0;
       let male = 0;
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === 'p1') { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.gender === 'F') {
             female += 1;
@@ -64,7 +73,7 @@ export default {
       let prev;
       const majors = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === '1') {
+        if (this.ra_dict[item_id].prof_id === 'p1') {
           const ra = this.ra_dict[item_id];
           majors.push(ra.major);
         }
@@ -94,7 +103,7 @@ export default {
       let prev;
       const race_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === 'p1') { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.race !== '') {
             race_list.push(ra.race);
@@ -125,7 +134,7 @@ export default {
       let prev;
       const country_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === 'p1') { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.nationality !== '') {
             country_list.push(ra.nationality);
@@ -156,7 +165,7 @@ export default {
       let prev;
       const year_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === 'p1') { // change to prof id
           const ra = this.ra_dict[item_id];
           year_list.push(ra.year);
         }
@@ -188,16 +197,15 @@ export default {
     cap_hist() {
       const cap_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === '1') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === 'p1') {
           const ra = this.ra_dict[item_id];
           cap_list.push(ra.cap);
         }
       }
-
       const breakpoints = [1, 2, 3, 4, 5];
       const first = breakpoints[0];
       const last = breakpoints.slice(-1)[0];
-      const trimmed = _.map(this.cap_list, (o) => {
+      const trimmed = _.map(cap_list, (o) => {
         if (o > last) {
           return 5;
         } else if (o < first) {
@@ -213,7 +221,7 @@ export default {
         } else if (current_point >= last) {
           return { name: '>=' + last, y: count };
         } else {
-          const next_point = breakpoints[breakpoints.indexOf(current_point) + 1];
+          const next_point = Number(current_point) + 1;
           return { name: current_point + ' to ' + next_point, y: count };
         }
       });
@@ -229,11 +237,6 @@ export default {
       source: db.ref('professor'),
       asObject: true,
     },
-  },
-  data() {
-    return {
-      totalNum: 70,
-    };
   },
 };
 
