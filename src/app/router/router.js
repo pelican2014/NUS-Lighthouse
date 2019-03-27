@@ -40,7 +40,7 @@ import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import BackgroundPosition from '@/components/background-position/background-position';
 import PositionPage from '@/components/pages/position-page/position-page';
 import ProfPage from '@/components/prof-project-page/prof-project-page';
-
+import ModulePage from '@/components/module-ta-page/module-ta-page';
 
 Vue.use(Router);
 
@@ -77,16 +77,23 @@ export default new Router({
       component: RAPage,
     },
     {
-      path: '/company-page/:company_id',
+      path: '/company-page',
       name: 'company-page',
       component: CompanyHome,
-      props: true,
+      props: {
+        company_id: '0b8edaf4d27a3edec878a2328f1e12aac885c3f437f4dcc6bc17254964e3c969',
+      },
     },
     {
       path: '/position-page/:position_id',
       name: 'position-page',
       component: PositionPage,
       props: true,
+    },
+    {
+      path: '/module-page',
+      name: '/module-page',
+      component: ModulePage,
     },
   ],
 });
