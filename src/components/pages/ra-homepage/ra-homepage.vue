@@ -106,6 +106,17 @@ export default {
         data: counts,
       }));
     },
+
+    professor_search() {
+      for (const prof_id in this.professor) {
+        if (typeof this.professor[prof_id] !== 'object') continue;
+        const search_string = this.professor[prof_id]['Prof Name']
+          + this.professor[prof_id]['Focus'];
+        for (const projects of this.professor[prof_id]['Projects']) {
+          
+        }
+      }
+    },
   },
 
   firebase: {

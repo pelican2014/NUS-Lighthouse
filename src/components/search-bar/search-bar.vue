@@ -17,6 +17,9 @@ export default {
     name_field: {
       default: 'company_name',
     },
+    search_field: {
+      default: 'company_name',
+    },
   },
   data() {
     return {
@@ -56,6 +59,7 @@ export default {
         const results_item = {
           item_id,
           name: this.data_dict[item_id][this.name_field],
+          search: this.data_dict[item_id][this.search_field],
         };
         if ('image_url' in this.data_dict[item_id]) {
           results_item.image_url = this.data_dict[item_id].image_url;
