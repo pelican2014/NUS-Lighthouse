@@ -2,6 +2,7 @@
 <style src="./background-statistics-ta.scss" lang="scss"></style>
 
 <script>
+import _ from 'lodash';
 import db from '@/firebase';
 import PieChart from '@/components/charts/pie';
 import BarChart from '@/components/charts/bar';
@@ -179,9 +180,9 @@ export default {
     cap_hist() {
       const cap_list = [];
       const ta_list = this.ta_dict;
-      for (const item_id in this.ta_dict) {
+      for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) {
-          const ta = ta_dict[item_id];
+          const ta = ta_list[item_id];
           cap_list.push(ta.cap);
         }
       }

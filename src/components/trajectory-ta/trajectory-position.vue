@@ -2,6 +2,7 @@
 <style src="./trajectory-position.scss" lang="scss"></style>
 
 <script>
+import _ from 'lodash';
 import db from '@/firebase';
 import Pie from '@/components/charts/pie';
 import Lines from '@/components/charts/line';
@@ -34,7 +35,7 @@ export default{
       const freq = [];
       let prev;
       const path_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to module
           const ta = ta_list[item_id];
@@ -67,7 +68,7 @@ export default{
       const freq = [];
       let prev;
       const industry_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           const ta = ta_list[item_id];
@@ -100,7 +101,7 @@ export default{
       const freq = [];
       let prev;
       const course_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           const ta = ta_list[item_id];
@@ -128,25 +129,12 @@ export default{
       }
       return result;
     },
-    salary() {
-      const salary_list = [];
-      const ta_list = this.ta_dict['.value'];
-      for (const item_id in ta_list) {
-        if (ta_list[item_id].module_code === this.module) { // change to module
-          const ta = ta_list[item_id];
-          if (ta.starting_salary !== '') {
-            salary_list.push(ta.starting_salary);
-          }
-        }
-      }
-      return salary_list;
-    },
     university() {
       const uni = [];
       const freq = [];
       let prev;
       const uni_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to module
           const ta = ta_list[item_id];
@@ -179,7 +167,7 @@ export default{
       const freq = [];
       let prev;
       const research_list = [];
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           const ta = ta_list[item_id];
@@ -209,13 +197,50 @@ export default{
     },
     count() {
       let counter = 0;
-      const ta_list = this.ta_dict['.value'];
+      const ta_list = this.ta_dict;
       for (const item_id in ta_list) {
         if (ta_list[item_id].module_code === this.module) { // change to prof id
           counter += 1;
         }
       }
       return counter;
+    },
+    salary_hist() {
+      const salary_list = [];
+      const ta_list = this.ta_dict;
+      for (const item_id in ta_list) {
+        if (ta_list[item_id].module_code === this.module) { // change to prof id
+          const ta = ta_list[item_id];
+          if (ta.starting_salary) {
+            salary_list.push(ta.starting_salary);
+          }
+        }
+      }
+      // console.log(salary_list);
+      const breakpoints = [1000, 2000, 3000, 4000, 5000, 6000];
+      const first = breakpoints[0];
+      const last = breakpoints.slice(-1)[0];
+      const trimmed = _.map(salary_list, (o) => {
+        if (o > last) {
+          return 6;
+        } else if (o < first) {
+          return 1;
+        } else {
+          return Math.floor(o / 1000);
+        }
+      });
+      const counts = _.map(_.countBy(trimmed), (count, point) => {
+        const current_point = point * 1000;
+        if (current_point < first) {
+          return { name: '<' + first, y: count };
+        } else if (current_point >= last) {
+          return { name: '>=' + last, y: count };
+        } else {
+          const next_point = Number(current_point) + 1000;
+          return { name: current_point + ' to ' + next_point, y: count };
+        }
+      });
+      return counts;
     },
   },
   firebase: {
