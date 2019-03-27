@@ -10,8 +10,9 @@ export default {
     sub_title: {
       default: 'Search for Company',
     },
-    table_name: {
-      default: 'company',
+    data_dict: {
+      type: Object,
+      required: true,
     },
     name_field: {
       default: 'company_name',
@@ -62,12 +63,6 @@ export default {
         results.push(results_item);
       }
       return results;
-    },
-  },
-  firebase: {
-    data_dict: {
-      source: db.ref('company'),
-      asObject: true,
     },
   },
 };

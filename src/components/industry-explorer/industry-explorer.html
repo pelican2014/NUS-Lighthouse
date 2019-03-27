@@ -20,12 +20,11 @@
         </b-col>
       </b-row>
       <b-row>
-        <AreaChart></AreaChart>
+        <AreaChart title = 'Opening Positions by Industry' subtitle= 'in the last year' :data="opening_positions_data"></AreaChart>
       </b-row>
     </b-container>
   </div>
   <div v-if="by=='major'">
-    {{starting_salary_data.try}}
     <ExplorerSearch sub_title='Search for a Major' name_field='major'>
     </ExplorerSearch>
     <b-container>
@@ -46,7 +45,7 @@
         </b-col>
       </b-row>
       <b-row>
-        <AreaChart></AreaChart>
+        <AreaChart title = 'Opening Positions by Major' subtitle= 'in the last year' :data="opening_positions_data"></AreaChart>
       </b-row>
     </b-container>
   </div>

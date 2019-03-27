@@ -11,6 +11,7 @@ export default {
           name: 'Google Singapore Software Engineer',
         },
         {
+          id: 'p1',
           image_url: 'https://www.comp.nus.edu.sg/images/resources/content/about/HAHN-Jungpil-2-IMG.png',
           name: 'HAHN Jungpil',
           data: ['Project Title:', 'Blockchain Governance and Consensus Mechanisms'],

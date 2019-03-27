@@ -7,9 +7,6 @@ import db from '@/firebase';
 export default {
   name: 'FilteredSearch',
   props: {
-    sub_title: {
-      default: 'Search for Company',
-    },
     table_name: {
       default: 'company',
     },
@@ -20,7 +17,15 @@ export default {
       default: 'industry',
     },
     filter_b_key: {
-      default: 'industry',
+      default: 'major',
+    },
+  },
+  watch: {
+    filter_a_value(val) {
+      this.$emit('update-filter-a', val);
+    },
+    filter_b_value(val) {
+      this.$emit('update-filter-b', val);
     },
   },
   data() {

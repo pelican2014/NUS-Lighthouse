@@ -29,7 +29,7 @@ export default {
     },
   },
   computed: {
-    optiones() {
+    options() {
       return {
         chart: {
           type: 'area',

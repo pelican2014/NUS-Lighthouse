@@ -31,7 +31,7 @@ export default {
       required: true,
     },
     mean: {
-      type: Number,
+      type: String,
     },
     data: {
       type: Array,
