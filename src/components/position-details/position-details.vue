@@ -2,6 +2,7 @@
 <style src="./position-details.scss" lang="scss"></style>
 
 <script>
+import _ from 'lodash';
 import db from '@/firebase';
 import Lines from '@/components/charts/line';
 import Histogram from '@/components/charts/histogram';
@@ -39,26 +40,26 @@ export default {
       return id;
     },
     num_positions() {
-      if (!this.companyID || !(this.companyID in this.company_dict)) return;
+      if (!this.companyID || !(this.companyID in this.company_dict)) return null;
       return [{ name: 'Openings', data: this.company_dict[this.companyID].positions[this.position_id].number_of_openings }];
     },
     salary() {
-      if (!this.companyID || !(this.companyID in this.company_dict)) return;
+      if (!this.companyID || !(this.companyID in this.company_dict)) return null;
       return this.company_dict[this.companyID].positions[this.position_id].starting_salary;
     },
     title() {
-      if (!this.companyID || !(this.companyID in this.company_dict)) return;
+      if (!this.companyID || !(this.companyID in this.company_dict)) return null;
       return this.company_dict[this.companyID].positions[this.position_id].position_name;
     },
     all_salary() {
-      if(!this.title) return;
+      if (!this.title) return null;
       const salaries = [];
       for (const company_id in this.company_dict) {
         if (company_id) {
           const positions = this.company_dict[company_id].positions;
           for (const position_id in positions) {
-            if (positions[position_id].position_name == this.title) {
-              salaries.push(positions[position_id].starting_salary)
+            if (positions[position_id].position_name === this.title) {
+              salaries.push(positions[position_id].starting_salary);
             }
           }
         }

@@ -58,7 +58,7 @@ export default {
               '#FFDA5A',
               '#B7D5EE',
             ],
-            size: 140,
+            size: 160,
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
@@ -71,7 +71,6 @@ export default {
         series: [{
           name: this.name,
           colorBypoint: true,
-          // data: this.transform(this.data),
           data: this.data,
         }],
       };

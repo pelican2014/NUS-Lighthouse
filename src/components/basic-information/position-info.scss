@@ -1,6 +1,7 @@
 .internship-position-title {
   background-color: rgba(218, 227, 242, 0.8);
   width: auto;
+  border-radius: 1rem;
 /*
   margin-top: -2.5em;
   margin-right: 0.2em;
@@ -15,10 +16,10 @@
 }
 
 .position-company {
-  font-size: 20px;
+  font-size: 32px;
+  font-weight: bold;
   float: right;
   color: rgb(31, 80, 140);
-  font-weight: bold;
   text-align:right;
 }
 
