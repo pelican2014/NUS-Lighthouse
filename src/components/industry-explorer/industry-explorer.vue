@@ -30,7 +30,6 @@ export default {
   },
   methods: {},
   computed: {
-
     internship_instances() {
       const results = {};
       let criteria = this.by;
@@ -71,14 +70,6 @@ export default {
         number: _.meanBy(instance, 'acceptance_rate'),
       })), 'number'), 'category');
 
-      /*
-      // concatenate other industries that are out of top 9 in number
-      const others = _.concat(_.map(sorted_industries.slice(0, -9)), industry => results[industry]);
-      const final_results = _.pick(results, sorted_industries.slice(-9));
-<<<<<<< HEAD
-      final_results.Others = _.concat(..._.values(_.pick(results, others)));
-      */
-
       const final_results = _.pick(results, sorted_categories.slice(-10));
       return _.reverse(_.map(
         final_results,
@@ -116,15 +107,7 @@ export default {
     starting_salary_data() {
       const results = this.internship_instances;
       // sort the categories based on mean starting salary
-      const sorted = _.map(
-        _.sortBy(
-          _.filter(_.map(results, (instance, category) => ({
-              category,
-              averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary'),
-            })),
-            x => x.averageSalary),
-          'averageSalary'),
-        'category');
+      const sorted = _.map(_.sortBy(_.filter(_.map(results, (instance, category) => ({ category, averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary') })), x => x.averageSalary), 'averageSalary'), 'category');
       const final_results = _.pick(results, sorted.slice(-10));
       const categories_salary = _.map(final_results, (instance, category) => ({
         category,
@@ -153,7 +136,7 @@ export default {
         try: _.filter(_.sortBy(_.map(results, (instance, category) => ({
           category,
           averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary'),
-        })), 'averageSalary'), x => x.averageSalary)
+        })), 'averageSalary'), x => x.averageSalary),
       };
     },
 
@@ -187,56 +170,32 @@ export default {
 
       return { category: categories, cap: required_data };
     },
-
     opening_positions_data() {
-
       const results = this.last_year_internship_instances;
       const sorted_categories = _.map(_.sortBy(_.map(results, (instance, category) => ({
-        category: category,
+        category,
         numInterns: instance.length,
       })), 'numInterns'), 'category');
       const needed_data = _.pick(results, sorted_categories.slice(-10));
       // pick top ten industries that have the most number of interns
       const category_openings = {};
-
-
       for (const category of Object.keys(needed_data)) {
         const entries = needed_data[category];
-        // for each category, create an array to represent monthly openings 
+        // for each category, create an array to represent monthly openings
         category_openings[category] = Array(12).fill(0);
 
         for (const entry of entries) {
           for (let i = entry.starting_month; i <= entry.ending_month; i += 1) {
-              category_openings[category][i-1] += 1;
+            category_openings[category][i - 1] += 1;
           }
         }
       }
 
-      const final_data = []
-      for (const category of Object.keys(category_openings)){
-      	final_data.push({'name':category, 'data': category_openings[category]});
+      const final_data = [];
+      for (const category of Object.keys(category_openings)) {
+        final_data.push({ name: category, data: category_openings[category] });
       }
 
-      /*
-      const category_month = _.map(needed_data, (instance, category) => ({
-        category,
-        starting: _.map(instance, x => x.starting_month),
-        ending: _.map(instance, x => x.ending_month),
-        len: instance.length,
-      }));
-
-            for (const entry of category_month) {
-              const category = entry['category'];
-              for (let i = 0; i < entry.starting.length; i++) {
-                let start = entry.starting[i];
-                const end = entry.ending[i];
-                while (start <= end) {
-                  category_openings[category][start - 1] += 1;
-                  start = start % 12 + 1;
-                }
-              }
-            }
-            */
       return final_data;
     },
   },
