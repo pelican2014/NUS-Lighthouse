@@ -54,10 +54,9 @@ export default {
           },
           plotLines: [{
             value: this.yours,
-            color: '#FFA500',
-            dashStyle: 'LongDash',
-            width: 3,
-            zIndex: 5,
+            color: 'red',
+            width: 1,
+            zIndex: 2,
             label: {
               text: 'You are here',
               align: 'left',

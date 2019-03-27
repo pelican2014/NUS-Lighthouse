@@ -24,10 +24,10 @@ import Router from 'vue-router';
 // import FilteredSearch from '@/components/filtered-search/filtered-search';
 // import PositionDetails from '@/components/position-details/position-details';
 // import BasicInformation from '@/components/basic-information/basic-information';
-// import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
+// import TrajectoryPosition from '@/components/trajectory-ta/trajectory-position';
 // import PositionStats from '@/components/position-stats/position-stats';
 // import Insights from '@/components/industry-insight/industry-insight';
-import InternshipHomePage from '@/components/pages/internship-homepage/internship-homepage';
+// // import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/pages/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
@@ -40,6 +40,7 @@ import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import BackgroundPosition from '@/components/background-position/background-position';
 import PositionPage from '@/components/pages/position-page/position-page';
 import ProfPage from '@/components/prof-project-page/prof-project-page';
+
 
 Vue.use(Router);
 

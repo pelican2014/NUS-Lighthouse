@@ -1,0 +1,18 @@
+<b-container class="bv-example-row">
+  <div class="background-header">
+    Total Number of Past TAs: {{ count }}
+  </div>
+  <b-row>
+    <b-col><PieChart title = 'Gender' name = 'gender' :data = 'gender'></PieChart></b-col>
+    <b-col><BarChart title = 'Nationality' yname = 'nationality' :data = 'nationality'></BarChart></b-col>
+  </b-row>
+  <b-row>
+    <b-col><BarChart title = 'Race' yname = 'number of people' :data = 'race'></BarChart></b-col>
+    <b-col><PieChart title = 'Major' name = 'major' :data = 'major'></PieChart></b-col>
+  </b-row>
+
+  <b-row>
+    <b-col><BarChart title = 'Cumulative Average Points' yname = 'CAP' :data = 'cap_hist'></BarChart></b-col>
+    <b-col><LineChart title = 'number of TAs' yname = 'number of people':x = 'number.x' :data = 'number.data'></LineChart></b-col>
+  </b-row>
+</b-container>
