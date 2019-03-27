@@ -7,7 +7,7 @@ import BarChart from '@/components/charts/bar';
 import AreaChart from '@/components/charts/area';
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
 import Boxplot from '@/components/charts/boxplot';
-import ExplorerSearch from '../explorer-search/explorer-search';
+import ExplorerSearch from '@/components/explorer-search/explorer-search';
 
 export default {
   name: 'IndustryExplorer',
@@ -121,12 +121,10 @@ export default {
         if (!arr.length) return arr;
         return math.quantileSeq(arr, [0, 0.25, 0.5, 0.75, 1]);
       };
-
       // get the required data for a box plot.
       const required_data = _.map(sorted_salaries,
         x => get_box_points(x),
       );
-
       return {
         category: categories,
         salary: required_data,

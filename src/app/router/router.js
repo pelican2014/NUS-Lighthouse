@@ -27,7 +27,7 @@ import Router from 'vue-router';
 // import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
 // import PositionStats from '@/components/position-stats/position-stats';
 // import Insights from '@/components/industry-insight/industry-insight';
-import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
+import InternshipHomePage from '@/components/pages/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
 import CompanyHome from '@/components/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';

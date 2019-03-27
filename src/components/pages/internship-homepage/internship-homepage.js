@@ -1,7 +1,7 @@
-import topHeader from '../top-header/top-header';
-import subheader from '../subheader/subheader';
-import searchBar from '../search-bar/search-bar';
-import industryExplorer from '../industry-explorer/industry-explorer';
+import topHeader from '@/components/top-header/top-header';
+import subheader from '@/components/subheader/subheader';
+import searchBar from '@/components/search-bar/search-bar';
+import industryExplorer from '@/components/industry-explorer/industry-explorer';
 import recommended from '@/components/recommended/recommended';
 import db from '@/firebase';
 
