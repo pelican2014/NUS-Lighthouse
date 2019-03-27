@@ -51,7 +51,6 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-<<<<<<< HEAD
       component: ProfPage,
     },
     {
@@ -98,46 +97,10 @@ export default new Router({
       name: '/module-page',
       component: ModulePage,
     },
-=======
+    {
+      path: '/ta-page',
+      name: 'ta-page',
       component: TaPage,
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: About,
-    // },
-    // {
-    //   path: '/contact',
-    //   name: 'contact',
-    //   component: Contact,
-    // },
-    // {
-    //   path: '/industryPage',
-    //   name: 'industryPage',
-    //   component: IndustryPage,
-    // },
-    // {
-    //   path: '/internship-homepage',
-    //   name: 'internship-homepage',
-    //   component: InternshipHomePage,
-    // },
-    // {
-    //   path: '/raPage',
-    //   name: 'raPage',
-    //   component: RAPage,
-    // },
-    // {
-    //   path: '/company-page/:company_id',
-    //   name: 'company-page',
-    //   component: CompanyHome,
-    //   props: true,
-    // },
-    // {
-    //   path: '/position-page/:position_id',
-    //   name: 'position-page',
-    //   component: PositionPage,
-    //   props: true,
-    // },
->>>>>>> 46f4d3f83eeab153396e3851c4547ef35af4094d
   ],
 });
