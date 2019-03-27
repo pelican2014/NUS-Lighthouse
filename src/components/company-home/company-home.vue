@@ -6,7 +6,7 @@ import db from '@/firebase';
 import Header from '@/components/top-header/top-header';
 import Subheader from '@/components/subheader/subheader';
 import Company from '@/components/company/company';
-import Stats from '@/components/position-stats/position-stats';
+// import Stats from '@/components/position-stats/position-stats';
 import OpeningPosition from '@/components/opening-positions/opening-positions';
 
 
@@ -16,7 +16,7 @@ export default {
   	Header,
   	Subheader,
   	Company,
-    Stats,
+    // Stats,
     OpeningPosition,
   },
   props: {

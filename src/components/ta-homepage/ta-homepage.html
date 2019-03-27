@@ -1,0 +1,37 @@
+<b-container>
+  <b-row>
+    <Boxplot
+      title="CAP of Successful TA Applicants"
+      subtitle="in the past years"
+      xname="Major"
+      :xcategory="cap.xcategory"
+      yname="CAP"
+      :data="cap.data"
+    ></Boxplot>
+  </b-row>
+  <b-row>
+    <b-col>
+      <HorizontalBarChart
+        title="TA Acceptance Rates by Major"
+        subtitle="in the past 5 years"
+        yname="Major"
+        :data="acceptance_rate"
+      ></HorizontalBarChart>
+    </b-col>
+    <b-col>
+      <HorizontalBarChart
+        title="Number of TAs by Major"
+        subtitle="in the past 5 years"
+        yname="Major"
+        :data="number"
+      ></HorizontalBarChart>
+    </b-col>
+  </b-row>
+  <b-row>
+    <AreaChart
+      title="Opening Positions by Target Majors"
+      subtitle="in the past year"
+      :data="opening_positions"
+    ></AreaChart>
+  </b-row>
+</b-container>

@@ -22,9 +22,7 @@ import Modal from '@/components/modal/modal';
 import CurrentProjects from '@/components/current-projects/current-projects';
 import FilteredSearch from '@/components/filtered-search/filtered-search';
 import PositionDetails from '@/components/position-details/position-details';
-import BasicInformation from '@/components/basic-information/basic-information';
 import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
-import PositionStats from '@/components/position-stats/position-stats';
 import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/internship-homepage/internship-homepage';
 import OpeningPositions from '@/components/opening-positions/opening-positions';
@@ -32,25 +30,12 @@ import CompanyHome from '@/components/company-home/company-home';
 import Recommended from '@/components/recommended/recommended';
 import Background from '@/components/background-statistics/background-statistics';
 import InitialPage from '@/components/initial-page/initial-page';
-import PositionInfo from '@/components/basic-information/position-info';
+import TaHomepage from '@/components/ta-homepage/ta-homepage';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: PositionInfo,
-      props: {
-        image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
-        position_id: '034bbae6bf3f89bc9f7bdce01130c03248b362d94c6e8266299e124573626133',
-      },
-      // component: CompanyHome,
-      // props: {
-      //   company_id: '06775d9a4d67bcdd1485a82de0486ccf3501d53d0caf44b9ead2423cfce2a510',
-      // },
-    },
     {
       path: '/current-projects',
       name: 'current-projects',
@@ -65,14 +50,6 @@ export default new Router({
       path: '/ra-charts',
       name: 'ra-charts',
       component: RAChart,
-    },
-    {
-      path: '/position-stats',
-      name: 'position-stats',
-      component: PositionStats,
-      props: {
-        company_id: 'e4e98f1268b629c48766c024861cff696c3fecb89396c622d609dd88f5ccae8e',
-      },
     },
     {
       path: '/contact',
@@ -94,30 +71,6 @@ export default new Router({
       path: '/RecentPublications',
       name: 'RecentPublications',
       component: RecentPublications,
-    },
-    {
-      path: '/BasicInformationInternship',
-      name: 'BasicInformationInternship',
-      component: BasicInformation,
-      props: {
-        section: 'Internship',
-      },
-    },
-    {
-      path: '/BasicInformationResearch',
-      name: 'BasicInformationResearch',
-      component: BasicInformation,
-      props: {
-        section: 'Research',
-      },
-    },
-    {
-      path: '/BasicInformationTeaching',
-      name: 'BasicInformationTeaching',
-      component: BasicInformation,
-      props: {
-        section: 'Teaching',
-      },
     },
     {
       path: '/company-description',
@@ -176,6 +129,11 @@ export default new Router({
       path: '/background-statistics',
       name: 'background-statistics',
       component: Background,
+    },
+    {
+      path: '/ta-homepage',
+      name: 'ta-homepage',
+      component: TaHomepage,
     },
   ],
 });

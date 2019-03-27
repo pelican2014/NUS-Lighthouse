@@ -4,6 +4,7 @@
 
 <script>
 import HighchartsVue from 'highcharts-vue';
+
 export default {
   components: {
     HighchartsVue,
@@ -118,4 +119,3 @@ export default {
   width: 100%;
 }
 </style>
-
