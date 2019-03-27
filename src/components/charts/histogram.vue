@@ -23,7 +23,7 @@ export default {
       required: false,
     },
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
     subtitle: {

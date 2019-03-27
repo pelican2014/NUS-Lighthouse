@@ -181,7 +181,7 @@ export default {
       const last = breakpoints.slice(-1)[0];
       const trimmed = _.map(this.grad_internship, (o) => {
         if (o.starting_salary > last) {
-          return 7000;
+          return 7;
         } else if (o.starting_salary < first) {
           return 0;
         } else {

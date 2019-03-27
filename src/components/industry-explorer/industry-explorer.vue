@@ -108,6 +108,7 @@ export default {
       const results = this.internship_instances;
       // sort the categories based on mean starting salary
       const sorted = _.map(_.sortBy(_.filter(_.map(results, (instance, category) => ({ category, averageSalary: _.meanBy(_.filter(instance, x => (x.starting_salary !== null && x.starting_salary !== 0 && x.starting_salary !== '')), 'starting_salary') })), x => x.averageSalary), 'averageSalary'), 'category');
+
       const final_results = _.pick(results, sorted.slice(-10));
       const categories_salary = _.map(final_results, (instance, category) => ({
         category,
@@ -139,7 +140,6 @@ export default {
         })), 'averageSalary'), x => x.averageSalary),
       };
     },
-
 
     cap_data() {
       const results = this.internship_instances;
@@ -183,7 +183,6 @@ export default {
         const entries = needed_data[category];
         // for each category, create an array to represent monthly openings
         category_openings[category] = Array(12).fill(0);
-
         for (const entry of entries) {
           for (let i = entry.starting_month; i <= entry.ending_month; i += 1) {
             category_openings[category][i - 1] += 1;
@@ -193,7 +192,9 @@ export default {
 
       const final_data = [];
       for (const category of Object.keys(category_openings)) {
-        final_data.push({ name: category, data: category_openings[category] });
+
+      	final_data.push({ name: category, data: category_openings[category] });
+
       }
 
       return final_data;
