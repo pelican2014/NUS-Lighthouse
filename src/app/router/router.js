@@ -33,13 +33,13 @@ import CompanyHome from '@/components/pages/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
 // import ExplorerSearch from '@/components/explorer-search/explorer-search';
 // import BackgroundStatistics from '@/components/background-statistics/background-statistics';
-import IndustryPage from '@/components/pages/industry-page/industry-page';
-import RAPage from '@/components/pages/ra-homepage/ra-homepage';
+// import IndustryPage from '@/components/pages/industry-page/industry-page';
+// import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 // import InitialPage from '@/components/initial-page/initial-page';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
-import PositionPage from '@/components/pages/position-page/position-page';
-import ProfPage from '@/components/prof-project-page/prof-project-page';
+// import PositionPage from '@/components/pages/position-page/position-page';
+import TaPage from '@/components/ta-homepage/ta-homepage';
 
 
 Vue.use(Router);
@@ -49,44 +49,44 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: ProfPage,
+      component: TaPage,
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact,
-    },
-    {
-      path: '/industryPage',
-      name: 'industryPage',
-      component: IndustryPage,
-    },
-    {
-      path: '/internship-homepage',
-      name: 'internship-homepage',
-      component: InternshipHomePage,
-    },
-    {
-      path: '/raPage',
-      name: 'raPage',
-      component: RAPage,
-    },
-    {
-      path: '/company-page/:company_id',
-      name: 'company-page',
-      component: CompanyHome,
-      props: true,
-    },
-    {
-      path: '/position-page/:position_id',
-      name: 'position-page',
-      component: PositionPage,
-      props: true,
-    },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   component: About,
+    // },
+    // {
+    //   path: '/contact',
+    //   name: 'contact',
+    //   component: Contact,
+    // },
+    // {
+    //   path: '/industryPage',
+    //   name: 'industryPage',
+    //   component: IndustryPage,
+    // },
+    // {
+    //   path: '/internship-homepage',
+    //   name: 'internship-homepage',
+    //   component: InternshipHomePage,
+    // },
+    // {
+    //   path: '/raPage',
+    //   name: 'raPage',
+    //   component: RAPage,
+    // },
+    // {
+    //   path: '/company-page/:company_id',
+    //   name: 'company-page',
+    //   component: CompanyHome,
+    //   props: true,
+    // },
+    // {
+    //   path: '/position-page/:position_id',
+    //   name: 'position-page',
+    //   component: PositionPage,
+    //   props: true,
+    // },
   ],
 });
