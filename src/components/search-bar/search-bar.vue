@@ -17,8 +17,14 @@ export default {
     name_field: {
       default: 'company_name',
     },
+    secondary_field: {
+      default: undefined,
+    },
     search_field: {
       default: 'company_name',
+    },
+    id_field: {
+      default: 'id',
     },
   },
   data() {
@@ -63,6 +69,9 @@ export default {
         };
         if ('image_url' in this.data_dict[item_id]) {
           results_item.image_url = this.data_dict[item_id].image_url;
+        }
+        if (this.secondary_field in this.data_dict[item_id]) {
+          results_item.secondary = this.data_dict[item_id][this.secondary_field];
         }
         results.push(results_item);
       }

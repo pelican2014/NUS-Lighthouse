@@ -4,8 +4,12 @@
     v-model="input"
     :items="data"
     item-text="search"
-    item-value="name"
+    item-value="search"
   >
+    <template v-slot:selection="data">
+      {{ data.item.name }}
+    </template>
+
     <template v-slot:item="data">
       <template>
         <v-list-tile-avatar v-if="data.item.image_url">
@@ -16,6 +20,7 @@
         </v-list-tile-avatar>
         <v-list-tile-content>
           <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
+          <v-list-tile-subtitle class="search-subtitle" v-html="data.item.secondary"></v-list-tile-subtitle>
         </v-list-tile-content>
       </template>
     </template>
