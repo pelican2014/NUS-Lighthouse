@@ -2,7 +2,7 @@ import topHeader from '@/components/top-header/top-header';
 import subheader from '@/components/subheader/subheader';
 import searchBar from '@/components/search-bar/search-bar';
 import industryExplorer from '@/components/industry-explorer/industry-explorer';
-import recommended from '@/components/recommended/recommended';
+import recommended from '@/components/recommended-position/recommended-position';
 import db from '@/firebase';
 
 

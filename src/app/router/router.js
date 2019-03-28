@@ -65,9 +65,10 @@ export default new Router({
       component: Contact,
     },
     {
-      path: '/profPage',
+      path: '/profPage/:prof_id',
       name: 'profPage',
       component: ProfPage,
+      props: true,
     },
     {
       path: '/industryPage',
@@ -99,9 +100,10 @@ export default new Router({
       props: true,
     },
     {
-      path: '/module-page',
+      path: '/module-page/:module_name',
       name: '/module-page',
       component: ModulePage,
+      props: true,
     },
     {
       path: '/ta-page',

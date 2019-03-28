@@ -6,7 +6,7 @@ import math from 'mathjs';
 import TopHeader from '@/components/top-header/top-header';
 import SubHeader from '@/components/subheader/subheader';
 import SearchBar from '@/components/search-bar/search-bar';
-import Recommended from '@/components/recommended/recommended';
+import Recommended from '@/components/recommended-ta/recommended-ta';
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
 import Boxplot from '@/components/charts/boxplot';
 import AreaChart from '@/components/charts/area';
