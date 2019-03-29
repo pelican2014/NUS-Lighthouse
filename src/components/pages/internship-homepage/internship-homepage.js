@@ -13,7 +13,7 @@ export default {
     subheader,
     searchBar,
     industryExplorer,
-    recommended
+    recommended,
   },
   // props: {
   //   data: {

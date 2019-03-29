@@ -35,6 +35,9 @@ export default{
       }
       return results;
     },
+    filtered_internships() {
+      return this.internships;
+    },
     number() {
       if (!this.internships) {
         return null;
@@ -176,6 +179,29 @@ export default{
         }
       });
       return counts;
+    },
+    sankey() {
+      const sankey_map = {};
+      const results = [];
+      for (const internship_id of this.filtered_internships) {
+        const entry = this.internship_dict[internship_id];
+        if (typeof entry !== 'object') continue;
+        const major_path = String([entry.major, entry.path]);
+        const path_industry = String([entry.path, entry.industry]);
+        sankey_map[major_path] = sankey_map[major_path]
+          ? sankey_map[major_path] + 1
+          : 1;
+        sankey_map[path_industry] = sankey_map[path_industry]
+          ? sankey_map[path_industry] + 1
+          : 1;
+      }
+      for (const from_to in sankey_map) {
+        if (typeof sankey_map[from_to] !== 'number') continue;
+        const entry = from_to.split(',');
+        entry.push(sankey_map[from_to]);
+        results.push(entry);
+      }
+      return results;
     },
   },
   firebase: {

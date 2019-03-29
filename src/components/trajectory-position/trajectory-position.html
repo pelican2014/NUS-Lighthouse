@@ -1,7 +1,10 @@
 <div>
 	<h3 class ='title'> Total number of RAs: {{number}}</h3>
 	<b-row>
-		<Sankey></Sankey>
+		<Sankey
+			:data="sankey"
+			title="Future Trajectory Sankey Diagram"
+		></Sankey>
 	</b-row>
 	<!-- <b-row>
 		<b-col class = 'col'>
