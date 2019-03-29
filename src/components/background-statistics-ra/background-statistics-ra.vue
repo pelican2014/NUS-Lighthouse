@@ -267,7 +267,7 @@ export default {
         }
       }
 
-      const color_list = ['#4e3a96', '#0e75bc', '#f89520', '#9c5252', '#685343', '#175742', '#ecb605', '#fbd0bf', '#7e8eff'];
+      const color_list = ['#f9ee0e', '#eded10', '#ff9500', '#5c7a1c', '#a1af31', '#1e3c70', '#ff7d00'];
       const result = [];
       for (let i = 0; i < faculty_list.length; i += 1) {
         const fac = faculty_list[i];
@@ -283,11 +283,14 @@ export default {
         }
         const freq_min = Math.min(values);
         const freq_max = Math.max(values);
-        for (let k = 0; k < values.length; k += 1) {
-          const normalised_value = (((values[k] - freq_min) * 2) / (freq_max - freq_min)) - 1;
-          const normalised_color = Color(random_color).whiten(normalised_value).hex();
-
-          result.push({ name: major[k], parent: fac, value: values[k], color: random_color });
+        if (freq_max === freq_min) {
+          result.push({ name: major[0], parent: fac, value: values[0], color: random_color });
+        } else {
+          for (let k = 0; k < values.length; k += 1) {
+            const normalised_value = (((values[k] - freq_min) * 1) / (freq_max - freq_min)) - 0.5;
+            const normalised_color = Color(random_color).blacken(normalised_value).hex();
+            result.push({ name: major[k], parent: fac, value: values[k], color: normalised_color });
+          }
         }
       }
       return result;

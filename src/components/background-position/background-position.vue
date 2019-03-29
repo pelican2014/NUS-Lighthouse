@@ -4,10 +4,13 @@
 <script>
 import _ from 'lodash';
 import db from '@/firebase';
+import Color from 'color';
+import Math from 'mathjs';
 import Pie from '@/components/charts/pie';
 import Histogram from '@/components/charts/histogram';
 import Wordcloud from '@/components/charts/word-cloud';
 import Bar from '@/components/charts/bar';
+import Treemap from '@/components/charts/treemap';
 
 export default{
   name: 'background-position',
@@ -16,6 +19,7 @@ export default{
     Pie,
     Wordcloud,
     Bar,
+    Treemap,
   },
   props: {
     position_id: {
@@ -215,6 +219,70 @@ export default{
         }
       }
       return _.sortBy(output, 1).slice(-3);
+    },
+    major_faculty() {
+      const child_list = [];
+      const faculty_list = [];
+      const major_list = [];
+      const id_list = [];
+      for (const item_id in this.internship_dict) {
+        if (this.internship_dict[item_id].position_id === this.position_id) {
+          id_list.push(item_id);
+          const internship = this.internship_dict[item_id];
+          if (!major_list.includes(internship.major)) {
+            major_list.push(internship.major);
+          }
+          if (!faculty_list.includes(internship.faculty)) {
+            faculty_list.push(internship.faculty);
+          }
+        }
+      }
+
+      for (let i = 0; i < faculty_list.length; i += 1) {
+        const fac = faculty_list[i];
+        for (let j = 0; j < major_list.length; j += 1) {
+          const major = major_list[j];
+          let freq = 0;
+          for (let k = 0; k < id_list.length; k += 1) {
+            const id_faculty = this.internship_dict[id_list[k]].faculty;
+            const id_major = this.internship_dict[id_list[k]].major;
+            if ((id_faculty === fac) && (id_major === major)) {
+              freq += 1;
+            }
+          }
+          if (freq !== 0) {
+            child_list.push({ name: major, parent: fac, value: freq });
+          }
+        }
+      }
+
+      const color_list = ['#f9ee0e', '#eded10', '#ff9500', '#5c7a1c', '#a1af31', '#1e3c70', '#ff7d00'];
+      const result = [];
+      for (let i = 0; i < faculty_list.length; i += 1) {
+        const fac = faculty_list[i];
+        const major = [];
+        const values = [];
+        const random_color = color_list[Math.floor(Math.random() * color_list.length)];
+        result.push({ id: faculty_list[i], name: faculty_list[i] });
+        for (let j = 0; j < child_list.length; j += 1) {
+          if (child_list[j].parent === fac) {
+            major.push(child_list[j].name);
+            values.push(child_list[j].value);
+          }
+        }
+        const freq_min = Math.min(values);
+        const freq_max = Math.max(values);
+        if (freq_max === freq_min) {
+          result.push({ name: major[0], parent: fac, value: values[0], color: random_color });
+        } else {
+          for (let k = 0; k < values.length; k += 1) {
+            const normalised_value = (((values[k] - freq_min) * 1) / (freq_max - freq_min)) - 0.5;
+            const normalised_color = Color(random_color).blacken(normalised_value).hex();
+            result.push({ name: major[k], parent: fac, value: values[k], color: normalised_color });
+          }
+        }
+      }
+      return result;
     },
   },
   firebase: {
