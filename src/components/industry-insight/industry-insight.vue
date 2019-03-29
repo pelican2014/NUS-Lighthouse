@@ -13,6 +13,7 @@
 import Pie from '@/components/charts/pie';
 import Bar from '@/components/charts/bar';
 import LineChart from '@/components/charts/line';
+import Pyramid from '@/components/charts/population-pyramid';
 // import Histogram from '@/components/charts/histogram';
 
 export default {
@@ -50,11 +51,20 @@ export default {
       type: Number,
       required: true,
     },
+    female: {
+      type: Array,
+      required: true,
+    },
+    male: {
+      type: Array,
+      required: true,
+    },
   },
   components: {
     Pie,
     Bar,
     LineChart,
+    Pyramid,
     // Histogram,
     // PieChartGender,
     // PieChartFaculty,
