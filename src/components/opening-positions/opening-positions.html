@@ -1,6 +1,6 @@
 <div>
 	<div class="opening-positions-header"> Opening Positions </div>
 	<div class="position-frame">
-		<eachPosition v-for="position in positions" :key = 'position.position_id' :title='position.title' :position_id = 'position.position_id' class="card"></eachPosition>
+		<eachPosition v-for="position in positions" :key = 'position.position_id' :title='position.title' :position_id = 'position.position_id' :description = 'position.description' class="card"></eachPosition>
 	</div>
 </div>
