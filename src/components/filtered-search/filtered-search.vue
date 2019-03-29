@@ -77,7 +77,7 @@ export default {
         const results_item = {
           item_id,
           name: this.data_dict[item_id][this.name_field],
-          secondary: this.data_dict[item_id][this.secondary_field]
+          secondary: this.data_dict[item_id][this.secondary_field],
         };
 
         if ('image_url' in this.data_dict[item_id]) {
