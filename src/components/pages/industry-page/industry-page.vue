@@ -3,6 +3,7 @@
 
 <script>
 import _ from 'lodash';
+import NavBar from '@/components/nav-bar/nav-bar';
 import FilteredSearch from '@/components/filtered-search/filtered-search';
 import IndustryInsight from '@/components/industry-insight/industry-insight';
 import Pyramid from '@/components/charts/population-pyramid';
@@ -35,6 +36,7 @@ export default {
     FilteredSearch,
     IndustryInsight,
     Pyramid,
+    NavBar,
   },
   computed: {
     filtered_internship() {
