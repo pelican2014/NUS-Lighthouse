@@ -14,6 +14,10 @@ export default {
       type: String,
       required: true,
     },
+    description: {
+      type: String,
+      default: 'Discover the art of planning and executing a new level',
+    },
   },
 };
 </script>

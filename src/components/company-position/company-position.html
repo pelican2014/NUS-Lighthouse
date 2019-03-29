@@ -5,12 +5,33 @@
     img-top
     tag="article"
     style="max-width: 20rem;"
+    :title = 'title'
     class="mb-2"
   >
-    <b-card-text>
-      {{ title }}
-    </b-card-text>
-
-    <b-button use-router :to="{path: '/position-page/' + position_id}" href="#" variant="primary" class="button-on-card">Find out more!</b-button>
+  <span class = 'text'>{{description}}</span>
+  <br>
+  <b-link use-router :to="{path: '/position-page/' + position_id}" href="#" variant="primary" class="button-on-card">Find out more</b-link>
   </b-card>
 </div>
+
+<!-- <v-layout class = 'frame'>
+<v-flex xs12 sm6 offset-sm3>
+  <v-vard class = 'card'>
+    <v-img
+     src = "https://i.kinja-img.com/gawker-media/image/upload/ggidwytn5etyfwfyekmm.jpg"
+     aspect-ratio="2.75"
+    ></v-img>
+
+    <v-card-title primary-title>
+      <div>
+        <h3 class="headline mb-0">{{title}}</h3>
+        <div> {{ title }} </div>
+      </div>
+    </v-card-title>
+
+    <v-card-actions>
+      <v-btn use-router :to="{path: '/position-page/' + position_id}" flat color="orange" class = 'button-on-card'>Find Out More!</v-btn>
+    </v-card-actions>
+  </v-vard>
+</v-flex>
+</v-layout> -->

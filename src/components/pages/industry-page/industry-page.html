@@ -1,4 +1,5 @@
 <div>
+  <NavBar></NavBar>
   <FilteredSearch @update-filter-a="update_industry" @update-filter-b="update_major"></FilteredSearch>
   <IndustryInsight
     :number="number"
@@ -9,5 +10,7 @@
     :salary_line="salary_line"
     :salary_hist="salary_hist"
     :total_num="total_num"
+    :female="female"
+    :male="male"
   ></IndustryInsight>
 </div>

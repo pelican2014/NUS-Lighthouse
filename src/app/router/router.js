@@ -41,7 +41,7 @@ import InitialPage from '@/components/initial-page/initial-page';
 import PositionPage from '@/components/pages/position-page/position-page';
 import ProfPage from '@/components/prof-project-page/prof-project-page';
 import ModulePage from '@/components/module-ta-page/module-ta-page';
-import TaPage from '@/components/ta-homepage/ta-homepage';
+import TaPage from '@/components/pages/ta-homepage/ta-homepage';
 
 
 Vue.use(Router);
@@ -52,7 +52,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: InitialPage,
-
     },
     {
       path: '/about',

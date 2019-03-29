@@ -1,22 +1,21 @@
 <div>
-  <topHeader class='padding' username='Alice'></topHeader>
-  <!-- <subheader class='padding' field="Internship"></subheader> -->
+  <NavBar></NavBar>
   <searchBar sub_title='Search a Position' class='padding'></searchBar>
   <recommended  class='padding' ></recommended>
   <br>
   <span class='explore'> Explore by: </span>
   <div>
     <b-tabs content-class="mt-3 margin2">
-      <b-tab title="Industry" title-item-class=" text-center tabtitle" title-link-class="title-link" active>
+      <b-tab title="Industry" title-item-class=" text-center tabtitle internship-homepage-tab" title-link-class="title-link" active>
         <explorerSearch>
         </explorerSearch>
         <industryExplorer by='industry' :internship='internship'></industryExplorer>
       </b-tab>
-      <b-tab title="Major" title-item-class=" text-center tabtitle" title-link-class="title-link">
+      <b-tab title="Major" title-item-class=" text-center tabtitle internship-homepage-tab" title-link-class="title-link">
         <industryExplorer by='major' :internship='internship'>
         </industryExplorer>
       </b-tab>
-      <b-tab title="Company" title-item-class=" text-center tabtitle tab-item" title-link-class="title-link">
+      <b-tab title="Company" title-item-class=" text-center tabtitle tab-item internship-homepage-tab" title-link-class="title-link">
         <industryExplorer :internship='internship' by='company'>
         </industryExplorer>
       </b-tab>

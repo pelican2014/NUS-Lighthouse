@@ -3,8 +3,7 @@
 <script>
 import _ from 'lodash';
 import math from 'mathjs';
-import TopHeader from '@/components/top-header/top-header';
-import SubHeader from '@/components/subheader/subheader';
+import NavBar from '@/components/nav-bar/nav-bar';
 import SearchBar from '@/components/search-bar/search-bar';
 import Recommended from '@/components/recommended-ta/recommended-ta';
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
@@ -18,8 +17,7 @@ export default {
     Boxplot,
     HorizontalBarChart,
     AreaChart,
-    TopHeader,
-    SubHeader,
+    NavBar,
     SearchBar,
     Recommended,
   },

@@ -1,7 +1,6 @@
 <b-container>
   <v-toolbar
-      dark
-      color="blue-grey"
+      color=""
       class="lighthouse-search-bar"
     >
     <v-toolbar-title>{{ sub_title }} &nbsp;&nbsp;&nbsp;</v-toolbar-title>
@@ -32,7 +31,7 @@
     </v-autocomplete>
     &nbsp;&nbsp;&nbsp;
     <v-btn
-      fab dark small color="blue-grey lighten-2"
+      fab dark small color="grey darken-2"
       use-router :to="input ? {path: parent_route + '/' + input} : undefined"
     >
       <v-icon dark>search</v-icon>

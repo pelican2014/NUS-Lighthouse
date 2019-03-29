@@ -3,7 +3,8 @@
 
 <script>
 import db from '@/firebase';
-import Header from '@/components/top-header/top-header';
+import NavBar from '@/components/nav-bar/nav-bar';
+import TopHeader from '@/components/top-header/top-header';
 import Subheader from '@/components/subheader/subheader';
 import Company from '@/components/company/company';
 import Stats from '@/components/company-stats/company-stats';
@@ -13,7 +14,7 @@ import OpeningPosition from '@/components/opening-positions/opening-positions';
 export default {
   name: 'company-name',
   components: {
-  	Header,
+  	NavBar,
   	Subheader,
   	Company,
     Stats,

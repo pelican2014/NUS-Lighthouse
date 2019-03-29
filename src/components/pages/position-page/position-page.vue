@@ -2,7 +2,7 @@
 <style src = './position-page.scss' lang = 'scss'></style>
 
 <script>
-import TopHeader from '@/components/top-header/top-header';
+import NavBar from '@/components/nav-bar/nav-bar';
 import SubHeader from '@/components/subheader/subheader';
 import PositionInfo from '@/components/basic-information/position-info';
 import PositionDetails from '@/components/position-details/position-details';
@@ -14,7 +14,7 @@ import db from '@/firebase';
 export default{
   name: 'position-page',
   components: {
-    TopHeader,
+    NavBar,
     SubHeader,
     PositionInfo,
     PositionDetails,

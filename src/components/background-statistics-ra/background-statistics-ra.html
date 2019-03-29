@@ -1,15 +1,14 @@
 <b-container class="bv-example-row">
-  <div class="background-header">
-    Total Number of Past RAs: {{ totalNum }}
-  </div>
+  <h3 class="number-of-intern"> Total Number of Past RAs: {{ totalNum }} </h3>
   <b-row>
     <b-col><PieChart title = 'Gender' name = 'gender' :data = 'gender'></PieChart></b-col>
     <b-col><BarChart title = 'nationality' yname = 'number of people' :data = 'nationality'></BarChart></b-col>
   </b-row>
 
   <b-row>
-    <b-col><BarChart title = 'Race' yname = 'number of people' :data = 'race'></BarChart></b-col>
-    <b-col><PieChart title = 'Major' name = 'major' :data = 'major'></PieChart></b-col>
+    <b-col><Treemap :data = 'major_faculty'></Treemap></b-col>
+    <!-- <b-col><BarChart title = 'Race' yname = 'number of people' :data = 'race'></BarChart></b-col>
+    <b-col><PieChart title = 'Major' name = 'major' :data = 'major'></PieChart></b-col> -->
   </b-row>
 
   <b-row>
