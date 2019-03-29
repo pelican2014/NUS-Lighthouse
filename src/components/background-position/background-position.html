@@ -3,7 +3,7 @@
     Total Number of Past Interns: <b>{{ number }}</b>
   </div>
   <b-row>
-    <b-col class = 'col'><Pie title = 'Gender' name = 'gender' :data = 'gender'></Pie></b-col>
+    <b-col class = 'col'><Pyramid :male = 'male' :female = 'female'></Pyramid></b-col>
   </b-row>
   <b-row>
     <b-col class = 'col'><Treemap :data = 'major_faculty'></Treemap></b-col>

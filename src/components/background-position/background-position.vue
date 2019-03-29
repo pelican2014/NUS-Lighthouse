@@ -11,6 +11,7 @@ import Histogram from '@/components/charts/histogram';
 import Wordcloud from '@/components/charts/word-cloud';
 import Bar from '@/components/charts/bar';
 import Treemap from '@/components/charts/treemap';
+import Pyramid from '@/components/charts/population-pyramid';
 
 export default{
   name: 'background-position',
@@ -20,6 +21,7 @@ export default{
     Wordcloud,
     Bar,
     Treemap,
+    Pyramid,
   },
   props: {
     position_id: {
@@ -37,6 +39,48 @@ export default{
       }
       return results;
     },
+    female() {
+      const result = [0, 0, 0, 0];
+      if (!this.internships) {
+        return null;
+      } else {
+        for (const internship_id of this.internships) {
+          if (this.internship_dict[internship_id].gender === 'F') {
+            if (this.internship_dict[internship_id].student_year === 1) {
+              result[0] += 1;
+            } else if (this.internship_dict[internship_id].student_year === 2) {
+              result[1] += 1;
+            } else if (this.internship_dict[internship_id].student_year === 3) {
+              result[2] += 1;
+            } else {
+              result[3] += 1;
+            }
+          }
+        }
+        return result;
+      }
+    },
+    male() {
+      const result = [0, 0, 0, 0];
+      if (!this.internships) {
+        return null;
+      } else {
+        for (const internship_id of this.internships) {
+          if (this.internship_dict[internship_id].gender === 'M') {
+            if (this.internship_dict[internship_id].student_year === 1) {
+              result[0] -= 1;
+            } else if (this.internship_dict[internship_id].student_year === 2) {
+              result[1] -= 1;
+            } else if (this.internship_dict[internship_id].student_year === 3) {
+              result[2] -= 1;
+            } else {
+              result[3] -= 1;
+            }
+          }
+        }
+        return result;
+      }
+    },
     number() {
       if (!this.internships) {
         return null;
@@ -44,22 +88,22 @@ export default{
         return this.internships.length;
       }
     },
-    gender() {
-      let male = 0;
-      let female = 0;
-      if (!this.internships) {
-        return null;
-      } else {
-        for (const internship_id of this.internships) {
-          if (this.internship_dict[internship_id].gender === 'F') {
-            female += 1;
-          } else {
-            male += 1;
-          }
-        }
-      }
-      return [{ name: 'male', y: male }, { name: 'female', y: female }];
-    },
+    // gender() {
+    //   let male = 0;
+    //   let female = 0;
+    //   if (!this.internships) {
+    //     return null;
+    //   } else {
+    //     for (const internship_id of this.internships) {
+    //       if (this.internship_dict[internship_id].gender === 'F') {
+    //         female += 1;
+    //       } else {
+    //         male += 1;
+    //       }
+    //     }
+    //   }
+    //   return [{ name: 'male', y: male }, { name: 'female', y: female }];
+    // },
     faculty() {
       const result = {};
       for (const internship_id of this.internships) {

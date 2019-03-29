@@ -51,8 +51,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: InitialPage,
-
+      component: null,
     },
     {
       path: '/about',

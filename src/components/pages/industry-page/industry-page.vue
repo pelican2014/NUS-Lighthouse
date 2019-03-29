@@ -5,6 +5,7 @@
 import _ from 'lodash';
 import FilteredSearch from '@/components/filtered-search/filtered-search';
 import IndustryInsight from '@/components/industry-insight/industry-insight';
+import Pyramid from '@/components/charts/population-pyramid';
 
 import db from '@/firebase';
 
@@ -33,6 +34,7 @@ export default {
   components: {
     FilteredSearch,
     IndustryInsight,
+    Pyramid,
   },
   computed: {
     filtered_internship() {
@@ -51,6 +53,40 @@ export default {
     },
     total_num() {
       return this.filtered_internship.length;
+    },
+    female() {
+      const result = [0, 0, 0, 0];
+      for (const internship of this.filtered_internship) {
+        if (internship.gender === 'F') {
+          if (internship.student_year === 1) {
+            result[0] += 1;
+          } else if (internship.student_year === 2) {
+            result[1] += 1;
+          } else if (internship.student_year === 3) {
+            result[2] += 1;
+          } else {
+            result[3] += 1;
+          }
+        }
+      }
+      return result;
+    },
+    male() {
+      const result = [0, 0, 0, 0];
+      for (const internship of this.filtered_internship) {
+        if (internship.gender === 'M') {
+          if (internship.student_year === 1) {
+            result[0] -= 1;
+          } else if (internship.student_year === 2) {
+            result[1] -= 1;
+          } else if (internship.student_year === 3) {
+            result[2] -= 1;
+          } else {
+            result[3] -= 1;
+          }
+        }
+      }
+      return result;
     },
     gender() {
       let female = 0;
