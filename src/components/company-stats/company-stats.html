@@ -1,5 +1,11 @@
 <div>
 	<h3 class ='title'> Total number of interns: {{number}}</h3>
+	<b-row>
+		<b-col>
+		<SpiderChart title = 'Compared with the Industry' :data = 'spider_chart_data':xcategory='categories' ></SpiderChart>
+	</b-col>
+	<b-col></b-col>
+	</b-row>
 	<b-row class = 'row'>
 		<b-col class = 'col'>
 			<Pie title = 'Gender' name = 'gender' :data = 'gender'></Pie>
@@ -8,6 +14,7 @@
 			<Pie title = 'Major' name = 'major' :data = 'major'></Pie>
 		</b-col>
 	</b-row>
+
 
 	<b-row class = 'row'>
 		<b-col class = 'col'>
