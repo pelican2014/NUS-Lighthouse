@@ -5,14 +5,23 @@
 }
 
 .choose{
-	height:200%;
+	height:125%;
 	width: 100%;
 	background-color: rgba(53,121,246,0.3);
 	text-align: center;
 }
 
 .option{
-	font-size: 300%;
+	font-size: 250%;
+}
+
+.question{
+	font-size: 200%;
+}
+
+.card-subtitle{
+	font-size: 20px;
+	color: white;
 }
 // .col {
 // 	border-radius: 1rem;
