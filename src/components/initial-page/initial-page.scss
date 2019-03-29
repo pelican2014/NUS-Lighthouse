@@ -11,13 +11,16 @@
 .choose{
 	height:100%;
 	width: 100%;
-	background: rgba(53,121,246,0.2);
 	text-align: center;
 	// border-radius: 1em;
 	font-size: 240%;
 	text-align: center;
   box-shadow: 2rem 4rem 8rem rgba(0, 0, 0, .5);
+  cursor: pointer;
+  text-decoration: none !important;
 }
+
+.choose:hover { opacity: .8 }
 
 .option{
 	font-size: 250%;
