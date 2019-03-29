@@ -1,8 +1,12 @@
 <div>
   <SearchBar
     sub_title="Search for Professor"
-    :data_dict="professor"
+    :data_dict="professor_search"
     name_field="Prof Name"
+    secondary_field="title"
+    search_field="search"
+    id_field="id"
+    parent_route="profPage"
   ></SearchBar>
   <Recommended></Recommended>
   <b-container>
