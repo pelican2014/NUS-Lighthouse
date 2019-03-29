@@ -2,3 +2,12 @@ $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
 
 //@include font-face('FontName', '/assets/fonts/font-file', normal, 400);
+
+@font-face {
+    font-family: Selima;
+    src: url("../assets/fonts/selima_.otf");
+}
+
+.selima {
+  font-family: Selima !important;
+}
