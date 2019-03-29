@@ -1,9 +1,20 @@
 .home {
-	height: 80rem;
-	width: 100rem;
+	height: 100%;
+	width: 100%;
 	background-image: url('./lighthouse.jpg');
+	opacity: 0.4;
 }
 
+.choose{
+	height:200%;
+	width: 100%;
+	background-color: rgba(53,121,246,0.3);
+	text-align: center;
+}
+
+.option{
+	font-size: 300%;
+}
 // .col {
 // 	border-radius: 1rem;
 // 	border-color:black;

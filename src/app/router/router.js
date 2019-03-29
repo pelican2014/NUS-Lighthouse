@@ -24,21 +24,25 @@ import Router from 'vue-router';
 // import FilteredSearch from '@/components/filtered-search/filtered-search';
 // import PositionDetails from '@/components/position-details/position-details';
 // import BasicInformation from '@/components/basic-information/basic-information';
-// import TrajectoryPosition from '@/components/trajectory-position/trajectory-position';
+// import TrajectoryPosition from '@/components/trajectory-ta/trajectory-position';
 // import PositionStats from '@/components/position-stats/position-stats';
 // import Insights from '@/components/industry-insight/industry-insight';
 import InternshipHomePage from '@/components/pages/internship-homepage/internship-homepage';
 // import OpeningPositions from '@/components/opening-positions/opening-positions';
-import CompanyHome from '@/components/company-home/company-home';
+import CompanyHome from '@/components/pages/company-home/company-home';
 // import Recommended from '@/components/recommended/recommended';
 // import ExplorerSearch from '@/components/explorer-search/explorer-search';
 // import BackgroundStatistics from '@/components/background-statistics/background-statistics';
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 import RAPage from '@/components/pages/ra-homepage/ra-homepage';
-// import InitialPage from '@/components/initial-page/initial-page';
+import InitialPage from '@/components/initial-page/initial-page';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
-import PositionPage from '@/components/position-page/position-page';
+import PositionPage from '@/components/pages/position-page/position-page';
+import ProfPage from '@/components/prof-project-page/prof-project-page';
+import ModulePage from '@/components/module-ta-page/module-ta-page';
+import TaPage from '@/components/ta-homepage/ta-homepage';
+
 
 Vue.use(Router);
 
@@ -47,7 +51,8 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: null,
+      component: InitialPage,
+
     },
     {
       path: '/about',
@@ -58,6 +63,12 @@ export default new Router({
       path: '/contact',
       name: 'contact',
       component: Contact,
+    },
+    {
+      path: '/profPage/:prof_id',
+      name: 'profPage',
+      component: ProfPage,
+      props: true,
     },
     {
       path: '/industryPage',
@@ -87,6 +98,17 @@ export default new Router({
       name: 'position-page',
       component: PositionPage,
       props: true,
+    },
+    {
+      path: '/module-page/:module_name',
+      name: '/module-page',
+      component: ModulePage,
+      props: true,
+    },
+    {
+      path: '/ta-page',
+      name: 'ta-page',
+      component: TaPage,
     },
   ],
 });

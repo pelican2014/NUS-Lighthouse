@@ -1,21 +1,19 @@
 <b-container class="bv-example-row">
   <div class="background-header">
-    Total Number of Past Interns: {{ totalNum }}
+    Total Number of Past RAs: {{ totalNum }}
   </div>
   <b-row>
-    <b-col><PieChartGender></PieChartGender></b-col>
-    <b-col><PieChartFaculty></PieChartFaculty></b-col>
-    <b-col><PieChartYear></PieChartYear></b-col>
+    <b-col><PieChart title = 'Gender' name = 'gender' :data = 'gender'></PieChart></b-col>
+    <b-col><BarChart title = 'nationality' yname = 'number of people' :data = 'nationality'></BarChart></b-col>
   </b-row>
+
   <b-row>
-    <b-col><HistogramCAP></HistogramCAP></b-col>
-    <b-col><PieChartMajor></PieChartMajor></b-col>
+    <b-col><BarChart title = 'Race' yname = 'number of people' :data = 'race'></BarChart></b-col>
+    <b-col><PieChart title = 'Major' name = 'major' :data = 'major'></PieChart></b-col>
   </b-row>
+
   <b-row>
-    <b-col><BarChartRace></BarChartRace></b-col>
-    <b-col><BarChartNationality></BarChartNationality></b-col>
-  </b-row>
-  <b-row>
-    <b-col><WordCloudModule></WordCloudModule></b-col>
+    <b-col><Barchart title = 'Cumulative Average Points' yname = 'CAP' :data='cap_hist'></BarChart></b-col>
+    <b-col><LineChart title = 'number of RAs' yname = 'number of people':x = 'number.x' :data = 'number.data'></LineChart></b-col>
   </b-row>
 </b-container>

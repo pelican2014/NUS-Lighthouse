@@ -49,7 +49,9 @@ export default {
     grad_internship() {
       return _.filter(this.filtered_internship, o => o.starting_salary !== '');
     },
-
+    total_num() {
+      return this.filtered_internship.length;
+    },
     gender() {
       let female = 0;
       let male = 0;
