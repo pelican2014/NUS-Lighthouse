@@ -8,6 +8,7 @@ import Pie from '@/components/charts/pie';
 import Histogram from '@/components/charts/histogram';
 import Wordcloud from '@/components/charts/word-cloud';
 import Bar from '@/components/charts/bar';
+import Sankey from '@/components/charts/sankey';
 
 export default{
   name: 'trajectory-position',
@@ -16,6 +17,7 @@ export default{
     Pie,
     Wordcloud,
     Bar,
+    Sankey,
   },
   props: {
     position_id: {
