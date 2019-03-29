@@ -1,4 +1,32 @@
-<div>
+<!--
 	<div class = 'home'>
 	</div>
+-->
+<div>
+  <b-card overlay :img-src="require('./lighthouse.jpg')" img-alt="NUS Lighthouse" text-variant="light" title="NUS Lighthouse" title-tag="h1" sub-title="This is a project created by Team Anonymous, BT3103" sub-title-text-variant='subtitle'>
+    <b-card-text>
+      <b-container>
+        <b-row>
+        </b-row>
+        <br><br> <p class = 'question'>What are you interested in?</p>
+        <b-row >
+          <b-col cols='4'>
+            <b-button use-router :to="{path: '/internship-homepage'}" href="#" class="button-on-card choose align-middle" variant="primary">
+              <p class='option'><br><br>Internships</p>
+            </b-button>
+          </b-col>
+          <b-col cols='4'>
+            <b-button use-router :to="{path: '/raPage'}" href="#" variant="primary" class="button-on-card choose">
+              <p class='option'><br><br>Research Assistant <br>Opportunities</p>
+            </b-button>
+          </b-col>
+          <b-col cols='4'>
+            <b-button use-router :to="{path: '/ta-page'}" href="#" variant="primary" class="button-on-card choose">
+              <p class='option'><br><br>Teaching Assistant <br>Opportunities</p>
+            </b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-card-text>
+  </b-card>
 </div>

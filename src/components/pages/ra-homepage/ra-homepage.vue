@@ -7,7 +7,7 @@ import math from 'mathjs';
 import TopHeader from '@/components/top-header/top-header';
 import SubHeader from '@/components/subheader/subheader';
 import SearchBar from '@/components/search-bar/search-bar';
-import Recommended from '@/components/recommended/recommended';
+import Recommended from '@/components/recommended-ra/recommended-ra';
 
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
 import Boxplot from '@/components/charts/boxplot';
@@ -21,7 +21,6 @@ export default {
     Boxplot,
     HorizontalBarChart,
     AreaChart,
-
     TopHeader,
     SubHeader,
     SearchBar,
@@ -105,6 +104,25 @@ export default {
         name: industry,
         data: counts,
       }));
+    },
+
+    professor_search() {
+      const results = [];
+      for (const prof_id in this.professor) {
+        if (typeof this.professor[prof_id] !== 'object') continue;
+        const search_string = this.professor[prof_id]['Prof Name'] + ' '
+          + this.professor[prof_id]['Focus'];
+        for (const project of this.professor[prof_id]['Projects']) {
+          results.push({
+            title: project['title'],
+            id: prof_id,
+            search: search_string + ' ' + project['title'],
+            // image_url: "https://www.comp.nus.edu.sg/images/resources/content/about/HAHN-Jungpil-2-IMG.png",
+            'Prof Name': this.professor[prof_id]['Prof Name'],
+          });
+        }
+      }
+      return results;
     },
   },
 

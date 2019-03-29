@@ -9,7 +9,6 @@ import Histogram from '@/components/charts/histogram';
 import Wordcloud from '@/components/charts/word-cloud';
 import Bar from '@/components/charts/bar';
 
-
 export default{
   name: 'trajectory-position',
   components: {

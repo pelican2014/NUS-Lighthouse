@@ -1,0 +1,38 @@
+<div>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <div>
+    <b-container class='p-4'>
+      <b-row>
+        <b-col cols="3">
+          <b-container>
+            <b-img thumbnail fluid v-bind:src="research_prof.prof_photo_link" />
+          </b-container>
+        </b-col>
+        <b-col cols="9">
+          <b-container>
+            <b-row class='prof-name' align-v='start'> {{ this.research_prof.prof_name }}</b-row>
+            <b-row class='prof-title'>
+              <p>{{ this.research_prof.prof_title }}</p>
+            </b-row>
+            <b-row class='prof-department'>
+              <p>{{ this.research_prof.prof_department }}</p>
+            </b-row>
+            <b-row align-v='start'>
+              <p>
+                <i class="fa fa-map-marker-alt"></i>
+                <span class='prof-office'>{{ this.research_prof.prof_office }}</span>
+                <i class="fa fa-phone"></i>
+                <span class='prof-phone'>{{ this.research_prof.prof_tel }}</span>
+              </p>
+            </b-row>
+            <b-row>
+              <!-- <p class='research-focus-title'>Research Focus: </p> -->
+              <pre class='research-focus-title'>Research Focus: </pre>
+              <p class='research-focus-description'>{{ this.research_prof.prof_research_focus }}</p>
+            </b-row>
+          </b-container>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+</div>

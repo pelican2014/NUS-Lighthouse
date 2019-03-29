@@ -1,23 +1,41 @@
-<b-card :sub-title="sub_title">
-  {{ filter_a_values }}
-  <v-autocomplete
-    v-model="input"
-    :items="data"
-    item-text="name"
-    item-value="name"
-  >
-    <template v-slot:item="data">
-      <template>
-        <v-list-tile-avatar v-if="data.item.image_url">
-          <img :src="data.item.image_url">
-        </v-list-tile-avatar>
-        <v-list-tile-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
-          <span class="white--text headline">{{ data.item.name[0] }}</span>
-        </v-list-tile-avatar>
-        <v-list-tile-content>
-          <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
-        </v-list-tile-content>
+<b-container>
+  <v-toolbar
+      dark
+      color="blue-grey"
+      class="lighthouse-search-bar"
+    >
+    <v-toolbar-title>{{ sub_title }} &nbsp;&nbsp;&nbsp;</v-toolbar-title>
+    <v-autocomplete
+      v-model="input"
+      :items="data"
+      item-text="search"
+      item-value="id"
+    >
+      <template v-slot:selection="data">
+        {{ data.item.name }}
       </template>
-    </template>
-  </v-autocomplete>
-</b-card>
+
+      <template v-slot:item="data">
+        <template>
+          <v-list-tile-avatar v-if="data.item.image_url">
+            <img :src="data.item.image_url">
+          </v-list-tile-avatar>
+          <v-list-tile-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
+            <span class="white--text headline">{{ data.item.name[0] }}</span>
+          </v-list-tile-avatar>
+          <v-list-tile-content>
+            <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
+            <v-list-tile-subtitle class="search-subtitle" v-html="data.item.secondary"></v-list-tile-subtitle>
+          </v-list-tile-content>
+        </template>
+      </template>
+    </v-autocomplete>
+    &nbsp;&nbsp;&nbsp;
+    <v-btn
+      fab dark small color="blue-grey lighten-2"
+      use-router :to="input ? {path: parent_route + '/' + input} : undefined"
+    >
+      <v-icon dark>search</v-icon>
+    </v-btn>
+  </v-toolbar>
+</b-container>

@@ -17,6 +17,18 @@ export default {
     name_field: {
       default: 'company_name',
     },
+    secondary_field: {
+      default: undefined,
+    },
+    search_field: {
+      default: 'company_name',
+    },
+    id_field: {
+      default: 'id',
+    },
+    parent_route: {
+      default: '',
+    },
   },
   data() {
     return {
@@ -27,25 +39,6 @@ export default {
         'brown',
         'blue',
       ],
-      // data: [
-      //   {
-      //     item_id: '1',
-      //     name: 'Google',
-      //     image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/150px-Google_%22G%22_Logo.svg.png',
-      //   },
-      //   {
-      //     item_id: '2',
-      //     name: 'Amazon',
-      //   },
-      //   {
-      //     item_id: '3',
-      //     name: 'Facebook',
-      //   },
-      //   {
-      //     item_id: '4',
-      //     name: 'DRW',
-      //   },
-      // ],
     };
   },
   computed: {
@@ -54,12 +47,12 @@ export default {
       for (const item_id in this.data_dict) {
         if (typeof this.data_dict[item_id] !== 'object') continue;
         const results_item = {
-          item_id,
           name: this.data_dict[item_id][this.name_field],
+          search: this.data_dict[item_id][this.search_field],
+          image_url: this.data_dict[item_id].image_url,
+          id: this.data_dict[item_id][this.id_field],
+          secondary: this.data_dict[item_id][this.secondary_field],
         };
-        if ('image_url' in this.data_dict[item_id]) {
-          results_item.image_url = this.data_dict[item_id].image_url;
-        }
         results.push(results_item);
       }
       return results;

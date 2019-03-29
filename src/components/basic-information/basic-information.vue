@@ -8,6 +8,9 @@ export default {
       required: true,
     },
   },
+  computed: {
+
+  },
   data() {
     return {
       internship_position: {

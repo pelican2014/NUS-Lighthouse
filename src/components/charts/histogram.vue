@@ -18,10 +18,6 @@ export default {
       type: String,
       required: true,
     },
-    yours: {
-      type: String,
-      required: false,
-    },
     data: {
       type: Array,
       required: true,
@@ -52,19 +48,6 @@ export default {
               fontFamily: 'Verdana, sans-serif',
             },
           },
-          plotLines: [{
-            value: this.yours,
-            color: 'red',
-            width: 1,
-            zIndex: 5,
-            label: {
-              text: 'You are here',
-              align: 'bottom',
-              style: {
-                color: 'gray',
-              },
-            },
-          }],
         },
         yAxis: {
           min: 0,
@@ -80,30 +63,28 @@ export default {
         },
         plotOptions: {
           column: {
-            width: 8,
             pointPadding: 0,
-            groupPadding: 0,
             borderWidth: 0,
+            groupPadding: 0,
+            shadow: false,
             color: '#FFC300',
           },
         },
         series: [{
           name: this.yname,
           data: this.data,
-          zIndex: -1,
-          // dataLabels: {
-          //   enabled: true,
-          //   // rotation: -90,
-          //   color: '#FFFFFF',
-          //   zIndex: -1,
-          //   align: 'center',
-          //   format: '{point.y:.1f}', // one decimal
-          //   y: 10, // 10 pixels down from the top
-          //   style: {
-          //     fontSize: '10px',
-          //     fontFamily: 'Verdana, sans-serif',
-          //   },
-          // },
+          dataLabels: {
+            enabled: true,
+            // rotation: -90,
+            color: '#FFFFFF',
+            align: 'center',
+            format: '{point.y:.1f}', // one decimal
+            y: 10, // 10 pixels down from the top
+            style: {
+              fontSize: '10px',
+              fontFamily: 'Verdana, sans-serif',
+            },
+          },
         }],
       };
     },
