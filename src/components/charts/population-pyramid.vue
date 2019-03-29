@@ -93,11 +93,11 @@ export default {
         },
         series: [{
           name: 'Male',
-          data: [-1, -2, -3, -4],
+          data: this.male,
           color: '#FFC300',
         }, {
           name: 'Female',
-          data: [1, 2, 3, 4],
+          data: this.female,
           color: '#1b8ae5',
         }],
       };
