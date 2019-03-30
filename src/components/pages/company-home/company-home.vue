@@ -7,7 +7,7 @@ import NavBar from '@/components/nav-bar/nav-bar';
 import TopHeader from '@/components/top-header/top-header';
 import Subheader from '@/components/subheader/subheader';
 import Company from '@/components/company/company';
-import Stats from '@/components/position-stats/position-stats';
+import Stats from '@/components/company-stats/company-stats';
 import OpeningPosition from '@/components/opening-positions/opening-positions';
 
 
