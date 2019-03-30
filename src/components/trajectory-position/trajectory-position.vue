@@ -206,9 +206,12 @@ export default{
         if (this.sankey_filtered_majors === null) {
           init_majors.add(entry.major);
         }
+
         // get sankey data
         const major_path = String([entry.major, entry.path]);
         const path_industry = String([entry.path, entry.industry]);
+        // const path_industry = String([entry.path, entry.graduate_industry]);
+
         sankey_map[major_path] = sankey_map[major_path]
           ? sankey_map[major_path] + 1
           : 1;
