@@ -17,3 +17,11 @@
 .v-btn {
   text-decoration: none !important;
 }
+
+.v-toolbar__content {
+  height: auto !important;
+}
+
+.v-toolbar-title {
+  min-width: 150px !important;
+}
