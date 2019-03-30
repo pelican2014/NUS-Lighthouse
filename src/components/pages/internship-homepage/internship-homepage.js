@@ -1,4 +1,4 @@
-import topHeader from '@/components/top-header/top-header';
+import NavBar from '@/components/nav-bar/nav-bar';
 import subheader from '@/components/subheader/subheader';
 import searchBar from '@/components/search-bar/search-bar';
 import industryExplorer from '@/components/industry-explorer/industry-explorer';
@@ -9,7 +9,7 @@ import db from '@/firebase';
 export default {
   name: 'InternshipHomepage',
   components: {
-    topHeader,
+    NavBar,
     subheader,
     searchBar,
     industryExplorer,

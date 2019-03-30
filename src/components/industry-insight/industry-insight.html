@@ -4,34 +4,28 @@
   </div>
   <b-container class="bv-example-row">
     <b-row>
-      <b-col>
-        <Pie title="Gender"
-          name="Gender"
-          :data="gender"
-        ></Pie>
-      </b-col>
-      <b-col>
+      <b-col class = 'col'>
         <Pie title="Faculty"
           name="Faculty"
           :data="faculty"
         ></Pie>
       </b-col>
-      <b-col>
-        <Pie title="Year"
-          name="Year"
-          :data="year"
-        ></Pie>
+      <b-col class = 'col'>
+        <Pyramid 
+          :female="female"
+          :male="male"
+        ></Pyramid>
       </b-col>
     </b-row>
     <b-row>
-      <b-col>
+      <b-col class = 'col'>
         <LineChart title="Number of Interns"
           yname="Number of Interns"
           :x="number.x"
           :data="number.data"
         ></LineChart>
       </b-col>
-      <b-col>
+      <b-col class = 'col'>
         <Bar
           title="Nationality"
           yname="Number of Students"
@@ -40,14 +34,14 @@
       </b-col>
     </b-row>
     <b-row>
-    <b-col>
+    <b-col class = 'col'>
       <Bar
         title="Fresh Graduate Starting Salary"
         yname="Salary"
         :data="salary_hist"
       ></Bar>
     </b-col>
-      <b-col>
+      <b-col class = 'col'>
         <LineChart title="Starting Salary over the Years"
         yname="Starting Salary"
         :x="salary_line.x"
