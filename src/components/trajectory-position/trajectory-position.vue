@@ -41,6 +41,9 @@ export default{
       }
     },
     path() {
+      if (!this.internships) {
+        return null;
+      }
       const result = {};
       for (const internship_id of this.internships) {
         const each_path = this.internship_dict[internship_id].path;
