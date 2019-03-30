@@ -36,6 +36,12 @@ module.exports = {
     'no-param-reassign': 0,
     'no-else-return': 0,
     'prefer-template': 0,
+    'no-multi-assign': 0,
+    'no-mixed-operators': 0,
+    'consistent-return': 0,
+    'no-shadow': 0,
+    'func-names': 0,
+    'vue/no-side-effects-in-computed-properties': 0,
 
 
     // don't require .vue extension when importing
@@ -45,14 +51,14 @@ module.exports = {
     }],
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
-    'no-param-reassign': ['error', {
-      props: true,
-      ignorePropertyModificationsFor: [
-        'state', // for vuex state
-        'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-      ]
-    }],
+    // 'no-param-reassign': ['error', {
+    //   props: true,
+    //   ignorePropertyModificationsFor: [
+    //     'state', // for vuex state
+    //     'acc', // for reduce accumulators
+    //     'e' // for e.returnvalue
+    //   ]
+    // }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
       optionalDependencies: ['test/unit/index.js']

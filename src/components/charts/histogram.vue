@@ -26,6 +26,10 @@ export default {
       type: String,
       default: 'Source: NUS Datalake',
     },
+    yours: {
+      type: Number,
+      default: 2.5,
+    },
   },
   computed: {
     options() {
@@ -48,6 +52,19 @@ export default {
               fontFamily: 'Verdana, sans-serif',
             },
           },
+          plotLines: [{
+            value: this.yours,
+            color: 'red',
+            width: 2,
+            zIndex: 8,
+            // label: {
+            //   text: 'You are here',
+            //   align: 'bottom',
+            //   style: {
+            //     color: 'gray',
+            //   },
+            // },
+          }],
         },
         yAxis: {
           min: 0,
@@ -73,6 +90,7 @@ export default {
         series: [{
           name: this.yname,
           data: this.data,
+          zIndex: -1,
           dataLabels: {
             enabled: true,
             // rotation: -90,
