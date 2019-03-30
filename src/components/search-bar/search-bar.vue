@@ -60,7 +60,7 @@ export default {
     },
     updateValue() {
       if (this.value !== null) this.$emit('input', this.input);
-    }
+    },
   },
   computed: {
     data() {
