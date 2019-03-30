@@ -1,28 +1,5 @@
 <div>
 	<h3 class ='title'> Total number of RAs: {{number}}</h3>
-	<SearchBar
-    sub_title="Filter by Major"
-    :data_dict="sankey_majors"
-    name_field="name"
-    search_field="name"
-    id_field="name"
-		:multiple="true"
-		v-model="sankey_filtered_majors"
-	></SearchBar>
-	<b-row>
-		<Sankey
-			:data="sankey"
-			title="Future Trajectory Sankey Diagram"
-		></Sankey>
-	</b-row>
-	<!-- <b-row>
-		<b-col class = 'col'>
-			<Pie title = 'Path' name = 'path' :data = 'path'></Pie>
-		</b-col>
-		<b-col class = 'trajectory-position-col'>
-			<Pie title = 'Industry' name = 'industry' :data= 'industry'></Pie>
-		</b-col>
-	</b-row>
 
 	<b-row>
 		<b-col class = 'trajectory-position-col'>
@@ -40,6 +17,23 @@
 		<b-col class = 'trajectory-position-col'>
 			<Wordcloud title = 'PhD Research Area' :data = 'research_area'></Wordcloud>
 		</b-col>
-	</b-row> -->
+	</b-row>
+
+	<SearchBar
+		sub_title="Filter by Major"
+		:data_dict="sankey_majors"
+		name_field="name"
+		search_field="name"
+		id_field="name"
+		:multiple="true"
+		v-model="sankey_filtered_majors"
+	></SearchBar>
+
+	<b-row>
+		<Sankey
+			:data="sankey"
+			title="Future Trajectory Sankey Diagram"
+		></Sankey>
+	</b-row>
 
 </div>

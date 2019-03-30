@@ -1,7 +1,13 @@
 <template>
   <div style="width: 100%;">
-    <div v-for="(options, index) in options_list" style="width: 100%;">
-      <highcharts v-show="index === options_list.length - 1" v-for="" :options="options" ref="sankey" class="sankey"></highcharts>
+    <div
+      v-for="(options, index) in options_list" style="width: 100%;"
+      v-bind:key="options.title"
+    >
+      <highcharts
+        v-show="index === options_list.length - 1"
+        :options="options" ref="sankey" class="sankey"
+      ></highcharts>
     </div>
   </div>
 </template>
@@ -383,7 +389,7 @@ export default {
       },
       series: [{
         keys: ['from', 'to', 'weight'],
-        data: [['from', 'to', 1]],
+        data: [],
         name: 'Future Trajectory Sankey',
       }],
     };

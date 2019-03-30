@@ -41,6 +41,7 @@ module.exports = {
     'consistent-return': 0,
     'no-shadow': 0,
     'func-names': 0,
+    'no-side-effects-in-computed-properties': 0,
 
 
     // don't require .vue extension when importing
