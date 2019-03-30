@@ -1,5 +1,5 @@
 <template src = './initial-page.html'></template>
-<style src = './initial-page.scss' lang = 'scss'></style>
+<style src = './initial-page.scss' lang = 'scss' scoped></style>
 
 <script>
 export default {
