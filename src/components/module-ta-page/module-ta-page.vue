@@ -3,7 +3,7 @@
 
 <script>
 import db from '@/firebase';
-import TopHeader from '@/components/top-header/top-header';
+import Navbar from '@/components/nav-bar/nav-bar';
 import SubHeader from '@/components/subheader/subheader';
 import BasicInfo from '@/components/basic-information-ta/basic-information';
 import Background from '@/components/background-statistics-ta/background-statistics-ta';
@@ -12,7 +12,7 @@ import Trajectory from '@/components/trajectory-ta/trajectory-position';
 export default{
   name: 'module-ta-page',
   components: {
-    TopHeader,
+    Navbar,
     SubHeader,
     BasicInfo,
     Background,

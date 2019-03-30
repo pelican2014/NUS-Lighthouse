@@ -8,6 +8,8 @@ import Pie from '@/components/charts/pie';
 import Histogram from '@/components/charts/histogram';
 import Wordcloud from '@/components/charts/word-cloud';
 import Bar from '@/components/charts/bar';
+import Sankey from '@/components/charts/sankey';
+import SearchBar from '@/components/search-bar/search-bar';
 
 export default{
   name: 'trajectory-position',
@@ -16,12 +18,19 @@ export default{
     Pie,
     Wordcloud,
     Bar,
+    Sankey,
+    SearchBar,
   },
   props: {
     position_id: {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      sankey_filtered_majors: null,
+    };
   },
   computed: {
     internships() {
@@ -33,6 +42,9 @@ export default{
       }
       return results;
     },
+    filtered_internships() {
+      return this.internships;
+    },
     number() {
       if (!this.internships) {
         return null;
@@ -41,6 +53,9 @@ export default{
       }
     },
     path() {
+      if (!this.internships) {
+        return null;
+      }
       const result = {};
       for (const internship_id of this.internships) {
         const each_path = this.internship_dict[internship_id].path;
@@ -174,6 +189,58 @@ export default{
         }
       });
       return counts;
+    },
+    sankey() {
+      const sankey_map = {};
+      const results = [];
+      const init_majors = new Set();
+
+      for (const internship_id of this.filtered_internships) {
+        const entry = this.internship_dict[internship_id];
+
+        // continue conditions
+        if (typeof entry !== 'object') continue;
+        if (this.sankey_filtered_majors !== null
+          && this.sankey_filtered_majors.indexOf(entry.major) === -1) continue;
+
+        if (this.sankey_filtered_majors === null) {
+          init_majors.add(entry.major);
+        }
+        // get sankey data
+        const major_path = String([entry.major, entry.path]);
+        const path_industry = String([entry.path, entry.industry]);
+        sankey_map[major_path] = sankey_map[major_path]
+          ? sankey_map[major_path] + 1
+          : 1;
+        sankey_map[path_industry] = sankey_map[path_industry]
+          ? sankey_map[path_industry] + 1
+          : 1;
+      }
+
+      if (this.filtered_internships
+        && this.filtered_internships.length > 0
+        && this.sankey_filtered_majors === null) {
+        this.sankey_filtered_majors = Array.from(init_majors);
+      }
+
+      for (const from_to in sankey_map) {
+        if (typeof sankey_map[from_to] !== 'number') continue;
+        const entry = from_to.split(',');
+        entry.push(sankey_map[from_to]);
+        results.push(entry);
+      }
+
+      return results;
+    },
+
+    sankey_majors() {
+      const results = [];
+      for (const internship_id of this.filtered_internships) {
+        const entry = this.internship_dict[internship_id];
+        if (typeof entry !== 'object') continue;
+        results.push({ name: entry.major });
+      }
+      return results;
     },
   },
   firebase: {

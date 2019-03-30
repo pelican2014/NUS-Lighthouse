@@ -1,7 +1,6 @@
 <b-container>
   <v-toolbar
-      dark
-      color="blue-grey"
+      color=""
       class="lighthouse-search-bar"
     >
     <v-toolbar-title>{{ sub_title }} &nbsp;&nbsp;&nbsp;</v-toolbar-title>
@@ -10,9 +9,26 @@
       :items="data"
       item-text="search"
       item-value="id"
+      :multiple="multiple"
+      @input="updateValue"
     >
       <template v-slot:selection="data">
-        {{ data.item.name }}
+        <v-chip
+          v-if="multiple"
+          :selected="data.selected"
+          close
+          class="chip--select-multi"
+          @input="remove(data.item.id)"
+        >
+          <v-avatar v-if="data.item.image_url">
+            <img :src="data.item.image_url">
+          </v-avatar>
+          <v-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
+            <span class="white--text headline">{{ data.item.name[0] }}</span>
+          </v-avatar>
+          {{ data.item.name }}
+        </v-chip>
+        <span v-else>{{ data.item.name }}</span>
       </template>
 
       <template v-slot:item="data">
@@ -32,8 +48,9 @@
     </v-autocomplete>
     &nbsp;&nbsp;&nbsp;
     <v-btn
-      fab dark small color="blue-grey lighten-2"
+      fab dark small color="grey darken-2"
       use-router :to="input ? {path: parent_route + '/' + input} : undefined"
+      v-show="!multiple"
     >
       <v-icon dark>search</v-icon>
     </v-btn>

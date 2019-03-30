@@ -1,30 +1,39 @@
 <div>
 	<h3 class ='title'> Total number of RAs: {{number}}</h3>
-	<b-row>
-		<b-col class = 'col'>
-			<Pie title = 'Path' name = 'path' :data = 'path'></Pie>
-		</b-col>
-		<b-col class = 'col'>
-			<Pie title = 'Industry' name = 'industry' :data= 'industry'></Pie>
-		</b-col>
-	</b-row>
 
 	<b-row>
-		<b-col class = 'col'>
+		<b-col class = 'trajectory-position-col'>
 			<Pie title = 'Graduate Course' name = 'graduate course' :data= 'course'></Pie>
 		</b-col>
-		<b-col class = 'col'>
+		<b-col class = 'trajectory-position-col'>
 			<Histogram title = 'Starting Salary' name = 'salary' :data = 'salary_hist'></Histogram>
 		</b-col>
 	</b-row>
 
 	<b-row>
-		<b-col class = 'col'>
+		<b-col class = 'trajectory-position-col'>
 			<Wordcloud title = 'Postgraduate University' :data = 'university'></Wordcloud>
 		</b-col>
-		<b-col class = 'col'>
+		<b-col class = 'trajectory-position-col'>
 			<Wordcloud title = 'PhD Research Area' :data = 'research_area'></Wordcloud>
 		</b-col>
+	</b-row>
+
+	<SearchBar
+		sub_title="Filter by Major"
+		:data_dict="sankey_majors"
+		name_field="name"
+		search_field="name"
+		id_field="name"
+		:multiple="true"
+		v-model="sankey_filtered_majors"
+	></SearchBar>
+
+	<b-row>
+		<Sankey
+			:data="sankey"
+			title="Future Trajectory Sankey Diagram"
+		></Sankey>
 	</b-row>
 
 </div>

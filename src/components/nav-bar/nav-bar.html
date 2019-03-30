@@ -1,0 +1,27 @@
+<div>
+  <v-toolbar color="blue darken-3" dark>
+    <router-link to="/" tag="div" class="mouse-over">
+      <v-toolbar-title>
+        <h3 class = 'logo' id = "text1">NUS &nbsp</h3>
+        <h3 class = 'logo' id = "text2">Light</h3>
+        <h3 class = 'logo' id = "text3">house</h3>
+      </v-toolbar-title>
+    </router-link>
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>search</v-icon>
+    </v-btn>
+    <v-btn icon use-router to="/">
+      <v-icon>apps</v-icon>
+    </v-btn>
+    <v-btn icon @click="$router.go()">
+      <v-icon>refresh</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>more_vert</v-icon>
+    </v-btn>
+    <v-btn icon @click="$router.go(-1)">
+      <v-icon>arrow_back</v-icon>
+    </v-btn>
+  </v-toolbar>
+</div>

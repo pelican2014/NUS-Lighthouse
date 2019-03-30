@@ -2,13 +2,26 @@
   box-sizing: border-box;
 }
 
-
 .col{
 	margin: 2rem;
 	padding: 2rem;
 }
+
 .title{
 	text-align: left;
 	margin-left: 2rem;
 	margin-top: 1rem;
+}
+
+.highcharts-container {
+  width: 100% !important;
+}
+
+.trajectory-position-col{
+	margin: 1rem !important;
+}
+.trajectory-position-title{
+	font-size: 20px;
+	color: '#000080';
+	margin-bottom: 2rem;
 }

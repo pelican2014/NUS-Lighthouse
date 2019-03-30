@@ -4,7 +4,7 @@
 import _ from 'lodash';
 import math from 'mathjs';
 
-import TopHeader from '@/components/top-header/top-header';
+import NavBar from '@/components/nav-bar/nav-bar';
 import SubHeader from '@/components/subheader/subheader';
 import SearchBar from '@/components/search-bar/search-bar';
 import Recommended from '@/components/recommended-ra/recommended-ra';
@@ -21,10 +21,10 @@ export default {
     Boxplot,
     HorizontalBarChart,
     AreaChart,
-    TopHeader,
     SubHeader,
     SearchBar,
     Recommended,
+    NavBar,
   },
 
   methods: {

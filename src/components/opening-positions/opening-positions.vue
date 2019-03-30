@@ -20,10 +20,12 @@ export default {
     positions() {
       const results = [];
       if (this.company_dict[this.company_id]) {
-        const position_dict = this.company_dict[this.company_id].positions;
-        for (const position_id in position_dict) {
-          if (position_dict[position_id]) {
-            results.push({ title: position_dict[position_id].position_name, position_id });
+        const positions = this.company_dict[this.company_id].positions;
+        for (const position_id in positions) {
+          if (positions[position_id]) {
+            results.push({ title: positions[position_id].position_name,
+              position_id,
+              description: positions[position_id].position_description });
           }
         }
       }
