@@ -1,5 +1,9 @@
 <template>
-  <highcharts :options="options" ref="sankey" class="sankey"></highcharts>
+  <div style="width: 100%;">
+    <div v-for="(options, index) in options_list" style="width: 100%;">
+      <highcharts v-show="index === options_list.length - 1" v-for="" :options="options" ref="sankey" class="sankey"></highcharts>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -366,9 +370,31 @@ export default {
       default: 'Source: NUS Datalake',
     },
   },
-  computed: {
-    options() {
-      return {
+  data() {
+    const options = {
+      chart: {
+        type: 'sankey',
+      },
+      title: {
+        text: this.title,
+      },
+      subtitle: {
+        text: this.subtitle,
+      },
+      series: [{
+        keys: ['from', 'to', 'weight'],
+        data: [['from', 'to', 1]],
+        name: 'Future Trajectory Sankey',
+      }],
+    };
+
+    return {
+      options_list: [options],
+    };
+  },
+  watch: {
+    data(newVal, oldVal) {
+      const options = {
         chart: {
           type: 'sankey',
         },
@@ -380,11 +406,18 @@ export default {
         },
         series: [{
           keys: ['from', 'to', 'weight'],
-          data: this.data,
+          data: newVal,
           name: 'Future Trajectory Sankey',
         }],
       };
+      this.options_list.push(options);
     },
+
+    // options_list(newVal, oldVal) {
+    //   if (newVal.length > 1) {
+    //     this.options_list.splice(0, this.options_list.length-1);
+    //   }
+    // },
   },
 };
 </script>

@@ -1,5 +1,14 @@
 <div>
 	<h3 class ='title'> Total number of RAs: {{number}}</h3>
+	<SearchBar
+    sub_title="Filter by Major"
+    :data_dict="sankey_majors"
+    name_field="name"
+    search_field="name"
+    id_field="name"
+		:multiple="true"
+		v-model="sankey_filtered_majors"
+	></SearchBar>
 	<b-row>
 		<Sankey
 			:data="sankey"

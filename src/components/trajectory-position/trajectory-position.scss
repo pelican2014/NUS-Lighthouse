@@ -2,13 +2,17 @@
   box-sizing: border-box;
 }
 
-
 .col{
 	margin: 2rem;
 	padding: 2rem;
 }
+
 .title{
 	text-align: left;
 	margin-left: 2rem;
 	margin-top: 1rem;
+}
+
+.highcharts-container {
+  width: 100% !important;
 }

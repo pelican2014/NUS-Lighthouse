@@ -11,7 +11,6 @@ export default {
       default: 'Search for Company',
     },
     data_dict: {
-      type: Object,
       required: true,
     },
     name_field: {
@@ -29,6 +28,12 @@ export default {
     parent_route: {
       default: '',
     },
+    multiple: {
+      default: false,
+    },
+    value: {
+      default: null,
+    },
   },
   data() {
     return {
@@ -41,9 +46,27 @@ export default {
       ],
     };
   },
+  watch: {
+    value() {
+      if (this.value !== null) this.input = this.value;
+    },
+  },
+  methods: {
+    remove(id) {
+      if (this.multiple && this.input) {
+        const index = this.input.indexOf(id);
+        if (index !== -1) this.input.splice(index, 1);
+      }
+    },
+    updateValue() {
+      console.log('updating from search: ', this.value, this.input);
+      if (this.value !== null) this.$emit('input', this.input);
+    }
+  },
   computed: {
     data() {
       const results = [];
+      let count = 0;
       for (const item_id in this.data_dict) {
         if (typeof this.data_dict[item_id] !== 'object') continue;
         const results_item = {
@@ -53,6 +76,7 @@ export default {
           id: this.data_dict[item_id][this.id_field],
           secondary: this.data_dict[item_id][this.secondary_field],
         };
+        count += 1;
         results.push(results_item);
       }
       return results;
