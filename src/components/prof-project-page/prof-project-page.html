@@ -12,9 +12,26 @@
   </b-col>
   </b-row>
 
-    <SubHeader field='Current Projects' class = 'tabs'></SubHeader>
-    <CurrentProjects :prof_id='prof_id' class = 'tabs'></CurrentProjects>
-    <SubHeader field='Recent Publications' class = 'tabs'></SubHeader>
-    <RecentPublications :prof_id='prof_id' class = 'tabs'></RecentPublications>
+
+  <b-row>
+    <b-col>
+      <v-tabs left class='prof_tabs'>
+        <v-tab>
+          Current Projects
+        </v-tab>
+      </v-tabs>
+    <br></br>
+    <CurrentProjects :prof_id='prof_id' class = 'prof_tabs'></CurrentProjects>
+    </b-col>
+    <b-col>
+    <v-tabs left class='prof_tabs'>
+      <v-tab>
+        Recent Publications
+      </v-tab>
+    </v-tabs>
+    <br></br>
+    <RecentPublications :prof_id='prof_id' class = 'prof_tabs'></RecentPublications>
+    </b-col>
+  </b-row>
 
 </div>

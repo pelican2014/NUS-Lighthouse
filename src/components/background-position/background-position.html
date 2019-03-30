@@ -3,18 +3,11 @@
     Total Number of Past Interns: <b>{{ number }}</b>
   </div>
   <b-row>
-    <b-col class = 'background-position-col'><Pyramid :male = 'male' :female = 'female'></Pyramid></b-col>
-  </b-row>
-  <b-row>
     <b-col class = 'background-position-col'><Treemap :data = 'major_faculty'></Treemap></b-col>
   </b-row>
   <b-row>
     <b-col class = 'background-position-col second'><Histogram title = 'CAP distribution' yname = 'CAP' :data = 'CAP_hist'></Histogram></b-col>
-    <b-col class = 'background-position-col second'><Pie title = 'Major' name = 'major' :data = 'major'></Pie></b-col>
-  </b-row>
-  <b-row>
-    <b-col class = 'background-position-col second'><Bar title = 'Race' yname = 'race' :data = 'race'></Bar></b-col>
-    <b-col class = 'background-position-col second'><Bar title = 'Nationality' yname = 'nationality' :data = 'nationality'></Bar></b-col>
+    <b-col class = 'background-position-col'><Pyramid :male = 'male' :female = 'female'></Pyramid></b-col>
   </b-row>
   <b-row>
     <b-col class = 'background-col'><Wordcloud title = 'Modules taken' :data = 'modules'></Wordcloud></b-col>
