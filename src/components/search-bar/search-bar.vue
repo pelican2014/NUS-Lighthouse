@@ -59,7 +59,6 @@ export default {
       }
     },
     updateValue() {
-      console.log('updating from search: ', this.value, this.input);
       if (this.value !== null) this.$emit('input', this.input);
     }
   },

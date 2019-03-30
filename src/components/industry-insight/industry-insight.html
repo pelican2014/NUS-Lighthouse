@@ -3,6 +3,8 @@
     Total number of past interns in this industry: <b>{{ total_num }}</b>
   </div>
   <b-container class="bv-example-row">
+    <b-row> <SpiderChart :title=spider_chart_data.title :data='spider_chart_data.data' :xcategory='spider_chart_data.categories'></SpiderChart>
+    </b-row>
     <b-row>
       <b-col class = 'col'>
         <Pie title="Faculty"

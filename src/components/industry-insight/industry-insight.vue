@@ -1,6 +1,5 @@
 <template src="./industry-insight.html"></template>
 <style src="./industry-insight.scss" lang="scss"></style>
-
 <script>
 // import PieChartGender from '@/components/industry-insight/pie-chart-gender';
 // import PieChartFaculty from '@/components/industry-insight/pie-chart-faculty';
@@ -15,6 +14,7 @@ import Bar from '@/components/charts/bar';
 import LineChart from '@/components/charts/line';
 import Pyramid from '@/components/charts/population-pyramid';
 // import Histogram from '@/components/charts/histogram';
+import SpiderChart from '@/components/charts/spider-chart';
 
 export default {
   name: 'MainChart',
@@ -59,12 +59,17 @@ export default {
       type: Array,
       required: true,
     },
+    spider_chart_data: {
+      type: Object,
+      required: true,
+    },
   },
   components: {
     Pie,
     Bar,
     LineChart,
     Pyramid,
+    SpiderChart,
     // Histogram,
     // PieChartGender,
     // PieChartFaculty,
@@ -80,6 +85,5 @@ export default {
   //   };
   // },
 };
-
 
 </script>

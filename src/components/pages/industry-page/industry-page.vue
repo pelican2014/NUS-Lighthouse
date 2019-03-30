@@ -1,6 +1,5 @@
 <template src="./industry-page.html"></template>
 <style src="./industry-page.scss" lang="scss"></style>
-
 <script>
 import _ from 'lodash';
 import NavBar from '@/components/nav-bar/nav-bar';
@@ -19,6 +18,19 @@ const median = (arr) => {
 export default {
   name: 'PositionDetails',
   methods: {
+    get_entropy(arr) {
+      let result = 0;
+      const arrSum = x_arr => x_arr.reduce((a, b) => a + b, 0);
+      const total = arrSum(arr);
+      for (let i = 0; i < arr.length; i += 1) {
+        result -= (arr[i] / total) * Math.log2((arr[i] / total));
+      }
+      return result;
+    },
+    average(arr) {
+      return arr.reduce((sume, el) => sume + el, 0) / arr.length;
+    },
+
     update_industry(industry) {
       this.industry = industry;
     },
@@ -55,6 +67,85 @@ export default {
     },
     total_num() {
       return this.filtered_internship.length;
+    },
+    average_num_interns() {
+      return this.internship.length / (_.uniq(_.map(this.internship, x => x.industry)).length);
+    },
+    average_starting_salary() {
+      const results = _.filter(this.internship, o => o.starting_salary !== '');
+      const salaries = _.map(results, x => x.starting_salary);
+      return this.average(salaries);
+    },
+    average_acceptance_rate() {
+      const acceptance_rates = _.map(this.internship, x => x.acceptance_rate);
+      return this.average(acceptance_rates);
+    },
+    overall_average_cap() {
+      const all_cap = _.map(_.filter(this.internship, x => x.cap !== ''), x => x.cap);
+      return this.average(all_cap);
+    },
+    overall_gender_index() {
+      let female = 0;
+      let male = 0;
+      for (const internship of this.internship) {
+        if (internship.gender === 'F') {
+          female += 1;
+        } else {
+          male += 1;
+        }
+      }
+      return this.get_entropy([male, female]);
+    },
+    industry_gender_index() {
+      const male = this.gender[1].y;
+      const female = this.gender[0].y;
+      return this.get_entropy([male, female]);
+    },
+    industry_mean_starting_salary() {
+      let results = this.internship;
+      if (this.industry !== '(Unrestricted)') {
+        results = _.filter(results, { graduate_industry: this.industry });
+      }
+      results = _.filter(results, o => o.starting_salary !== '');
+      const salaries = _.map(results, x => x.starting_salary);
+      return this.average(salaries);
+    },
+    industry_mean_cap() {
+      const all_cap = _.map(_.filter(this.filtered_internship, x => x.cap !== ''), x => x.cap);
+      return this.average(all_cap);
+    },
+    industry_acceptance_rate() {
+      const acceptance_rates = _.map(this.filtered_internship, x => x.acceptance_rate);
+      return this.average(acceptance_rates);
+    },
+    spider_chart_data() {
+      const industry_interns = this.total_num;
+      const industry_gender_index = this.industry_gender_index;
+      const industry_mean_cap = this.industry_mean_cap;
+      const industry_acceptance_rate = this.industry_acceptance_rate;
+      const industry_mean_starting_salary = this.industry_mean_starting_salary;
+      const average_num_interns = this.average_num_interns;
+      const overall_gender_index = this.overall_gender_index;
+      const overall_average_cap = this.overall_average_cap;
+      const average_starting_salary = this.average_starting_salary;
+      const average_acceptance_rate = this.average_acceptance_rate;
+      const needed_data = [];
+      needed_data.push({
+        name: 'Average of all industries (Benchmark)',
+        data: [1, 1, 1, 1],
+      });
+
+      needed_data.push({
+        name: this.industry,
+        data: [
+          // industry_interns / average_num_interns,
+          industry_gender_index / overall_gender_index,
+          industry_mean_cap / overall_average_cap,
+          industry_mean_starting_salary / average_starting_salary,
+          industry_acceptance_rate / average_acceptance_rate,
+        ],
+      });
+      return { title: 'This industry: ' + this.industry + ' v.s. All industries', data: needed_data, categories: ['Gender Equality Index', 'Average CAP', 'Average Starting Salary', 'Average Acceptance Rate'] };
     },
     female() {
       const result = [0, 0, 0, 0];
@@ -261,6 +352,7 @@ export default {
       return {
         x,
         data: [
+
           {
             name: 'mean',
             data: mean_data,
@@ -272,6 +364,7 @@ export default {
         ],
       };
     },
+
   },
   firebase: {
     internship: {
@@ -280,6 +373,5 @@ export default {
     },
   },
 };
-
 
 </script>
