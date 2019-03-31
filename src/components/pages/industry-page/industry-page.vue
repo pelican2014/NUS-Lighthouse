@@ -38,10 +38,24 @@ export default {
       this.major = major;
     },
   },
+  mounted() {
+    if (this.$route.query && 'industry' in this.$route.query) {
+      this.industry = this.$route.query['industry'];
+    }
+    if (this.$route.query && 'major' in this.$route.query) {
+      this.major = this.$route.query['major'];
+    }
+  },
   data() {
+    let industry = '(Unrestricted)';
+    let major = '(Unrestricted)';
+
+    if (this.industry) industry = this.industry;
+    if (this.major) major = this.major;
+
     return {
-      industry: '(Unrestricted)',
-      major: '(Unrestricted)',
+      industry,
+      major,
     };
   },
   components: {
