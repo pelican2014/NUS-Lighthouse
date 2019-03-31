@@ -1,4 +1,8 @@
-// .page {
-//   align: center;
-//   display: block;
-// }
+.subheader-tab-3 {
+  margin-right: 256px !important;
+}
+
+.v-tabs__item, .v-tabs__item--active {
+	text-decoration: none !important;
+	color: default !important;
+}

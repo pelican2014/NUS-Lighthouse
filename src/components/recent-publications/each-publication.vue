@@ -1,9 +1,9 @@
 <template>
   <div>
-    <img src="@/assets/publication-icon.png" alt="Recent Publication"
+<!--     <img src="@/assets/publication-icon.png" alt="Recent Publication"
     align='left'
-    class = 'publication-icon'>
-    <i>{{description}}</i><br /><br />
+    class = 'publication-icon'> -->
+    <span class = 'publication-title'>{{description}}</span>
   </div>
 </template>
 
@@ -19,3 +19,12 @@ export default {
 };
 
 </script>
+
+<style>
+
+.publication-title {
+  /*margin-bottom:-0.6em;*/
+  color:black;
+}
+
+</style>

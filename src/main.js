@@ -8,6 +8,7 @@ import exportingInit from 'highcharts/modules/exporting';
 import 'vuetify/dist/vuetify.min.css';
 import App from './app/app';
 import router from './app/router/router';
+// import cors from 'cors';
 // import Highcharts from 'highcharts';
 import './styles/main.scss';
 
@@ -20,6 +21,7 @@ Vue.use(HighchartsVue);
 Vue.use(Highcharts);
 Vue.use(Vuetify);
 Vue.use(VueFire);
+// Vue.use(cors());
 
 /* eslint-disable no-new */
 new Vue({
