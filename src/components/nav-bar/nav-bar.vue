@@ -1,8 +1,40 @@
 <template src="./nav-bar.html"></template>
 <style src="./nav-bar.scss" lang="scss"></style>
-
 <script>
-export default{
+export default {
   name: 'nav-bar',
+  methods: {
+    update_recommended() {
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          alert(this.responseText);
+        }
+      };
+      xhttp.open("GET", "https://n8cdcjqay1.execute-api.us-east-1.amazonaws.com/default/SOMEfunciton", true);
+      xhttp.send();
+      alert(this.responseText);
+    },
+
+    // var request = new XMLHttpRequest()
+    // request.open('POST', 'https://n8cdcjqay1.execute-api.us-east-1.amazonaws.com/default/SOMEfunciton', true)
+    // request.onload = function() {
+    //   // Begin accessing JSON data here
+    //   var data = JSON.parse(this.response)
+
+    //   if (request.status >= 200 && request.status < 400) {
+    //     data.forEach(movie => {
+    //       console.log(movie.title)
+    //     })
+    //   } else {
+    //     console.log('error')
+    //   }
+    // }
+
+    // request.send()
+
+
+  }
 };
+
 </script>
