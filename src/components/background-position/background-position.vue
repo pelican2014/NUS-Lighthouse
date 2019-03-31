@@ -219,10 +219,8 @@ export default{
             tfidf_list.push(tfidf[mod]);
           }
         }
-
         const max_tfidf = Math.max(tfidf_list);
         const norm_tfidf = _.map(tfidf_list, n => Math.round(n / max_tfidf * 100));
-
         const result = [];
         for (let i = 0; i < module_list.length; i += 1) {
           result.push({ name: module_list[i].toUpperCase(), weight: norm_tfidf[i] });
