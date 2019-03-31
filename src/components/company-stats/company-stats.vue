@@ -43,7 +43,7 @@ export default {
       return this.company_dict[this.company_id].industry;
     },
     categories() {
-      return ['Number of Interns', 'Mean CAP', 'Acceptance Rate', 'Average Salary', 'Gender Equality Index', 'Nationality Equality Index', 'Race Equality Index'];
+      return ['Number of Interns', 'Mean CAP', 'Acceptance Rate', 'Average Starting Salary', 'Gender Diversity Index', 'Nationality Diversity Index', 'Race Diversity Index'];
     },
 
     spider_chart_data() {
