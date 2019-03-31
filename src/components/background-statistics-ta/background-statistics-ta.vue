@@ -219,14 +219,16 @@ export default {
     },
     cap_hist() {
       const cap_list = [];
-      const ta_list = this.ta_dict;
-      for (const item_id in ta_list) {
-        if (ta_list[item_id].module_code === this.module) {
-          const ta = ta_list[item_id];
+      for (const item_id in this.ta_dict) {
+        if (this.ta_dict[item_id].module_code === this.module) {
+          const ta = this.ta_dict[item_id];
           cap_list.push(ta.cap);
         }
       }
-      const breakpoints = [1, 2, 3, 4, 5];
+      const breakpoints = [];
+      for (let i = 0; Math.round(i * 10) / 10 <= 5; i += 0.2) {
+        breakpoints.push(Math.round(i * 10) / 10);
+      }
       const first = breakpoints[0];
       const last = breakpoints.slice(-1)[0];
       const trimmed = _.map(cap_list, (o) => {
@@ -235,7 +237,7 @@ export default {
         } else if (o < first) {
           return 0;
         } else {
-          return Math.floor(o);
+          return Math.round(Math.floor(o * 5) / 5 * 10) / 10;
         }
       });
       const counts = _.map(_.countBy(trimmed), (count, point) => {
@@ -245,11 +247,15 @@ export default {
         } else if (current_point >= last) {
           return { name: '>=' + last, y: count };
         } else {
-          const next_point = Number(current_point) + 1;
-          return { name: current_point + ' to ' + next_point, y: count };
+          const next_point = Math.round((Number(current_point) + 0.2) * 5) / 5;
+          return {
+            name: current_point + ' to ' + next_point,
+            y: count,
+            start: current_point,
+          };
         }
       });
-      return counts;
+      return _.map(_.sortBy(counts, 'start'), o => ({ name: o.name, y: o.y }));
     },
     major_faculty() {
       const child_list = [];
