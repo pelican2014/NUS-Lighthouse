@@ -10,7 +10,7 @@ import Background from '@/components/background-statistics-ra/background-statist
 import Trajectory from '@/components/trajectory-ra/trajectory-ra';
 // import CurrentProjects from '@/components/current-projects/current-projects';
 import EachProject from '@/components/current-projects/each-project';
-import EachPublication from '@/components/recent-publications/each-publication'
+import EachPublication from '@/components/recent-publications/each-publication';
 // import RecentPublications from '@/components/recent-publications/recent-publications';
 
 export default{
