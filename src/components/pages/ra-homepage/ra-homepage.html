@@ -2,7 +2,7 @@
   <NavBar></NavBar>
   <SearchBar
     sub_title="Search for Professor"
-    :data_dict="majors"
+    :data_dict="professor_search"
     name_field="Prof Name"
     secondary_field="title"
     search_field="search"
@@ -41,7 +41,7 @@
     </b-row>
     <b-row>
       <AreaChart
-        title="Opening Positions by Target Majors"
+        title="Opening Positions by Department"
         subtitle="in the past year"
         :data="opening_positions"
       ></AreaChart>

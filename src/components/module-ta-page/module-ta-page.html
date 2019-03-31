@@ -1,14 +1,51 @@
 <div class="page">
     <Navbar></Navbar>
-    <!-- <SubHeader field='Research Opportunities' class="tab"></SubHeader> -->
-    <div><BasicInfo module_name='CS1010S'></BasicInfo></div>
-<!--     <SubHeader field='Past Teaching Assistants Statistics'></SubHeader>
- -->  <b-row>
+    <div><BasicInfo :module_name='module_name'></BasicInfo></div>
+
+    <b-container>
+      <v-tabs
+        centered
+        color="grey lighten-3"
+        light
+        icons-and-text
+        class="lighthouse-tabs"
+      >
+        <v-tabs-slider color="grey"></v-tabs-slider>
+        <v-tab href="#tab-3" class='subheader-tab-3'>
+          Background Statistics
+          <v-icon>insert_chart_outlined</v-icon>
+        </v-tab>
+
+        <v-tab href="#tab-4">
+          Future Trajectory
+          <v-icon>airplanemode_active</v-icon>
+        </v-tab>
+
+        <v-tab-item
+          key="1"
+          value="tab-3"
+        >
+          <v-card flat>
+            <Background :module='module_name' input_cap=4.8></Background>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item
+          key="2"
+          value="tab-4"
+        >
+          <v-card flat>
+            <Trajectory :module='module_name' number=70></Trajectory>
+          </v-card>
+        </v-tab-item>
+      </v-tabs>
+    </b-container>
+
+  <!-- <b-row>
     <b-col>
     <b-tabs content-class="mt-3">
-    <b-tab title="Background Statistics"  title-item-class=" text-center tabtitle" title-link-class="title-link"active><Background module='CS1010S' input_cap=4.8></Background></b-tab>
-    <b-tab title="Future Trajectory"  title-item-class=" text-center tabtitle" title-link-class="title-link" ><Trajectory module='CS1010S' number=70></Trajectory></b-tab>
+    <b-tab title="Background Statistics"  title-item-class=" text-center tabtitle" title-link-class="title-link"active><Background :module='module_name' input_cap=4.8></Background></b-tab>
+    <b-tab title="Future Trajectory"  title-item-class=" text-center tabtitle" title-link-class="title-link" ><Trajectory :module='module_name' number=70></Trajectory></b-tab>
   </b-tabs>
   </b-col>
-  </b-row>
+  </b-row> -->
 </div>

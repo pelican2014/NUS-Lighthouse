@@ -1,9 +1,8 @@
-.page {
-  align: center;
-  display: block;
+.subheader-tab-3 {
+  margin-right: 256px !important;
 }
 
-.tab {
-  magin: auto;
-  width: 95%;
+.v-tabs__item, .v-tabs__item--active {
+	text-decoration: none !important;
+	color: default !important;
 }

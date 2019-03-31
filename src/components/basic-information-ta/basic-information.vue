@@ -19,7 +19,7 @@ export default {
         module_code: this.module_name, // change to this.module
         module_name: mod['course_title'],
         module_course: mod['major'],
-        module_MC: mod['module_credicts'],
+        module_MC: mod['module_credits'],
         module_description: mod['module_description'],
       };
       return result;

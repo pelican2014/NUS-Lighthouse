@@ -24,11 +24,15 @@
             <img :src="data.item.image_url">
           </v-avatar>
           <v-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
-            <span class="white--text headline">{{ data.item.name[0] }}</span>
+            <span class="white--text headline">
+              {{ data.item.name && data.item.name.length > 0 ? data.item.name[0] : '' }}
+            </span>
           </v-avatar>
           {{ data.item.name }}
         </v-chip>
-        <span v-else>{{ data.item.name }}</span>
+        <span v-else>
+          {{ data.item.name +  (show_sec ? ' @ ' + data.item.secondary : '') }}
+        </span>
       </template>
 
       <template v-slot:item="data">
@@ -37,7 +41,9 @@
             <img :src="data.item.image_url">
           </v-list-tile-avatar>
           <v-list-tile-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
-            <span class="white--text headline">{{ data.item.name[0] }}</span>
+            <span class="white--text headline">
+              {{ data.item.name && data.item.name.length > 0 ? data.item.name[0] : '' }}
+            </span>
           </v-list-tile-avatar>
           <v-list-tile-content>
             <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
@@ -49,7 +55,7 @@
     &nbsp;&nbsp;&nbsp;
     <v-btn
       fab dark small color="grey darken-2"
-      use-router :to="input ? {path: parent_route + '/' + input} : undefined"
+      use-router :to="input ? {path: parent_route + (query_name ? '?' + encodeURIComponent(query_name) + '=' + encodeURIComponent(input) : '/' + input)} : undefined"
       v-show="!multiple"
     >
       <v-icon dark>search</v-icon>

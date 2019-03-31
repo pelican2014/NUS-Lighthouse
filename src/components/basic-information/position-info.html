@@ -1,5 +1,5 @@
 <div>
-<!--   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <div>
     <b-container class="p-4">
       <b-row>
@@ -10,13 +10,14 @@
         </b-col>
         <b-col cols="9">
           <b-container>
-            <b-row align-v='start' align-h="between" class='internship-position-title'>
-              <b-col cols="8" class='position-name'>{{position_title}}</b-col>
-              <b-col cols="4" class='position-company' align-self='end'>{{company_name}}</b-col>
+            <b-row>
+              <span class = 'position-name'>{{position_title}}</span>
+            </b-row>
+            <b-row>
+              <span class='position-company'>{{company_name}}</span>
             </b-row>
             <b-row class='internship-period-row'>
-              <p class='internship-period-title'> Internship Period: </p>
-              <p class='internship-period'> <b>{{start}} ~ {{end}} </b></p>
+              <p class='internship-period-title'> Internship Period: <span class='internship-period'>{{start}} ~ {{end}}</span></p>
             </b-row>
             <b-row class='internship-description-row'>
               <span class='job-description-title'> Job Description:</span>

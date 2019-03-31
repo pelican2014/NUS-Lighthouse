@@ -173,7 +173,11 @@ export default{
       return result;
     },
     CAP_hist() {
-      const breakpoints = [0, 1, 2, 3, 4, 5];
+      const breakpoints = [];
+      for (let i = 0; Math.round(i * 10) / 10 <= 5; i += 0.2) {
+        breakpoints.push(Math.round(i * 10) / 10);
+      }
+
       const first = breakpoints[0];
       const last = breakpoints.slice(-1)[0];
       const trimmed = _.map(this.CAP, (o) => {
@@ -182,7 +186,7 @@ export default{
         } else if (o < first) {
           return 0;
         } else {
-          return Math.floor(o);
+          return Math.round(Math.floor(o * 5) / 5 * 10) / 10;
         }
       });
       const counts = _.map(_.countBy(trimmed), (count, point) => {
@@ -192,38 +196,64 @@ export default{
         } else if (current_point >= last) {
           return { name: '>=' + last, y: count };
         } else {
-          const next_point = Number(current_point) + 1;
-          return { name: current_point + ' to ' + next_point, y: count };
+          const next_point = Math.round((Number(current_point) + 0.2) * 5) / 5;
+          return {
+            name: current_point + ' to ' + next_point,
+            y: count,
+            start: current_point,
+          };
         }
       });
-      return counts;
+      return _.map(_.sortBy(counts, 'start'), o => ({ name: o.name, y: o.y }));
     },
     modules() {
-      let lst = [];
-      for (const internship_id of this.internships) {
-        const module_list = this.internship_dict[internship_id].modules_taken;
-        if (!module_list) {
-          continue;
-        } else {
-        	lst = lst.concat(module_list);
+      for (const c in this.company_dict) {
+        if (!(this.position_id in this.company_dict[c]['positions'])) continue;
+        const p = this.company_dict[c]['positions'][this.position_id];
+        const tfidf = p['tfidf'];
+        const module_list = [];
+        const tfidf_list = [];
+        for (const mod in tfidf) {
+          if (tfidf[mod] !== 0) {
+            module_list.push(mod);
+            tfidf_list.push(tfidf[mod]);
+          }
         }
-      }
-      const result = {};
-      for (const each_module of lst) {
-      	if (each_module in result) {
-      		result[each_module] += 1;
-      	} else {
-      		result[each_module] = 1;
-      	}
-      }
-      const output = [];
-      for (const mod in result) {
-        if (mod) {
-          output.push({ name: mod, weight: result[mod] });
+        const max_tfidf = Math.max(tfidf_list);
+        const norm_tfidf = _.map(tfidf_list, n => Math.round(n / max_tfidf * 100));
+        const result = [];
+        for (let i = 0; i < module_list.length; i += 1) {
+          result.push({ name: module_list[i].toUpperCase(), weight: norm_tfidf[i] });
         }
+        return result;
       }
-      return output;
     },
+    // mods() {
+    //   let lst = [];
+    //   for (const internship_id of this.internships) {
+    //     const module_list = this.internship_dict[internship_id].modules_taken;
+    //     if (!module_list) {
+    //       continue;
+    //     } else {
+    //     	lst = lst.concat(module_list);
+    //     }
+    //   }
+    //   const result = {};
+    //   for (const each_module of lst) {
+    //   	if (each_module in result) {
+    //   		result[each_module] += 1;
+    //   	} else {
+    //   		result[each_module] = 1;
+    //   	}
+    //   }
+    //   const output = [];
+    //   for (const mod in result) {
+    //     if (mod) {
+    //       output.push({ name: mod, weight: result[mod] });
+    //     }
+    //   }
+    //   return output;
+    // },
     race() {
       const result = {};
       for (const internship_id of this.internships) {
@@ -334,6 +364,10 @@ export default{
   		source: db.ref('internship'),
   		asObject: true,
   	},
+    company_dict: {
+      source: db.ref('company'),
+  		asObject: true,
+    },
   },
 };
 </script>

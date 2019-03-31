@@ -1,44 +1,29 @@
-.internship-position-title {
-  background-color: rgba(218, 227, 242, 0.8);
-  width: auto;
-  border-radius: 1rem;
-/*
-  margin-top: -2.5em;
-  margin-right: 0.2em;
-  */
-}
-
 .position-name {
   font-size: 32px;
   font-weight: bold;
-  float: left;
+  // float: left;
   color: rgb(31, 80, 140);
 }
 
 .position-company {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: bold;
-  float: right;
   color: rgb(31, 80, 140);
-  text-align:right;
 }
 
 .internship-period-row {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .internship-period-title {
   font-size: 19px;
-  float: right;
-  margin-right: 0.5em;
   font-weight: bold;
   color: rgb(2, 63, 122);
 }
 
 .internship-period {
-  font-size: 16px;
-  margin-top: 2.5px;
-
+  font-weight: normal;
+  color: black;
 }
 
 .internship-description-row {
@@ -47,8 +32,6 @@
 
 .job-description-title {
   font-size: 17px;
-  float: right;
-  margin-right: 1em;
   font-weight: bold;
   color: rgb(2, 63, 122);
 }

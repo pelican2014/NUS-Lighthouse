@@ -1,57 +1,60 @@
 <div>
-  <div v-if="by=='industry'">
-    <ExplorerSearch>
-    </ExplorerSearch>
+  <searchBar
+    :sub_title="'Search for ' + cap_by"
+    :data_dict="dashboard_search"
+    parent_route="industryPage"
+    id_field="name"
+    :query_name="by"
+    search_field="name"
+    name_field="name"
+  ></searchBar>
+  <div v-if="this.by==='industry'">
     <b-container>
       <b-row>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <HorizontalBarChart title='Number of Interns by Industry (Top 10)' subtitle='In the past 5 years' yname='No. of interns' :data='num_interns_data'></HorizontalBarChart>
         </b-col>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <Boxplot title='Starting Salary by Industry (Top 10)' yname='Starting Salary of Graduates (S$)' subtitle='In the past 5 years' :xcategory='starting_salary_data.category' :data='starting_salary_data.salary'></Boxplot>
         </b-col>
       </b-row>
       <b-row>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <Boxplot title='CAP of Successful Applicants by Industry (Top 10)' yname='Cumulative Average Point (CAP)' subtitle='In the past 5 years' :xcategory='cap_data.category' :data='cap_data.cap'></Boxplot>
         </b-col>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <HorizontalBarChart :data='acceptance_rates_data' title='Internship Acceptance Rates by Industry (Top 10)' subtitle='In the past 5 years' yname='Acceptance Rate (%)'></HorizontalBarChart>
         </b-col>
       </b-row>
       <b-row>
-        <AreaChart title = 'Opening Positions by Industry' subtitle= 'in the last year' :data="opening_positions_data"></AreaChart>
+        <AreaChart title='Opening Positions by Industry' subtitle='in the last year' :data="opening_positions_data"></AreaChart>
       </b-row>
     </b-container>
   </div>
-  <div v-if="by=='major'">
-    <ExplorerSearch sub_title='Search for a Major' name_field='major'>
-    </ExplorerSearch>
+  <div v-else-if="by==='major'">
     <b-container>
       <b-row>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <HorizontalBarChart title='Number of Interns by Major (Top 10)' subtitle='In the past 5 years' yname='No. of interns' :data='num_interns_data'></HorizontalBarChart>
         </b-col>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <Boxplot title='Starting Salary by Major (Top 10)' yname='Starting Salary of Graduates (S$)' subtitle='In the past 5 years' :xcategory='starting_salary_data.category' :data='starting_salary_data.salary'></Boxplot>
         </b-col>
       </b-row>
       <b-row>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <Boxplot title='CAP of Successful Applicants by Major (Top 10)' yname='Cumulative Average Point (CAP)' subtitle='In the past 5 years' :xcategory='cap_data.category' :data='cap_data.cap'></Boxplot>
         </b-col>
-        <b-col class = 'col'>
+        <b-col class='col'>
           <HorizontalBarChart :data='acceptance_rates_data' title='Internship Acceptance Rates by Major (Top 10)' subtitle='In the past 5 years' yname='Acceptance Rate (%)'></HorizontalBarChart>
         </b-col>
       </b-row>
-      <b-row class = 'col'>
-        <AreaChart title = 'Opening Positions by Major' subtitle= 'in the last year' :data="opening_positions_data"></AreaChart>
+      <b-row class='col'>
+        <AreaChart title='Opening Positions by Major' subtitle='in the last year' :data="opening_positions_data"></AreaChart>
       </b-row>
     </b-container>
   </div>
-  <div v-if="by=='company'">
-    <ExplorerSearch sub_title='Search for a Company' name_field='company_name'>
-    </ExplorerSearch>
+  <div v-else-if="by==='company'">
     <b-container>
       <b-row>
         <b-col>

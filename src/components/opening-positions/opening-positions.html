@@ -1,5 +1,12 @@
 <div>
-	<div class="opening-positions-header"> Opening Positions </div>
+	<v-toolbar dark color="blue darken-2">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+  
+      <v-toolbar-title class="white--text">Available Positions</v-toolbar-title>
+  
+      <v-spacer></v-spacer>
+ 
+    </v-toolbar>
 	<div class="position-frame">
 		<eachPosition v-for="position in positions" :key = 'position.position_id' :title='position.title' :position_id = 'position.position_id' :description = 'position.description' class="card"></eachPosition>
 	</div>

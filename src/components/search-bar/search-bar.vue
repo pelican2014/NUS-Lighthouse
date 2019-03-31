@@ -34,6 +34,12 @@ export default {
     value: {
       default: null,
     },
+    show_sec: {
+      default: false,
+    },
+    query_name: {
+      default: undefined,
+    },
   },
   data() {
     return {
@@ -52,6 +58,14 @@ export default {
     },
   },
   methods: {
+    get_route() {
+      if (typeof this.query_name !== 'undefined') {
+        return this.input
+          ? {path: parent_route + '?' + this.query_name + '=' + this.input}
+          : undefined;
+      }
+      return this.input ? {path: parent_route + '/' + this.input} : undefined;
+    },
     remove(id) {
       if (this.multiple && this.input) {
         const index = this.input.indexOf(id);

@@ -1,5 +1,5 @@
 <template src="./module-ta-page.html"></template>
-<!-- <style src="./prof-project-page.scss" lang="scss"></style> -->
+<style src="./module-ta-page.scss" lang="scss"></style>
 
 <script>
 import db from '@/firebase';
@@ -25,6 +25,7 @@ export default{
     module_name: {
       Type: String,
       required: true,
+      default: 'CS1010S',
     },
   },
 };

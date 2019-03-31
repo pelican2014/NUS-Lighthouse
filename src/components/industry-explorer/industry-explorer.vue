@@ -1,5 +1,6 @@
 <template src='./industry-explorer.html'></template>
 <style src='./industry-explorer.scss' lang='scss'></style>
+
 <script>
 import _ from 'lodash';
 import math from 'mathjs';
@@ -7,16 +8,19 @@ import BarChart from '@/components/charts/bar';
 import AreaChart from '@/components/charts/area';
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
 import Boxplot from '@/components/charts/boxplot';
-import ExplorerSearch from '@/components/explorer-search/explorer-search';
+import searchBar from '@/components/search-bar/search-bar';
+// import ExplorerSearch from '@/components/explorer-search/explorer-search';
+import db from '@/firebase';
 
 export default {
   name: 'IndustryExplorer',
   components: {
+    searchBar,
     BarChart,
     AreaChart,
     HorizontalBarChart,
     Boxplot,
-    ExplorerSearch,
+    // ExplorerSearch,
   },
   props: {
     by: {
@@ -24,11 +28,21 @@ export default {
       required: true,
     },
     internship: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
+  methods: {
+    get_box_points(arr) {
+      if (!arr.length) return arr;
+      return Array.from(math.quantileSeq(arr, [0, 0.25, 0.5, 0.75, 1]));
+    },
+  },
   computed: {
+    cap_by() {
+      if (!(this.by) || this.by.length === 0) return '';
+      return this.by[0].toUpperCase() + this.by.substr(1);
+    },
     internship_instances() {
       const results = {};
       let criteria = this.by;
@@ -115,23 +129,19 @@ export default {
       }));
       const categories = _.map(categories_salary, 'category');
       const sorted_salaries = _.map(_.map(categories_salary, 'salary'), x => x.sort());
-      // define a function to find the points needed
-      const get_box_points = (arr) => {
-        if (!arr.length) return arr;
-        return math.quantileSeq(arr, [0, 0.25, 0.5, 0.75, 1]);
-      };
+
       // get the required data for a box plot.
       const required_data = _.map(sorted_salaries,
-        x => get_box_points(x),
+        x => this.get_box_points(x),
       );
       return {
         category: categories,
         salary: required_data,
       };
     },
-
     cap_data() {
       const results = this.internship_instances;
+
       const sorted = _.map(_.sortBy(_.map(results, (instance, category) => ({
         category,
         averageCap: _.meanBy(_.filter(instance, x => (x.cap !== 0)), 'cap'),
@@ -141,21 +151,20 @@ export default {
         category,
         cap: _.map(_.filter(instance, x => (x.cap !== 0)), x => x.cap),
       }));
+
       const categories = _.map(categories_cap, 'category');
       const sorted_cap = _.map(_.map(categories_cap, 'cap'), x => x.sort());
-      // define a function to find the points needed
-      const get_box_points = (arr) => {
-        if (!arr.length) return arr;
-        return math.quantileSeq(arr, [0, 0.25, 0.5, 0.75, 1]);
-      };
-
       // get the required data for a box plot.
       const required_data = _.map(sorted_cap,
-        x => get_box_points(x),
+        x => this.get_box_points(x),
       );
-
-      return { category: categories, cap: required_data };
+      const new_result = this.internship_instances;
+      return {
+        category: categories,
+        cap: required_data,
+      };
     },
+
     opening_positions_data() {
       const results = this.last_year_internship_instances;
       const sorted_categories = _.map(_.sortBy(_.map(results, (instance, category) => ({
@@ -181,7 +190,19 @@ export default {
       }
       return final_data;
     },
+    dashboard_search() {
+      return _.map(
+        Object.keys(this.internship_instances), o => ({ name: o }),
+      );
+    },
   },
+  /*
+  firebase: {
+    internship: {
+      source: db.ref('internship'),
+      asArray: true,
+    },
+  },
+  */
 };
-
 </script>

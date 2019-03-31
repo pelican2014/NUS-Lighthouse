@@ -11,7 +11,7 @@ export default {
   },
   props: {
     prof_id: {
-      Type: Number,
+      Type: String,
       required: true,
     },
   },

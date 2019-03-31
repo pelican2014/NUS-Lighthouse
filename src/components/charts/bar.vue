@@ -63,8 +63,8 @@ export default {
         },
         plotOptions: {
           column: {
-            pointPadding: 0.1,
-            groupPadding: 0.1,
+            pointPadding: 0.05,
+            groupPadding: 0.05,
             borderWidth: 0,
             color: '#FFC300',
           },
@@ -72,18 +72,6 @@ export default {
         series: [{
           name: this.yname,
           data: this.data,
-          dataLabels: {
-            enabled: true,
-            // rotation: -90,
-            color: '#FFFFFF',
-            align: 'center',
-            format: '{point.y:.1f}', // one decimal
-            y: 10, // 10 pixels down from the top
-            style: {
-              fontSize: '10px',
-              fontFamily: 'Verdana, sans-serif',
-            },
-          },
         }],
       };
     },
