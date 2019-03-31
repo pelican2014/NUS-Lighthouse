@@ -4,6 +4,7 @@
 
   <b-container>
     <b-row>
+
       <b-col>
         <b-container>
           <v-card>
@@ -34,33 +35,33 @@
           </v-card>
         </b-container>
       </b-col>
-      <!-- <b-col>
-        <b-container>
-          <v-tabs
-            centered
-            color="grey lighten-3"
-            light
-            icons-and-text
-            class="lighthouse-tabs"
-          >
-            <v-tab href="#tab-1">
-              Current Projects
-              <v-icon>work_outline</v-icon>
-            </v-tab>
 
-            <v-tab-item
-              key="1"
-              value="tab-1"
-            >
-              <v-card flat>
-                <br />
-                <CurrentProjects :prof_id='prof_id' class = 'prof_tabs'></CurrentProjects>
-              </v-card>
-            </v-tab-item>
-          </v-tabs>
-        </b-container>
-      </b-col> -->
       <b-col>
+        <b-container>
+          <v-card>
+            <v-toolbar color="orange lighten-1" dark>
+              <v-toolbar-side-icon></v-toolbar-side-icon>
+              <v-toolbar-title>Recent Publications</v-toolbar-title>
+            </v-toolbar>
+
+            <v-list two-line>
+              <template v-for="publication in publications">
+                <v-list-tile avatar ripple @click="">
+                  <v-list-tile-avatar>
+                    <v-icon>file_copy</v-icon>
+                  </v-list-tile-avatar>
+                  <v-list-tile-content>
+                    <EachPublication :description="publication"></EachPublication>
+                  </v-list-tile-content>
+                </v-list-tile>
+              </template>
+            </v-list>
+          </v-card>
+        </b-container>
+      </b-col>
+
+
+     <!--  <b-col>
         <b-container>
           <v-tabs
             centered
@@ -85,7 +86,8 @@
             </v-tab-item>
           </v-tabs>
         </b-container>
-      </b-col>
+      </b-col> -->
+
     </b-row>
   </b-container>
 
