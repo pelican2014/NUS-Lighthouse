@@ -55,7 +55,7 @@
     &nbsp;&nbsp;&nbsp;
     <v-btn
       fab dark small color="grey darken-2"
-      use-router :to="input ? {path: parent_route + '/' + input} : undefined"
+      use-router :to="input ? {path: parent_route + (query_name ? '?' + encodeURIComponent(query_name) + '=' + encodeURIComponent(input) : '/' + input)} : undefined"
       v-show="!multiple"
     >
       <v-icon dark>search</v-icon>

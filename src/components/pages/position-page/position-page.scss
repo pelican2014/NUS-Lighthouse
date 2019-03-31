@@ -1,5 +1,5 @@
 .subheader-tab-2 {
-	margin-right: 256px;
+	margin-right: 256px !important;
 }
 
 .tabtitle {
@@ -19,4 +19,9 @@
 .tabs {
 	margin: auto;
 	width: 95%;
+}
+
+.v-tabs__item, .v-tabs__item--active {
+	text-decoration: none !important;
+	color: default !important;
 }

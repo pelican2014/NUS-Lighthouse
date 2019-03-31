@@ -10,7 +10,8 @@ import Background from '@/components/background-statistics-ra/background-statist
 import Trajectory from '@/components/trajectory-ra/trajectory-ra';
 // import CurrentProjects from '@/components/current-projects/current-projects';
 import EachProject from '@/components/current-projects/each-project';
-import RecentPublications from '@/components/recent-publications/recent-publications';
+import EachPublication from '@/components/recent-publications/each-publication';
+// import RecentPublications from '@/components/recent-publications/recent-publications';
 
 export default{
   name: 'prof-project-page',
@@ -22,7 +23,7 @@ export default{
     Trajectory,
     // CurrentProjects,
     EachProject,
-    RecentPublications,
+    EachPublication,
   },
   props: {
     username: {
@@ -42,12 +43,23 @@ export default{
       // return prof.Projects;
 
       const professors = this.prof_dict;
-      if (professors == null) {
+      if (professors === null) {
         return [];
       }
       const prof = professors[this.prof_id];
       if (prof && 'Projects' in prof) {
         return prof.Projects;
+      }
+      return [];
+    },
+    publications() {
+      const professors = this.prof_dict;
+      if (professors === null) {
+        return [];
+      }
+      const prof = professors[this.prof_id];
+      if (prof && 'Publications' in prof) {
+        return prof.Publications;
       }
       return [];
     },

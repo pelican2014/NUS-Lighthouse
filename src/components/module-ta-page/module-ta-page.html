@@ -11,7 +11,7 @@
         class="lighthouse-tabs"
       >
         <v-tabs-slider color="grey"></v-tabs-slider>
-        <v-tab href="#tab-3" class='subheader-tab'>
+        <v-tab href="#tab-3" class='subheader-tab-3'>
           Background Statistics
           <v-icon>insert_chart_outlined</v-icon>
         </v-tab>
@@ -26,7 +26,7 @@
           value="tab-3"
         >
           <v-card flat>
-            <Background prof_id='p1' input_cap=4.8></Background>
+            <Background :module='module_name' input_cap=4.8></Background>
           </v-card>
         </v-tab-item>
         <v-tab-item
@@ -34,7 +34,7 @@
           value="tab-4"
         >
           <v-card flat>
-            <Trajectory :prof_id='prof_id' number=70></Trajectory>
+            <Trajectory :module='module_name' number=70></Trajectory>
           </v-card>
         </v-tab-item>
       </v-tabs>

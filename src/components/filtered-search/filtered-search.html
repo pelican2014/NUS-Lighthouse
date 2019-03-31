@@ -1,84 +1,55 @@
-<v-tabs
-  color="blue"
-  dark
-  slider-color="yellow"
->
-  <v-tab ripple>
-    Macro Exploration
-  </v-tab>
-  <v-tab ripple>
-    Search Company
-  </v-tab>
-  <v-tab-item>
-    <v-card flat>
-      <b-card>
-        <b-row>
-          <b-col>
-            <h6 class="text-muted">Filter by Industry</h6>
-            <v-autocomplete
-              v-model="filter_a_value"
-              :items="filter_a_values"
-            >
-            </v-autocomplete>
-          </b-col>
-          <b-col>
-            <h6 class="text-muted">Filter by Major</h6>
-            <v-autocomplete
-              v-model="filter_b_value"
-              :items="filter_b_values"
-            >
-            </v-autocomplete>
-          </b-col>
-        </b-row>
-      </b-card>
-    </v-card>
-  </v-tab-item>
-  <v-tab-item>
-    <v-card flat>
-      <b-card>
-        <b-row>
-          <b-col>
-            <h6 class="text-muted">Filter by Industry</h6>
-            <v-autocomplete
-              v-model="filter_a_value"
-              :items="filter_a_values"
-            >
-            </v-autocomplete>
-          </b-col>
-          <b-col>
-            <h6 class="text-muted">Filter by Major</h6>
-            <v-autocomplete
-              v-model="filter_b_value"
-              :items="filter_b_values"
-            >
-            </v-autocomplete>
-          </b-col>
-        </b-row>
-        <h6 v-b-toggle.company_search class="text-muted">Search Company</h6>
-        <v-autocomplete
-          v-model="input"
-          :items="data"
-          item-text="name"
-          item-value="name"
-        >
-          <template v-slot:item="data">
-            <template>
-              <v-list-tile-avatar v-if="data.item.image_url">
-                <img :src="data.item.image_url">
-              </v-list-tile-avatar>
-              <v-list-tile-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
-                <span class="white--text headline">{{ data.item.name[0] }}</span>
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
-              </v-list-tile-content>
-            </template>
+<b-container>
+  <v-card
+    dark
+  >
+    <v-card-title class="headline">
+      Search for Public APIs
+    </v-card-title>
+    <v-card-text>
+      <b-row>
+        <b-col>
+          <h6 class="text-muted">Filter by Industry</h6>
+          <v-autocomplete
+            v-model="filter_a_value"
+            :items="filter_a_values"
+          >
+          </v-autocomplete>
+        </b-col>
+        <b-col>
+          <h6 class="text-muted">Filter by Major</h6>
+          <v-autocomplete
+            v-model="filter_b_value"
+            :items="filter_b_values"
+          >
+          </v-autocomplete>
+        </b-col>
+      </b-row>
+    </v-card-text>
+    <v-card-text>
+      <h6 v-b-toggle.company_search class="text-muted">Search Company</h6>
+      <v-autocomplete
+        v-model="input"
+        :items="data"
+        item-text="name"
+        item-value="name"
+      >
+        <template v-slot:item="data">
+          <template>
+            <v-list-tile-avatar v-if="data.item.image_url">
+              <img :src="data.item.image_url">
+            </v-list-tile-avatar>
+            <v-list-tile-avatar v-else :color="colors[Math.floor(Math.random() * colors.length)]">
+              <span class="white--text headline">{{ data.item.name[0] }}</span>
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
+            </v-list-tile-content>
           </template>
-        </v-autocomplete>
-        <v-btn fab dark small color="blue">
-          <v-icon dark>search</v-icon>
-        </v-btn>
-      </b-card>
-    </v-card>
-  </v-tab-item>
-</v-tabs>
+        </template>
+      </v-autocomplete>
+      <v-btn fab dark small color="blue">
+        <v-icon dark>search</v-icon>
+      </v-btn>
+    </v-card-text>
+  </v-card>
+</b-container>
