@@ -5,14 +5,22 @@
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif	!important;
 }
 
-
 .info {
 	display: block;
 	align: center;
 	margin: auto;
 }
 
-.tabs {
+.prof_tabs {
 	margin: auto;
 	width: 95%;
+}
+
+.lighthouse-tabs {
+	border-radius: 32px;
+}
+
+.v-tabs__item, .v-tabs__item--active {
+	text-decoration: none !important;
+	color: default !important;
 }

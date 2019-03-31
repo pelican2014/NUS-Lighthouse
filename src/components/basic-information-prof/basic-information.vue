@@ -18,7 +18,7 @@ export default {
       const prof = profs[this.prof_id];
       const result = {
         prof_photo_link: 'https://www.comp.nus.edu.sg/images/resources/content/about/HAHN-Jungpil-2-IMG.png',
-        rof_name: prof['Prof Name'],
+        prof_name: prof['Prof Name'],
         prof_title: prof['Status'],
         prof_department: prof['Title'],
         prof_office: prof['Office'],

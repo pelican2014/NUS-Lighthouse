@@ -22,8 +22,6 @@ export default {
   //   },
   // },
   computed: {
-
-
   },
   firebase: {
     internship: {

@@ -1,5 +1,5 @@
 <template src="./prof-project-page.html"></template>
-<!-- <style src="./prof-project-page.scss" lang="scss"></style> -->
+<style src="./prof-project-page.scss" lang="scss"></style>
 
 <script>
 import db from '@/firebase';
@@ -8,7 +8,8 @@ import SubHeader from '@/components/subheader/subheader';
 import BasicInfo from '@/components/basic-information-prof/basic-information';
 import Background from '@/components/background-statistics-ra/background-statistics-ra';
 import Trajectory from '@/components/trajectory-ra/trajectory-ra';
-import CurrentProjects from '@/components/current-projects/current-projects';
+// import CurrentProjects from '@/components/current-projects/current-projects';
+import EachProject from '@/components/current-projects/each-project';
 import RecentPublications from '@/components/recent-publications/recent-publications';
 
 export default{
@@ -19,7 +20,8 @@ export default{
     BasicInfo,
     Background,
     Trajectory,
-    CurrentProjects,
+    // CurrentProjects,
+    EachProject,
     RecentPublications,
   },
   props: {
@@ -32,10 +34,36 @@ export default{
     },
   },
 
+  computed: {
+    projects() {
+      // const profs = this.prof_dict;
+      // const prof_id = 1; // change to prof id
+      // const prof = profs[this.prof_id];
+      // return prof.Projects;
+
+      const professors = this.prof_dict;
+      if (professors == null) {
+        return [];
+      }
+      const prof = professors[this.prof_id];
+      if (prof && 'Projects' in prof) {
+        return prof.Projects;
+      }
+      return [];
+    },
+  },
+
   data() {
     return {
 
     };
+  },
+
+  firebase: {
+    prof_dict: {
+      source: db.ref('professor'),
+      asObject: true,
+    },
   },
 };
 </script>

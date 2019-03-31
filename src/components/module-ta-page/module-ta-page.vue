@@ -25,6 +25,7 @@ export default{
     module_name: {
       Type: String,
       required: true,
+      default: 'CS1010S',
     },
   },
 };

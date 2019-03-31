@@ -1,5 +1,6 @@
 <template src='./industry-explorer.html'></template>
 <style src='./industry-explorer.scss' lang='scss'></style>
+
 <script>
 import _ from 'lodash';
 import math from 'mathjs';
@@ -193,5 +194,4 @@ export default {
   },
   */
 };
-
 </script>

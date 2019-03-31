@@ -1,11 +1,12 @@
 <div>
   <NavBar></NavBar>
-  <searchBar sub_title='Search a Position' class='padding'></searchBar>
-  <recommended  class='padding' ></recommended>
+<!--   <searchBar sub_title='Search a Position' class='padding'></searchBar>
+ -->  <recommended  class='padding' ></recommended>
   <br>
   <span class='explore'> Explore by: </span>
   <div>
     <b-tabs content-class="mt-3 margin2">
+
       <b-tab title="Industry" title-item-class=" text-center tabtitle tab-item internship-homepage-tab" title-link-class="title-link" active>
         <industryExplorer :internship = 'internship' by='industry'></industryExplorer>
       </b-tab>
@@ -13,9 +14,11 @@
         <industryExplorer :internship = 'internship' by='major'>
         </industryExplorer>
       </b-tab>
+      
       <b-tab title="Company" title-item-class=" text-center tabtitle tab-item internship-homepage-tab" title-link-class="title-link">
         <industryExplorer :internship = 'internship' by='company'>
         </industryExplorer>
+
       </b-tab>
     </b-tabs>
   </div>
