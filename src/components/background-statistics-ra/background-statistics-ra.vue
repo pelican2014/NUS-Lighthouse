@@ -229,10 +229,10 @@ export default {
           return { name: '>=' + last, y: count };
         } else {
           const next_point = Math.round((Number(current_point) + 0.2) * 5) / 5;
-          return { 
-            name: current_point + ' to ' + next_point, 
+          return {
+            name: current_point + ' to ' + next_point,
             y: count,
-            start: current_point
+            start: current_point,
           };
         }
       });
