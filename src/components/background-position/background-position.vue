@@ -207,31 +207,55 @@ export default{
       return _.map(_.sortBy(counts, 'start'), o => ({ name: o.name, y: o.y }));
     },
     modules() {
-      let lst = [];
-      for (const internship_id of this.internships) {
-        const module_list = this.internship_dict[internship_id].modules_taken;
-        if (!module_list) {
-          continue;
-        } else {
-        	lst = lst.concat(module_list);
+      for (const c in this.company_dict) {
+        if (!(this.position_id in this.company_dict[c]['positions'])) continue;
+        const p = this.company_dict[c]['positions'][this.position_id];
+        const tfidf = p['tfidf'];
+        const module_list = [];
+        const tfidf_list = [];
+        for (const mod in tfidf) {
+          if (tfidf[mod] !== 0) {
+            module_list.push(mod);
+            tfidf_list.push(tfidf[mod]);
+          }
         }
-      }
-      const result = {};
-      for (const each_module of lst) {
-      	if (each_module in result) {
-      		result[each_module] += 1;
-      	} else {
-      		result[each_module] = 1;
-      	}
-      }
-      const output = [];
-      for (const mod in result) {
-        if (mod) {
-          output.push({ name: mod, weight: result[mod] });
+
+        const max_tfidf = Math.max(tfidf_list);
+        const norm_tfidf = _.map(tfidf_list, n => Math.round(n / max_tfidf * 100));
+
+        const result = [];
+        for (let i = 0; i < module_list.length; i += 1) {
+          result.push({ name: module_list[i].toUpperCase(), weight: norm_tfidf[i] });
         }
+        return result;
       }
-      return output;
     },
+    // mods() {
+    //   let lst = [];
+    //   for (const internship_id of this.internships) {
+    //     const module_list = this.internship_dict[internship_id].modules_taken;
+    //     if (!module_list) {
+    //       continue;
+    //     } else {
+    //     	lst = lst.concat(module_list);
+    //     }
+    //   }
+    //   const result = {};
+    //   for (const each_module of lst) {
+    //   	if (each_module in result) {
+    //   		result[each_module] += 1;
+    //   	} else {
+    //   		result[each_module] = 1;
+    //   	}
+    //   }
+    //   const output = [];
+    //   for (const mod in result) {
+    //     if (mod) {
+    //       output.push({ name: mod, weight: result[mod] });
+    //     }
+    //   }
+    //   return output;
+    // },
     race() {
       const result = {};
       for (const internship_id of this.internships) {
@@ -342,6 +366,10 @@ export default{
   		source: db.ref('internship'),
   		asObject: true,
   	},
+    company_dict: {
+      source: db.ref('company'),
+  		asObject: true,
+    },
   },
 };
 </script>
