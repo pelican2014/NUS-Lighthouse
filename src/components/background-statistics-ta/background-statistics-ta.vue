@@ -11,6 +11,7 @@ import BarChart from '@/components/charts/bar';
 import LineChart from '@/components/charts/line';
 import Histogram from '@/components/charts/histogram';
 import Treemap from '@/components/charts/treemap';
+import Pyramid from '@/components/charts/population-pyramid';
 
 
 export default {
@@ -21,6 +22,7 @@ export default {
     LineChart,
     Histogram,
     Treemap,
+    Pyramid,
   },
   props: {
     module: {
@@ -50,6 +52,40 @@ export default {
       const result = [{ name: 'Female', y: female }, { name: 'Male', y: male }];
       return result;
     },
+    // male() {
+    //   const result = [0, 0, 0, 0];
+    //   for(const student_id in ta_list) {
+    //     if (ta_list[item_id].module_code === this.module and ta_list[item_id].gender === 'M') {
+    //       if (ta_list[item_id].student_year === 1) {
+    //         result[0] -= 1;
+    //       } else if (ta_list[item_id].student_year === 2) {
+    //         result[1] -= 1;
+    //       } else if (ta_list[item_id].student_year === 3) {
+    //         result[2] -=1;
+    //       } else {
+    //         result[3] -=1;
+    //       }
+    //     }
+    //   }
+    //   return result;
+    // },
+    // female() {
+    //   const result = [0, 0, 0, 0];
+    //   for(const student_id in ta_list) {
+    //     if (ta_list[item_id].module_code === this.module and ta_list[item_id].gender === 'F') {
+    //       if (ta_list[item_id].student_year === 1) {
+    //         result[0] += 1;
+    //       } else if (ta_list[item_id].student_year === 2) {
+    //         result[1] += 1;
+    //       } else if (ta_list[item_id].student_year === 3) {
+    //         result[2] +=1;
+    //       } else {
+    //         result[3] +=1;
+    //       }
+    //     }
+    //   }
+    //   return result;
+    // },
     major() {
       const major = [];
       const freq = [];

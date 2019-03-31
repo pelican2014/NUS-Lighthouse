@@ -1,7 +1,7 @@
 <template src='./internship-homepage.html'></template>
 <style src='./internship-homepage.scss' lang='scss'></style>
 <script>
-	
+
 import NavBar from '@/components/nav-bar/nav-bar';
 import subheader from '@/components/subheader/subheader';
 import searchBar from '@/components/search-bar/search-bar';
@@ -17,7 +17,7 @@ export default {
     subheader,
     searchBar,
     industryExplorer,
-    recommended
+    recommended,
   },
   // props: {
   //   data: {
@@ -27,7 +27,6 @@ export default {
   // },
   computed: {
   },
-  
   firebase: {
     internship: {
       source: db.ref('internship'),
@@ -36,7 +35,6 @@ export default {
   },
 
   methods: {
-
   },
 };
 </script>
