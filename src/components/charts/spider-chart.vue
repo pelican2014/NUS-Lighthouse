@@ -48,8 +48,8 @@ export default {
         },
 
         legend: {
-          align: 'left',
-          verticalAlign: 'top',
+          align: 'center',
+          verticalAlign: 'bottom',
           layout: 'vertical',
         },
         xAxis: {

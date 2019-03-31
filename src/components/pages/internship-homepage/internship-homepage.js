@@ -13,7 +13,7 @@ export default {
     subheader,
     searchBar,
     industryExplorer,
-    recommended
+    recommended,
   },
   // props: {
   //   data: {
@@ -31,7 +31,6 @@ export default {
       asArray: true,
     },
   },
-
   methods: {
 
   },

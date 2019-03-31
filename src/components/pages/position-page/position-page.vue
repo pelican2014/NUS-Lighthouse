@@ -1,5 +1,5 @@
 <template src="./position-page.html"></template>
-<style src = './position-page.scss' lang = 'scss'></style>
+<style src = './position-page.scss' lang = 'scss' scoped></style>
 
 <script>
 import NavBar from '@/components/nav-bar/nav-bar';
