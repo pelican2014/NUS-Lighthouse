@@ -34,6 +34,9 @@ export default {
     value: {
       default: null,
     },
+    show_sec: {
+      default: false,
+    },
   },
   data() {
     return {

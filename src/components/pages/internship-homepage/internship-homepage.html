@@ -1,7 +1,16 @@
 <div>
   <NavBar></NavBar>
-<searchBar sub_title='Search a Position' class='padding'></searchBar>
-  <recommended  class='padding' ></recommended>
+<searchBar
+  sub_title="Search for Position"
+  :data_dict="position_search"
+  name_field="position_name"
+  secondary_field="company_name"
+  search_field="search"
+  id_field="id"
+  parent_route="position-page"
+  :show_sec="true"
+></searchBar>
+  <recommended class='padding'></recommended>
   <br>
   <span class='explore'> Explore by: </span>
   <div>
@@ -14,7 +23,7 @@
         <industryExplorer :internship = 'internship' by='major'>
         </industryExplorer>
       </b-tab>
-      
+
       <b-tab title="Company" title-item-class=" text-center tabtitle tab-item internship-homepage-tab" title-link-class="title-link">
         <industryExplorer :internship = 'internship' by='company'>
         </industryExplorer>
