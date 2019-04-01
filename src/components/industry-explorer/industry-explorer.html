@@ -1,4 +1,13 @@
 <div>
+  <searchBar
+    :sub_title="'Search for ' + cap_by"
+    :data_dict="dashboard_search"
+    parent_route="industryPage"
+    id_field="name"
+    :query_name="by"
+    search_field="name"
+    name_field="name"
+  ></searchBar>
   <div v-if="this.by==='industry'">
     <b-container>
       <b-row>

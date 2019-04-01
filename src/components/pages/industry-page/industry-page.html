@@ -1,6 +1,11 @@
 <div>
   <NavBar></NavBar>
-  <FilteredSearch @update-filter-a="update_industry" @update-filter-b="update_major"></FilteredSearch>
+  <FilteredSearch
+    @update-filter-a="update_industry"
+    @update-filter-b="update_major"
+    :filter_a_value="industry"
+    :filter_b_value="major"
+  ></FilteredSearch>
   <IndustryInsight
     :number="number"
     :gender="gender"

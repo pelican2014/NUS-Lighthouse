@@ -19,6 +19,12 @@ export default {
     filter_b_key: {
       default: 'major',
     },
+    filter_a_value: {
+      default: '(Unrestricted)',
+    },
+    filter_b_value: {
+      default: '(Unrestricted)',
+    },
   },
   watch: {
     filter_a_value(val) {
@@ -31,8 +37,6 @@ export default {
   data() {
     return {
       input: null,
-      filter_a_value: '(Unrestricted)',
-      filter_b_value: '(Unrestricted)',
       colors: [
         'teal',
         'red',

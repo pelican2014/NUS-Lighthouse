@@ -8,17 +8,19 @@ import BarChart from '@/components/charts/bar';
 import AreaChart from '@/components/charts/area';
 import HorizontalBarChart from '@/components/charts/horizontal-bar';
 import Boxplot from '@/components/charts/boxplot';
-import ExplorerSearch from '@/components/explorer-search/explorer-search';
+import searchBar from '@/components/search-bar/search-bar';
+// import ExplorerSearch from '@/components/explorer-search/explorer-search';
 import db from '@/firebase';
 
 export default {
   name: 'IndustryExplorer',
   components: {
+    searchBar,
     BarChart,
     AreaChart,
     HorizontalBarChart,
     Boxplot,
-    ExplorerSearch,
+    // ExplorerSearch,
   },
   props: {
     by: {
@@ -37,6 +39,10 @@ export default {
     },
   },
   computed: {
+    cap_by() {
+      if (!(this.by) || this.by.length === 0) return '';
+      return this.by[0].toUpperCase() + this.by.substr(1);
+    },
     internship_instances() {
       const results = {};
       let criteria = this.by;
@@ -183,6 +189,11 @@ export default {
         final_data.push({ name: category, data: category_openings[category] });
       }
       return final_data;
+    },
+    dashboard_search() {
+      return _.map(
+        Object.keys(this.internship_instances), o => ({ name: o }),
+      );
     },
   },
   /*
