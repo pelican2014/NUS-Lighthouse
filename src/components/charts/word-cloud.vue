@@ -33,7 +33,7 @@ export default {
         series: [{
           type: 'wordcloud',
           data: this.data,
-          name: 'Occurrences',
+          name: 'Importance',
         }],
         title: {
           text: this.title,
