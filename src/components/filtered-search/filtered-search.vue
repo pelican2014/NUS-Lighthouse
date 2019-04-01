@@ -3,9 +3,13 @@
 
 <script>
 import db from '@/firebase';
+import SearchBar from '@/components/search-bar/search-bar';
 
 export default {
   name: 'FilteredSearch',
+  components: {
+    SearchBar,
+  },
   props: {
     table_name: {
       default: 'company',
@@ -24,6 +28,9 @@ export default {
     },
     filter_b_value: {
       default: '(Unrestricted)',
+    },
+    parent_route: {
+      default: 'company-page',
     },
   },
   watch: {
