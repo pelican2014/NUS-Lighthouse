@@ -2,44 +2,63 @@
   <NavBar></NavBar>
   <PositionInfo :position_id = 'position_id' image_url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png' class = 'info'></PositionInfo>
   <!-- <SubHeader field='Position Details' class = 'tabs'></SubHeader> -->
-  <PositionDetails :position_id = 'position_id'></PositionDetails>
+  <b-container>
+    <v-toolbar dark color="blue darken-2">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-title class="white--text">Position Charts</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-card>
+      <PositionDetails :position_id = 'position_id'></PositionDetails>
+    </v-card>
+  </b-container>
 
   <b-container>
-    <v-tabs
-      centered
-      color="grey lighten-3"
-      light
-      icons-and-text
-      class="lighthouse-tabs"
-    >
-      <v-tabs-slider color="grey"></v-tabs-slider>
-      <v-tab href="#tab-3" class='subheader-tab-2'>
-        Background Statistics
-        <v-icon>insert_chart_outlined</v-icon>
-      </v-tab>
+    <v-toolbar dark color="blue darken-2">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-title class="white--text">Past Interns Charts</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-card>
+      <b-container>
+        <v-tabs
+          centered
+          color="grey lighten-3"
+          light
+          icons-and-text
+          class="lighthouse-tabs"
+          style="border-radius: 32px;"
+        >
+          <v-tabs-slider color="grey"></v-tabs-slider>
+          <v-tab href="#tab-3" class='subheader-tab-2'>
+            Background Statistics
+            <v-icon>insert_chart_outlined</v-icon>
+          </v-tab>
 
-      <v-tab href="#tab-4">
-        Future Trajectory
-        <v-icon>airplanemode_active</v-icon>
-      </v-tab>
+          <v-tab href="#tab-4">
+            Future Trajectory
+            <v-icon>airplanemode_active</v-icon>
+          </v-tab>
 
-      <v-tab-item
-        key="1"
-        value="tab-3"
-      >
-        <v-card flat>
-          <BackgroundStats :position_id = 'position_id'></BackgroundStats>
-        </v-card>
-      </v-tab-item>
-      <v-tab-item
-        key="2"
-        value="tab-4"
-      >
-        <v-card flat>
-          <TrajectoryPosition :position_id = 'position_id'></TrajectoryPosition>
-        </v-card>
-      </v-tab-item>
-    </v-tabs>
+          <v-tab-item
+            key="1"
+            value="tab-3"
+          >
+            <v-card flat>
+              <BackgroundStats :position_id = 'position_id'></BackgroundStats>
+            </v-card>
+          </v-tab-item>
+          <v-tab-item
+            key="2"
+            value="tab-4"
+          >
+            <v-card flat>
+              <TrajectoryPosition :position_id = 'position_id'></TrajectoryPosition>
+            </v-card>
+          </v-tab-item>
+        </v-tabs>
+      </b-container>
+    </v-card>
   </b-container>
 </div>
   <!-- <b-row>
