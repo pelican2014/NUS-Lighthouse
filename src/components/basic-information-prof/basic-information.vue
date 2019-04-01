@@ -17,7 +17,7 @@ export default {
       if (!profs || !profs[this.prof_id]) return null;
       const prof = profs[this.prof_id];
       const result = {
-        prof_photo_link: 'https://www.comp.nus.edu.sg/images/resources/content/about/HAHN-Jungpil-2-IMG.png',
+        prof_photo_link: 'https://www.shu.ac.uk/~/media/home/about-us/our-people/staff-profiles/vc.jpg?la=en&hash=E5D6639C51259E7A340997A1121F5C1D36367EEE',
         prof_name: prof['Prof Name'],
         prof_title: prof['Status'],
         prof_department: prof['Title'],
