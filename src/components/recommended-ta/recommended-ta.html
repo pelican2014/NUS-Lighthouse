@@ -1,8 +1,10 @@
 <div>
   <p class="recommended-intro">Recommended for you:</p>
   <div class="recommended-frame">
-    <v-card user-router :to = "{path: '/module-page/' + item.module_name}" :key = 'item.title' v-for="item in items" class="item">
-      <img thumbnail fluid class="recommended-thumbnail" :src="item.image_url" />
+    <v-card user-router :to="{path: '/module-page/' + item.module_name}" :key='item.title' v-for="item in items" class="item">
+      <div class='module-icon-recommended'> {{ item.module_name }}
+      </div>
+      <!-- <img thumbnail fluid class="recommended-thumbnail" :src="item.image_url" /> -->
       <p class="recommended-title">{{ item.name }}</p>
       <p class="recommended-text" v-for="line in item.data">{{ line }}</p>
     </v-card>
