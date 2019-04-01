@@ -1,7 +1,8 @@
 <b-container class="bv-example-row">
-  <div class="background-header">
-    Total Number of Past TAs: {{ count }}
-  </div>
+  <v-chip right color="indigo" text-color="white" style="transform: translateY(20px)">
+    <v-avatar class="indigo darken-4">{{ count }}</v-avatar>
+    past TAs
+  </v-chip>
   <b-row>
     <b-col><PieChart title = 'Gender' name = 'gender' :data = 'gender'></PieChart></b-col>
     <b-col><BarChart title = 'Nationality' yname = 'nationality' :data = 'nationality'></BarChart></b-col>
