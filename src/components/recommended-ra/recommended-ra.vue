@@ -44,9 +44,9 @@ export default {
         },
         {
           prof_id: 'p1',
-          image_url: 'https://www.comp.nus.edu.sg/images/resources/content/about/HAHN-Jungpil-2-IMG.png',
-          name: 'HAHN Jungpil',
-          data: ['Project Title:', 'Blockchain Governance and Consensus Mechanisms'],
+          image_url: 'https://chi.nus.edu.sg/images/co-directors/sharon-tan.jpg',
+          name: 'TAN Swee Lin, Sharon',
+          data: ['Project Title:', 'Healthcare Informatics'],
         },
       ],
     };

@@ -159,7 +159,7 @@ export default {
           industry_acceptance_rate / average_acceptance_rate,
         ],
       });
-      return { title: 'This industry: ' + this.industry + ' v.s. All industries', data: needed_data, categories: ['Gender Diversity Index', 'Average CAP', 'Average Starting Salary', 'Average Acceptance Rate'] };
+      return { title: 'This industry: ' + this.industry + ' v.s. All industries', data: needed_data, categories: ['Gender Equality Index', 'Average CAP', 'Average Starting Salary', 'Average Acceptance Rate'] };
     },
     female() {
       const result = [0, 0, 0, 0];
