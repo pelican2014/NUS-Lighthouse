@@ -1,5 +1,8 @@
-<div>
-	<h3 class ='number-of-interns'> Total number of RAs: {{ count }}</h3>
+<b-container class="bv-example-row">
+	<v-chip right color="indigo" text-color="white" style="transform: translateY(20px)">
+    <v-avatar class="indigo darken-4">{{ count }}</v-avatar>
+    past TAs
+  </v-chip>
 	<b-row>
 		<b-col class = 'col'>
 			<Pie title = 'Path' name = 'path' :data = 'path'></Pie>
@@ -26,5 +29,4 @@
 			<Wordcloud title = 'PhD Research Area' :data = 'research'></Wordcloud>
 		</b-col>
 	</b-row>
-
-</div>
+</b-container>

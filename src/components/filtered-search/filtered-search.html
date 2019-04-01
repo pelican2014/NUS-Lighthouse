@@ -37,7 +37,15 @@
           </v-btn>
         </template>
         <v-card style="padding-bottom: 17rem;" color="grey lighten-3">
-          <v-toolbar>
+          <SearchBar
+            sub_title="Search for Company"
+            :data_dict="data"
+            :parent_route="parent_route"
+            id_field="item_id"
+            search_field="name"
+            name_field="name"
+          ></SearchBar>
+          <!-- <v-toolbar>
             <v-autocomplete
               v-model="input"
               :items="data"
@@ -62,7 +70,7 @@
             <v-btn fab dark small color="blue">
               <v-icon dark>search</v-icon>
             </v-btn>
-          </v-toolbar>
+          </v-toolbar> -->
         </v-card>
       </v-bottom-sheet>
     </b-row>

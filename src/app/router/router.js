@@ -85,12 +85,10 @@ export default new Router({
       component: RAPage,
     },
     {
-      path: '/company-page',
+      path: '/company-page/:company_id',
       name: 'company-page',
       component: CompanyHome,
-      props: {
-        company_id: '05c2639182d92e2ca4e455bfc9e8afe1c6f7d722e7477e20482c5b961bfdcb48',
-      },
+      props: true,
     },
     {
       path: '/position-page/:position_id',

@@ -1,30 +1,33 @@
 <div>
-  <h3 class='number-of-intern'> Total number of interns: {{number}}</h3>
-  <b-row>
-    <SpiderChart title='Compared with the Industry' :data='spider_chart_data' :xcategory='categories'></SpiderChart>
-  </b-row>
-  <b-row class='row'>
-    <b-col class='company-col'>
-      <Pie title='Gender' name='gender' :data='gender'></Pie>
-    </b-col>
-    <b-col class='company-col'>
-      <Pie title='Major' name='major' :data='major'></Pie>
-    </b-col>
-  </b-row>
-  <b-row class='row'>
-    <b-col class='company-col'>
-      <Bar title='Race' yname='Number' :data='race'></Bar>
-    </b-col>
-    <b-col class='company-col'>
-      <Bar title='Nationality' yname='Number' :data='nationality'></Bar>
-    </b-col>
-  </b-row>
-  <b-row class='row'>
-    <b-col class='company-col'>
-      <Histogram title='CAP distribution' yname='Number' :data='CAP_hist' yours='4.5'></Histogram>
-    </b-col>
-    <b-col class='company-col'>
-      <Lines title='Number of Interns' yname='Number' :x='interns[0]' :data='interns[1]'></Lines>
-    </b-col>
-  </b-row>
+	<v-toolbar dark color="blue darken-2">
+		<v-toolbar-side-icon></v-toolbar-side-icon>
+    <v-toolbar-title class="white--text">Company Charts</v-toolbar-title>
+    <v-spacer></v-spacer>
+		<v-chip color="indigo" text-color="white">
+      <v-avatar class="indigo darken-4">{{ number }}</v-avatar>
+      past interns
+    </v-chip>
+  </v-toolbar>
+  <v-card>
+    <b-row>
+      <b-col><SpiderChart title='Compared with the Industry' :data='spider_chart_data' :xcategory='categories'></SpiderChart></b-col>
+      <b-col><Pie title='Major' name='major' :data='major'></Pie></b-col>
+    </b-row>
+    <!-- <b-row class='row'>
+      <b-col class='company-col'>
+        <Bar title='Race' yname='Number' :data='race'></Bar>
+      </b-col>
+      <b-col class='company-col'>
+        <Bar title='Nationality' yname='Number' :data='nationality'></Bar>
+      </b-col>
+    </b-row> -->
+    <b-row class='row'>
+      <b-col class='company-col'>
+        <Histogram title='CAP distribution' yname='Number' :data='CAP_hist' yours='4.5'></Histogram>
+      </b-col>
+      <b-col class='company-col'>
+        <Lines title='Number of Interns' yname='Number' :x='interns[0]' :data='interns[1]'></Lines>
+      </b-col>
+    </b-row>
+  </v-card>
 </div>

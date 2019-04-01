@@ -61,10 +61,10 @@ export default {
     get_route() {
       if (typeof this.query_name !== 'undefined') {
         return this.input
-          ? {path: parent_route + '?' + this.query_name + '=' + this.input}
+          ? { path: this.parent_route + '?' + this.query_name + '=' + this.input }
           : undefined;
       }
-      return this.input ? {path: parent_route + '/' + this.input} : undefined;
+      return this.input ? { path: this.parent_route + '/' + this.input } : undefined;
     },
     remove(id) {
       if (this.multiple && this.input) {

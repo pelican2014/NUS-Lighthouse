@@ -7,33 +7,43 @@
   ></SearchBar>
   <Recommended></Recommended>
   <b-container>
-    <b-row>
-      <Boxplot
-        title="CAP of Successful TA Applicants"
-        subtitle="in the past years"
-        xname="Major"
-        :xcategory="cap.xcategory"
-        yname="CAP"
-        :data="cap.data"
-      ></Boxplot>
-    </b-row>
-    <b-row>
-      <b-col>
-        <HorizontalBarChart
-          title="TA Acceptance Rates by Major"
-          subtitle="in the past 5 years"
-          yname="Major"
-          :data="acceptance_rate"
-        ></HorizontalBarChart>
-      </b-col>
-      <b-col>
-        <HorizontalBarChart
-          title="Number of TAs by Major"
-          subtitle="in the past 5 years"
-          yname="Major"
-          :data="number"
-        ></HorizontalBarChart>
-      </b-col>
-    </b-row>
+    <v-toolbar dark color="blue darken-2">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-title class="white--text">TA Charts</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-card>
+      <b-container>
+        <b-row>
+          <Boxplot
+            title="CAP of Successful TA Applicants"
+            subtitle="in the past years"
+            xname="Major"
+            :xcategory="cap.xcategory"
+            yname="CAP"
+            :data="cap.data"
+            style="width: 100%;"
+          ></Boxplot>
+        </b-row>
+        <b-row>
+          <b-col>
+            <HorizontalBarChart
+              title="TA Acceptance Rates by Major"
+              subtitle="in the past 5 years"
+              yname="Major"
+              :data="acceptance_rate"
+            ></HorizontalBarChart>
+          </b-col>
+          <b-col>
+            <HorizontalBarChart
+              title="Number of TAs by Major"
+              subtitle="in the past 5 years"
+              yname="Major"
+              :data="number"
+            ></HorizontalBarChart>
+          </b-col>
+        </b-row>
+      </b-container>
+    </v-card>
   </b-container>
 </div>
