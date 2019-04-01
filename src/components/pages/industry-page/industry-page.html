@@ -6,17 +6,27 @@
     :filter_a_value="industry"
     :filter_b_value="major"
   ></FilteredSearch>
-  <IndustryInsight
-    :number="number"
-    :gender="gender"
-    :faculty="faculty"
-    :year="year"
-    :nationality="nationality"
-    :salary_line="salary_line"
-    :salary_hist="salary_hist"
-    :total_num="total_num"
-    :female="female"
-    :male="male"
-    :spider_chart_data = 'spider_chart_data'
-  ></IndustryInsight>
+
+  <b-container>
+    <v-toolbar dark color="blue darken-2">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-title class="white--text">Filtered Group Visualisation</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-card>
+      <IndustryInsight
+        :number="number"
+        :gender="gender"
+        :faculty="faculty"
+        :year="year"
+        :nationality="nationality"
+        :salary_line="salary_line"
+        :salary_hist="salary_hist"
+        :total_num="total_num"
+        :female="female"
+        :male="male"
+        :spider_chart_data = 'spider_chart_data'
+      ></IndustryInsight>
+    </v-card>
+  </b-container>
 </div>
