@@ -3,9 +3,13 @@
 
 <script>
 import db from '@/firebase';
+import SearchBar from '@/components/search-bar/search-bar';
 
 export default {
   name: 'FilteredSearch',
+  components: {
+    SearchBar,
+  },
   props: {
     table_name: {
       default: 'company',
@@ -25,6 +29,9 @@ export default {
     filter_b_value: {
       default: '(Unrestricted)',
     },
+    parent_route: {
+      default: 'company-page',
+    },
   },
   watch: {
     filter_a_value(val) {
@@ -43,25 +50,6 @@ export default {
         'brown',
         'blue',
       ],
-      // data: [
-      //   {
-      //     item_id: '1',
-      //     name: 'Google',
-      //     image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/150px-Google_%22G%22_Logo.svg.png',
-      //   },
-      //   {
-      //     item_id: '2',
-      //     name: 'Amazon',
-      //   },
-      //   {
-      //     item_id: '3',
-      //     name: 'Facebook',
-      //   },
-      //   {
-      //     item_id: '4',
-      //     name: 'DRW',
-      //   },
-      // ],
     };
   },
   computed: {
