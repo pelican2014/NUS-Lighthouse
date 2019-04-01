@@ -4,16 +4,13 @@
 export default {
   name: 'nav-bar',
   methods: {
+
+
     update_recommended() {
       const xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-          alert(this.responseText);
-        }
-      };
-      xhttp.open('GET', 'https://n8cdcjqay1.execute-api.us-east-1.amazonaws.com/default/SOMEfunciton', true);
+      xhttp.open('POST', 'https://n8cdcjqay1.execute-api.us-east-1.amazonaws.com/default/SOMEfunciton', true);
       xhttp.send();
-      alert(this.responseText);
+      this.alert('Updated Recommendation!');
     },
 
     // var request = new XMLHttpRequest()
