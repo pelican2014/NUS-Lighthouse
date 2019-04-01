@@ -43,25 +43,6 @@ export default {
         'brown',
         'blue',
       ],
-      // data: [
-      //   {
-      //     item_id: '1',
-      //     name: 'Google',
-      //     image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/150px-Google_%22G%22_Logo.svg.png',
-      //   },
-      //   {
-      //     item_id: '2',
-      //     name: 'Amazon',
-      //   },
-      //   {
-      //     item_id: '3',
-      //     name: 'Facebook',
-      //   },
-      //   {
-      //     item_id: '4',
-      //     name: 'DRW',
-      //   },
-      // ],
     };
   },
   computed: {
