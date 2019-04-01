@@ -12,7 +12,6 @@
   ></searchBar>
   <recommended class='padding'></recommended>
   <br>
-  <span class='explore'> Explore by: </span>
   <div>
     <!-- <b-tabs content-class="mt-3 margin2">
 
@@ -31,6 +30,11 @@
       </b-tab>
     </b-tabs> -->
     <b-container>
+      <v-toolbar dark color="blue darken-2">
+    		<v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-title class="white--text">Internship Charts</v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
       <v-tabs
         centered
         color="grey lighten-3"
@@ -58,7 +62,7 @@
           key="1"
           value="tab-1"
         >
-          <v-card flat>
+          <v-card>
             <industryExplorer :internship = 'internship' by='industry'></industryExplorer>
           </v-card>
         </v-tab-item>
@@ -66,7 +70,7 @@
           key="2"
           value="tab-2"
         >
-          <v-card flat>
+          <v-card>
             <industryExplorer :internship = 'internship' by='major'></industryExplorer>
           </v-card>
         </v-tab-item>
@@ -75,7 +79,7 @@
           key="2"
           value="tab-2"
         >
-          <v-card flat>
+          <v-card>
             <industryExplorer :internship = 'internship' by='company'>
             </industryExplorer>
           </v-card>
