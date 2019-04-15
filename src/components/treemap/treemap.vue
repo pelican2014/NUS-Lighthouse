@@ -11,7 +11,7 @@ loadTreemap(Highcharts);
 
 const data = {
   series: [{
-    type: "treemap",
+    type: 'treemap',
     layoutAlgorithm: 'stripes',
     alternateStartingDirection: true,
     levels: [{
@@ -24,17 +24,17 @@ const data = {
         style: {
           fontSize: '15px',
           fontWeight: 'bold',
-        }
-      }
+        },
+      },
     }],
     data: [{
       id: 'A',
       name: 'Apples',
-      color: "#EC2500",
+      color: '#EC2500',
     }, {
       id: 'B',
       name: 'Bananas',
-      color: "#ECE100",
+      color: '#ECE100',
     }, {
       id: 'O',
       name: 'Oranges',
@@ -66,7 +66,7 @@ const data = {
     }, {
       name: 'Anne',
       parent: 'O',
-      value: 1
+      value: 1,
     }, {
       name: 'Rick',
       parent: 'O',
@@ -80,11 +80,11 @@ const data = {
       parent: 'Kiwi',
       value: 2,
       color: '#9EDE00',
-    }]
+    }],
   }],
   title: {
     text: 'Fruit consumption',
-  }
+  },
 };
 
 export default {

@@ -36,6 +36,7 @@ import CompanyHome from '@/components/pages/company-home/company-home';
 import IndustryPage from '@/components/pages/industry-page/industry-page';
 import RAPage from '@/components/pages/ra-homepage/ra-homepage';
 import InitialPage from '@/components/initial-page/initial-page';
+import LoginPage from '@/components/login-page/login-page';
 // import PositionInfo from '@/components/basic-information/position-info';
 // import BackgroundPosition from '@/components/background-position/background-position';
 import PositionPage from '@/components/pages/position-page/position-page';
@@ -46,12 +47,17 @@ import TaPage from '@/components/pages/ta-homepage/ta-homepage';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
       name: 'home',
       component: InitialPage,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginPage,
     },
     {
       path: '/about',
@@ -109,3 +115,18 @@ export default new Router({
     },
   ],
 });
+
+router.beforeEach((to, from, next) => {
+  // redirect to login page if not logged in and trying to access a restricted page
+  const publicPages = ['/login'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  next();
+});
+
+export default router;
