@@ -43,6 +43,7 @@ import PositionPage from '@/components/pages/position-page/position-page';
 import ProfPage from '@/components/prof-project-page/prof-project-page';
 import ModulePage from '@/components/module-ta-page/module-ta-page';
 import TaPage from '@/components/pages/ta-homepage/ta-homepage';
+import MajorPage from '@/components/major-page/major-page';
 
 
 Vue.use(Router);
@@ -79,6 +80,11 @@ const router = new Router({
       path: '/industryPage',
       name: 'industryPage',
       component: IndustryPage,
+    },
+    {
+      path: '/majorPage',
+      name: 'majorPage',
+      component: MajorPage,
     },
     {
       path: '/internship-homepage',
