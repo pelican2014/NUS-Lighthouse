@@ -1,0 +1,30 @@
+<div>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <div>
+    <b-container class='p-4' style="padding-bottom: 0 !important;">
+      <b-row>
+        <b-col cols="3">
+          <b-container>
+          <p class='major-icon'> {{ this.shorthand }} </p>
+        </b-container>
+        </b-col>
+
+        <b-col cols="9">
+          <b-container>
+            <!-- <b-row class='major-code'> {{ this.shorthand }}</b-row> -->
+            <b-row class='major-name'>
+              <p>{{ this.major_name }}</p>
+            </b-row>
+            <b-row>
+                <p class='major-course-mc-sem'>Link: <href>{{ this.url }}</href> </p>
+              </b-row>
+            <b-row>
+              <p class='major-description-title'>Program Description:</p>
+              <p class='major-description'>{{ this.description }}</p>
+            </b-row>
+          </b-container>
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+</div>
