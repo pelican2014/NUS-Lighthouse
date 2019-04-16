@@ -5,8 +5,9 @@
   </v-chip>
 
 	<b-row>
+		{{internship_dict}}
 		<b-col class = 'trajectory-position-col'>
-			<Pie title = 'Graduate Course' name = 'graduate course' :data= 'course'></Pie>
+			<Pie title = 'Industry past interns go for' name = 'proportion of interns going into this industry' :data= 'industry'></Pie>
 		</b-col>
 		<b-col class = 'trajectory-position-col'>
 			<Histogram title = 'Starting Salary' name = 'salary' :data = 'salary_hist'></Histogram>
