@@ -1,0 +1,29 @@
+<div>
+  <NavBar></NavBar>
+  <!-- <FilteredSearch
+    @update-filter-a="update_industry"
+    @update-filter-b="update_major"
+    :filter_a_value="industry"
+    :filter_b_value="major"
+  ></FilteredSearch> -->
+  <MajorDescription :major_name = "major"></MajorDescription>
+  <b-container>
+    <v-toolbar dark color="blue darken-2">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+      <v-toolbar-title class="white--text">Filtered Group Visualisation</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-card>
+      <MajorInsight
+        :number="number"
+        :gender="gender"
+        :nationality="nationality"
+        :salary_line="salary_line"
+        :salary_hist="salary_hist"
+        :total_num="total_num"
+        :spider_chart_data = 'spider_chart_data'
+        :company = 'company'
+      ></MajorInsight>
+    </v-card>
+  </b-container>
+</div>

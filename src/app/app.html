@@ -1,4 +1,13 @@
 <div id="app">
+  <v-snackbar
+    v-model="alert.message"
+    :color="color"
+    :multi-line="mode === 'multi-line'"
+    :timeout="6000"
+    :vertical="mode === 'vertical'"
+  >
+    {{ message }}
+  </v-snackbar>
   <main role="main">
     <router-view />
   </main>

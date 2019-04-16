@@ -7,6 +7,7 @@ import subheader from '@/components/subheader/subheader';
 import searchBar from '@/components/search-bar/search-bar';
 import industryExplorer from '@/components/industry-explorer/industry-explorer';
 import recommended from '@/components/recommended-position/recommended-position';
+import majorExplorer from '@/components/major-explorer/major-explorer';
 import db from '@/firebase';
 
 
@@ -17,6 +18,7 @@ export default {
     subheader,
     searchBar,
     industryExplorer,
+    majorExplorer,
     recommended,
   },
   computed: {
