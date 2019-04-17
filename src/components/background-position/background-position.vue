@@ -311,7 +311,6 @@ export default{
           }
         }
       }
-
       for (let i = 0; i < faculty_list.length; i += 1) {
         const fac = faculty_list[i];
         for (let j = 0; j < major_list.length; j += 1) {

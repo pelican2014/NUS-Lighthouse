@@ -256,6 +256,25 @@ export default {
       }
       return result;
     },
+    occupation() {
+      const dict = {};
+      for (const internship of this.filtered_internship) {
+        if (internship.occupation !== '') {
+          if (internship.occupation in dict) {
+            dict[internship.occupation] += 1;
+          } else {
+            dict[internship.occupation] = 1;
+          }
+        }
+      }
+      const result = [];
+      for (const occupation in dict) {
+        if (occupation) {
+          result.push({ name: occupation, weight: dict[occupation] });
+        }
+      }
+      return result;
+    },
     faculty() {
       const faculty = [];
       const freq = [];

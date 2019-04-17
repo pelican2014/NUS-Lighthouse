@@ -54,9 +54,13 @@ export default {
     // },
     spider_chart_data: {
       type: Object,
-      required: true,
+      // required: true,
     },
     company: {
+      type: Array,
+      required: true,
+    },
+    occupation: {
       type: Array,
       required: true,
     },
