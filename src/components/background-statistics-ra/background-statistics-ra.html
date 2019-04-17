@@ -1,8 +1,8 @@
 <b-container class="bv-example-row">
-  <h3 class="number-of-intern"> Total Number of Past RAs: {{ totalNum }} </h3>
+  <h3 class="number-of-intern"> Total Number of Past Research Assistants: {{ totalNum }} </h3>
   <b-row>
     <b-col><PieChart title = 'Gender' name = 'gender' :data = 'gender'></PieChart></b-col>
-    <b-col><BarChart title = 'nationality' yname = 'number of people' :data = 'nationality'></BarChart></b-col>
+    <b-col><BarChart title = 'Nationality' yname = 'number of people' :data = 'nationality'></BarChart></b-col>
   </b-row>
 
   <b-row>
@@ -13,6 +13,6 @@
 
   <b-row>
     <b-col><Histogram title = 'Cumulative Average Points' yname = 'CAP' :data='cap_hist'></Histogram></b-col>
-    <b-col><LineChart title = 'number of RAs' yname = 'number of people':x = 'number.x' :data = 'number.data'></LineChart></b-col>
+    <b-col><LineChart title = 'Number of RAs' yname = 'number of people':x = 'number.x' :data = 'number.data'></LineChart></b-col>
   </b-row>
 </b-container>

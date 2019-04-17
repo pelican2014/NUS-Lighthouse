@@ -1,46 +1,73 @@
 .home {
-	height: 80rem;
-	width: 100rem;
-	// background-image: url('../../assets/lighthouse.jpg');
+  height: 80rem;
+  width: 100rem;
+  // background-image: url('../../assets/lighthouse.jpg');
 }
 
-.title{
-	font-size: 160px !important;
+.title {
+  font-size: 160px !important;
 }
 
-.choose{
-	height:100%;
-	width: 100%;
-	text-align: center;
-	// border-radius: 1em;
-	font-size: 240%;
-	text-align: center;
+.choose {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  // border-radius: 1em;
+  font-size: 240%;
+  text-align: center;
   box-shadow: 2rem 4rem 8rem rgba(0, 0, 0, .5);
   cursor: pointer;
   text-decoration: none !important;
 }
 
-.choose:hover { opacity: .8 }
-
-.option{
-	font-size: 250%;
+.choose:hover {
+  opacity: .8
 }
 
-.question{
-	font-size: 200%;
+.option {
+  font-size: 250%;
 }
 
-.card-subtitle{
-	font-size: 20px;
+.question {
+  font-size: 200%;
+}
+
+.card-subtitle {
+  font-size: 20px;
 }
 
 .login-page-box {
   margin-top: 2rem;
+  border-radius: 1em;
 }
 
 .login-page-box-in {
-	box-shadow: 2rem 4rem 8rem rgba(0, 0, 0, .5);
-	padding: 2rem;
+  box-shadow: 2rem 4rem 8rem rgba(0, 0, 0, .5);
+  padding: 1rem;
+  border-radius: 2em;
+}
+
+.field {
+  color: rgb(30, 80, 140);
+  font-size: 24px;
+}
+
+.login-button {
+  width: 90%;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgb(29,104,190) !important;
+
+}
+
+.login-button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.login{
+	color: white;
+	font-size: 18px;
 }
 
 // .col {
@@ -49,8 +76,8 @@
 // }
 
 #lighthouse-video {
-	position: absolute;
-	bottom: 0;
+  position: absolute;
+  bottom: 0;
   left: 0;
   min-width: 100%;
   min-height: 100%;

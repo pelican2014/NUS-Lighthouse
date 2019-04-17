@@ -2,9 +2,11 @@
   <b-row>
     <b-col>
     	<Lines title = 'Number of Openings' yname = 'Number' :x = 'label' :data = 'num_positions'></Lines>
+    	<v-card><p class="text-xs-center">No. of openings in the last year</p></v-card>
     </b-col>
     <b-col>
     	<Histogram title = 'Starting Salary of This Position' yname = 'No. of Observations' :data = 'salary_hist' yours = '2.8'></Histogram>
+    	<v-card><p class="text-xs-center"> Salary of the Position at This Company (Red Line) v.s. <br>Similar Positions at All Companies</p></v-card>
     </b-col>
   </b-row>
 </b-container>

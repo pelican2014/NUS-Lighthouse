@@ -12,11 +12,11 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: false,
     },
     yname: {
       type: String,
-      required: true,
+      required: false,
     },
     data: {
       type: Array,
