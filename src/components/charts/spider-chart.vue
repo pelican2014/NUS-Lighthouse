@@ -16,14 +16,14 @@ export default {
 
     title: {
       type: String,
-      required: true,
+      required: false,
     },
     xname: {
       type: String,
     },
     xcategory: {
       type: Array,
-      required: true,
+      required: false,
     },
     yname: {
       type: String,
