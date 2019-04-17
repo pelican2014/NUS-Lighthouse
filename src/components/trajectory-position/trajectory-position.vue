@@ -115,6 +115,26 @@ export default{
       }
       return result;
     },
+    future_position() {
+      const dict = {};
+      for (const internship_id of this.filtered_internships) {
+        const internship = this.internship_dict[internship_id];
+        if (internship.occupation !== '') {
+          if (internship.occupation in dict) {
+            dict[internship.occupation] += 1;
+          } else {
+            dict[internship.occupation] = 1;
+          }
+        }
+      }
+      const result = [];
+      for (const occupation in dict) {
+        if (occupation) {
+          result.push({ name: occupation, weight: dict[occupation] });
+        }
+      }
+      return result;
+    },
     // course() {
     //   const result = {};
     //   for (const internship_id of this.internships) {

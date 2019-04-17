@@ -12,12 +12,15 @@
 			<Pie title = 'Graduate Course' name = 'graduate course' :data= 'course'></Pie>
 		</b-col> -->
 		<b-col class = 'trajectory-position-col'>
-			<Histogram title = 'Starting Salary' name = 'salary' :data = 'salary_hist'></Histogram>
+			<Histogram title = 'Starting Salary of past interns' name = 'salary' :data = 'salary_hist'></Histogram>
 		</b-col>
 	</b-row>
 	<b-row>
 		<b-col class = 'trajectory-position-col'> 
 			<Wordcloud title = 'Companies past interns go to' :data = 'company'></Wordcloud>
+		</b-col>
+		<b-col class = 'trajectory-position-col'>
+			<Wordcloud title = 'Positions past interns take' :data ='future_position'></Wordcloud>
 		</b-col>
 	</b-row>
 	<!-- <b-row>

@@ -1,14 +1,6 @@
 <div>
-  <searchBar
-    :sub_title="'Search for ' + cap_by"
-    :data_dict="dashboard_search"
-    parent_route="industryPage"
-    id_field="name"
-    :query_name="by"
-    search_field="name"
-    name_field="name"
-  ></searchBar>
   <div v-if="this.by==='industry'">
+    <searchBar :sub_title="'Search for ' + cap_by" :data_dict="dashboard_search" parent_route="industryPage" id_field="name" :query_name="by" search_field="name" name_field="name"></searchBar>
     <b-container>
       <b-row>
         <b-col class='col'>
@@ -55,6 +47,7 @@
     </b-container>
   </div>
   <div v-else-if="by==='company'">
+    <searchBar :sub_title="'Search for ' + cap_by" :data_dict="company_id_search" parent_route="company-page" id_field="item_id" search_field="name" name_field="name"></searchBar>
     <b-container>
       <b-row>
         <b-col>

@@ -1,6 +1,5 @@
 <template src='./industry-explorer.html'></template>
 <style src='./industry-explorer.scss' lang='scss'></style>
-
 <script>
 import _ from 'lodash';
 import math from 'mathjs';
@@ -190,6 +189,20 @@ export default {
       }
       return final_data;
     },
+    company_id_search() {
+      const result = {};
+      if (this.by === 'company') {
+        for (const entry of this.internship) {
+          //       result[entry['company_id']] = entry['company_name'];
+          result[entry['company_id']] = entry['company_name'];
+        }
+      }
+      const list_name_id = [];
+      for (const key of Object.keys(result)) {
+        list_name_id.push({ name: result[key], item_id: key });
+      }
+      return list_name_id;
+    },
     dashboard_search() {
       return _.map(
         Object.keys(this.internship_instances), o => ({ name: o }),
@@ -205,4 +218,5 @@ export default {
   },
   */
 };
+
 </script>
