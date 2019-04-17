@@ -95,66 +95,86 @@ export default{
       }
       return output;
     },
-    course() {
-      const result = {};
-      for (const internship_id of this.internships) {
-        const each_course = this.internship_dict[internship_id].graduate_course;
-        if (!each_course) {
-          continue;
-        } else if (each_course in result) {
-          result[each_course] += 1;
-        } else {
-          result[each_course] = 1;
+    company() {
+      const dict = {};
+      for (const internship_id of this.filtered_internships) {
+        const internship = this.internship_dict[internship_id];
+        if (internship.company_name !== '') {
+          if (internship.company_name in dict) {
+            dict[internship.company_name] += 1;
+          } else {
+            dict[internship.company_name] = 1;
+          }
         }
       }
-      const output = [];
-      for (const course in result) {
-        if (course) {
-          output.push({ name: course, y: result[course] });
+      const result = [];
+      for (const company in dict) {
+        if (company) {
+          result.push({ name: company, weight: dict[company] });
         }
       }
-      return output;
+      return result;
     },
-    university() {
-      const result = {};
-      for (const internship_id of this.internships) {
-        const each_university = this.internship_dict[internship_id].phd_university;
-        if (!each_university) {
-          continue;
-        } else if (each_university in result) {
-          result[each_university] += 1;
-        } else {
-          result[each_university] = 1;
-        }
-      }
-      const output = [];
-      for (const uni in result) {
-        if (uni) {
-          output.push({ name: uni, weight: result[uni] });
-        }
-      }
-      return output;
-    },
-    research_area() {
-      const result = {};
-      for (const internship_id of this.internships) {
-        const each_area = this.internship_dict[internship_id].research_area;
-        if (!each_area) {
-          continue;
-        } else if (each_area in result) {
-          result[each_area] += 1;
-        } else {
-          result[each_area] = 1;
-        }
-      }
-      const output = [];
-      for (const area in result) {
-        if (area) {
-          output.push({ name: area, weight: result[area] });
-        }
-      }
-      return output;
-    },
+    // course() {
+    //   const result = {};
+    //   for (const internship_id of this.internships) {
+    //     const each_course = this.internship_dict[internship_id].graduate_course;
+    //     if (!each_course) {
+    //       continue;
+    //     } else if (each_course in result) {
+    //       result[each_course] += 1;
+    //     } else {
+    //       result[each_course] = 1;
+    //     }
+    //   }
+    //   const output = [];
+    //   for (const course in result) {
+    //     if (course) {
+    //       output.push({ name: course, y: result[course] });
+    //     }
+    //   }
+    //   return output;
+    // },
+    // university() {
+    //   const result = {};
+    //   for (const internship_id of this.internships) {
+    //     const each_university = this.internship_dict[internship_id].phd_university;
+    //     if (!each_university) {
+    //       continue;
+    //     } else if (each_university in result) {
+    //       result[each_university] += 1;
+    //     } else {
+    //       result[each_university] = 1;
+    //     }
+    //   }
+    //   const output = [];
+    //   for (const uni in result) {
+    //     if (uni) {
+    //       output.push({ name: uni, weight: result[uni] });
+    //     }
+    //   }
+    //   return output;
+    // },
+    // research_area() {
+    //   const result = {};
+    //   for (const internship_id of this.internships) {
+    //     const each_area = this.internship_dict[internship_id].research_area;
+    //     if (!each_area) {
+    //       continue;
+    //     } else if (each_area in result) {
+    //       result[each_area] += 1;
+    //     } else {
+    //       result[each_area] = 1;
+    //     }
+    //   }
+    //   const output = [];
+    //   for (const area in result) {
+    //     if (area) {
+    //       output.push({ name: area, weight: result[area] });
+    //     }
+    //   }
+    //   return output;
+    // },
     salary() {
       const results = [];
       for (const internship_id of this.internships) {
