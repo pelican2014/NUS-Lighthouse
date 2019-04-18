@@ -6,7 +6,7 @@
     <b-container class="bv-example-row">
       <b-row> 
         <b-col>
-            <SpiderChart :title=spider_chart_data.title :data='spider_chart_data.data' :xcategory='spider_chart_data.categories'></SpiderChart> 
+            <WordCloud title="Positions they take" :data='occupation'></WordCloud> 
         </b-col>
         <b-col>
             <WordCloud title='Companies they go to' :data='company'></WordCloud>

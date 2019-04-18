@@ -26,6 +26,10 @@ export default {
       type: String,
       default: 'Source: NUS Datalake',
     },
+    series_name: {
+      type: String,
+      default: 'Importance',
+    },
   },
   computed: {
     options() {
@@ -33,7 +37,7 @@ export default {
         series: [{
           type: 'wordcloud',
           data: this.data,
-          name: 'Importance',
+          name: this.series_name,
         }],
         title: {
           text: this.title,

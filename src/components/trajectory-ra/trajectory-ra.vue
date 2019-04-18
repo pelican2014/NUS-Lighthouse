@@ -1,6 +1,5 @@
 <template src="./trajectory-ra.html"></template>
 <style src="./trajectory-ra.scss" lang="scss"></style>
-
 <script>
 import _ from 'lodash';
 import db from '@/firebase';
@@ -10,7 +9,7 @@ import Wordcloud from '@/components/charts/word-cloud';
 import Bar from '@/components/charts/bar';
 
 
-export default{
+export default {
   name: 'trajectory-ra',
   components: {
     Histogram,
@@ -28,7 +27,7 @@ export default{
     totalNum() {
       let counter = 0;
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p1') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           counter += 1;
         }
       }
@@ -40,7 +39,7 @@ export default{
       let prev;
       const path_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p2') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.path !== '') {
             path_list.push(ra.path);
@@ -72,7 +71,7 @@ export default{
       let prev;
       const industry_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p2') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.industry !== '') {
             industry_list.push(ra.industry);
@@ -104,7 +103,7 @@ export default{
       let prev;
       const course_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p2') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.graduate_course !== '') {
             course_list.push(ra.graduate_course);
@@ -133,7 +132,7 @@ export default{
     salary_hist() {
       const salary_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p2') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.starting_salary) {
             salary_list.push(ra.starting_salary);
@@ -171,7 +170,7 @@ export default{
       let prev;
       const uni_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p2') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.phd_university !== '') {
             uni_list.push(ra.phd_university);
@@ -203,7 +202,7 @@ export default{
       let prev;
       const research_list = [];
       for (const item_id in this.ra_dict) {
-        if (this.ra_dict[item_id].prof_id === 'p2') { // change to prof id
+        if (this.ra_dict[item_id].prof_id === this.prof_id) { // change to prof id
           const ra = this.ra_dict[item_id];
           if (ra.research_area !== '') {
             research_list.push(ra.research_area);
@@ -241,4 +240,5 @@ export default{
     },
   },
 };
+
 </script>

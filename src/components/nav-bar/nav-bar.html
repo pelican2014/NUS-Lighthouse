@@ -1,12 +1,15 @@
 <div>
   <v-toolbar color="blue darken-3" dark>
+    <v-toolbar-title class='logo-link'>
     <router-link to="/" tag="div" class="mouse-over">
-      <v-toolbar-title>
-        <h3 class = 'logo' id = "text1">NUS &nbsp</h3>
-        <h3 class = 'logo' id = "text2">Light</h3>
-        <h3 class = 'logo' id = "text3">house</h3>
-      </v-toolbar-title>
+      <img class='logo-img' src="./../../assets/logo.png"></img>
     </router-link>
+  </v-toolbar-title>
+    <v-toolbar-title class="sec-name">
+      <router-link :to='section_path' tag="div" class="mouse-over">
+        <h4 class='logo' id="text2">{{section_name}}</h4>
+      </router-link>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon @click="$router.go(-1)">
       <v-icon>arrow_back</v-icon>

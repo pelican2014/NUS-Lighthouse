@@ -1,46 +1,31 @@
 <div class="page">
-    <Navbar></Navbar>
-    <div><BasicInfo :module_name='module_name'></BasicInfo></div>
-
-    <b-container style="padding-top: 0 !important;">
-      <v-tabs
-        centered
-        color="grey lighten-3"
-        light
-        icons-and-text
-        class="lighthouse-tabs"
-        style="border-radius: 32px;"
-      >
-        <v-tabs-slider color="grey"></v-tabs-slider>
-        <v-tab href="#tab-3" class='subheader-tab-3'>
-          Background Statistics
-          <v-icon>insert_chart_outlined</v-icon>
-        </v-tab>
-
-        <v-tab href="#tab-4">
-          Future Trajectory
-          <v-icon>airplanemode_active</v-icon>
-        </v-tab>
-
-        <v-tab-item
-          key="1"
-          value="tab-3"
-        >
-          <v-card style="transform: translateY(-40px); z-index: -1;">
-            <Background :module='module_name' input_cap=4.8></Background>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item
-          key="2"
-          value="tab-4"
-        >
-          <v-card style="transform: translateY(-40px); z-index: -1;">
-            <Trajectory :module='module_name' number=70></Trajectory>
-          </v-card>
-        </v-tab-item>
-      </v-tabs>
-    </b-container>
-
+  <Navbar sectionIn='ta'></Navbar>
+  <div>
+    <BasicInfo :module_name='module_name'></BasicInfo>
+  </div>
+  <b-container style="padding-top: 0 !important;">
+    <v-tabs centered color="grey lighten-3" light icons-and-text class="lighthouse-tabs" style="border-radius: 32px;">
+      <v-tabs-slider color="grey"></v-tabs-slider>
+      <v-tab href="#tab-3" class='subheader-tab-3'>
+        Background Statistics
+        <v-icon>insert_chart_outlined</v-icon>
+      </v-tab>
+      <v-tab href="#tab-4">
+        Future Trajectory
+        <v-icon>airplanemode_active</v-icon>
+      </v-tab>
+      <v-tab-item key="1" value="tab-3">
+        <v-card style="transform: translateY(-40px); z-index: -1;">
+          <Background :module='module_name' input_cap=4.8></Background>
+        </v-card>
+      </v-tab-item>
+      <v-tab-item key="2" value="tab-4">
+        <v-card style="transform: translateY(-40px); z-index: -1;">
+          <Trajectory :module='module_name' number=70></Trajectory>
+        </v-card>
+      </v-tab-item>
+    </v-tabs>
+  </b-container>
   <!-- <b-row>
     <b-col>
     <b-tabs content-class="mt-3">
