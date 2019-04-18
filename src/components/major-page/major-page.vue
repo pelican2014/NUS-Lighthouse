@@ -267,6 +267,8 @@ export default {
           }
         }
       }
+      delete dict['Non Applicable based on skip pattern'];
+      delete dict['Others, please provide job title and description'];
       const result = [];
       for (const occupation in dict) {
         if (occupation) {
