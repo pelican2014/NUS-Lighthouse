@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      shorthand: 'BA',
+      shorthand: this.major_name,
       faculty: 'SoC',
       description: "Bachelor of Science in Business Analytics is a program in the School of Computing, National University of Singapore. An NUS education provides a strong technical foundation across all areas of computing, meaning that your Business Analytics training will be bolstered by strong general computer skills. Accordingly, a Business Analytics degree from NUS will provide you with the skills and expertise needed to build a career in today's fastest-growing and most exciting profession.",
       url: 'https://www.comp.nus.edu.sg/programmes/ug/ba/',

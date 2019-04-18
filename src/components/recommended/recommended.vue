@@ -7,8 +7,8 @@ export default {
     return {
       items: [
         {
-          image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png',
-          name: 'Google Singapore Software Engineer',
+          image_url: 'https://www.psc.gov.sg/images/default-source/module/agency/b714f38b-4c79-4b64-ac28-2fea3153f3ec.png',
+          name: 'Spring Singapore Software Engineer',
         },
         {
           id: 'p1',

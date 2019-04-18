@@ -1,7 +1,6 @@
 <template src='./internship-homepage.html'></template>
 <style src='./internship-homepage.scss' lang='scss'></style>
 <script>
-
 import NavBar from '@/components/nav-bar/nav-bar';
 import subheader from '@/components/subheader/subheader';
 import searchBar from '@/components/search-bar/search-bar';
@@ -21,13 +20,40 @@ export default {
     majorExplorer,
     recommended,
   },
+  props: {
+    username: {
+      type: String,
+      default: 'terence',
+    },
+  },
+  // data() {
+  //   return { username: 'terence' };
+  // },
   computed: {
+
+    recommend_items() {
+      const result = [];
+      const this_user = this.recommend_dict[this.username];
+      const this_user_recommend = this_user['recommended:'];
+
+      for (const key of Object.keys(this_user_recommend)) {
+        if (key) {
+          result.push({
+            name: (this_user_recommend[key]['company_name'] + ' ' + this_user_recommend[key]['position_name']),
+            position_id: key,
+            image_url: this_user_recommend[key]['icon_url'],
+
+          });
+        }
+      }
+      return result;
+    },
     professor_search() {
       const results = [];
       for (const prof_id in this.professor) {
         if (typeof this.professor[prof_id] !== 'object') continue;
-        const search_string = this.professor[prof_id]['Prof Name'] + ' '
-          + this.professor[prof_id]['Focus'];
+        const search_string = this.professor[prof_id]['Prof Name'] + ' ' +
+          this.professor[prof_id]['Focus'];
         for (const project of this.professor[prof_id]['Projects']) {
           results.push({
             title: project['title'],
@@ -44,20 +70,20 @@ export default {
       const results = [];
       for (const company_id in this.company) {
         if (typeof this.company[company_id] !== 'object') continue;
-        const search_string = this.company[company_id]['company_name'] + ' '
-          + this.company[company_id]['company_description'];
+        const search_string = this.company[company_id]['company_name'] + ' ' +
+          this.company[company_id]['company_description'];
         for (const position_id in this.company[company_id]['positions']) {
-          if (typeof this.company[company_id]['positions'][position_id]
-            !== 'object'
+          if (typeof this.company[company_id]['positions'][position_id] !==
+            'object'
           ) {
             continue;
           }
           const position = this.company[company_id]['positions'][position_id];
           results.push({
             id: position_id,
-            search: search_string + ' '
-              + position['position_name']
-              + position['position_description'],
+            search: search_string + ' ' +
+              position['position_name'] +
+              position['position_description'],
             company_name: this.company[company_id]['company_name'],
             position_name: position['position_name'],
           });
@@ -67,6 +93,10 @@ export default {
     },
   },
   firebase: {
+    recommend_dict: {
+      source: db.ref('users'),
+      asObject: true,
+    },
     internship: {
       source: db.ref('internship'),
       asArray: true,
@@ -75,9 +105,10 @@ export default {
       source: db.ref('company'),
       asObject: true,
     },
+
   },
 
-  methods: {
-  },
+  methods: {},
 };
+
 </script>

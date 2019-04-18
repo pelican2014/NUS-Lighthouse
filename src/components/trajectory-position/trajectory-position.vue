@@ -1,6 +1,5 @@
 <template src="./trajectory-position.html"></template>
 <style src="./trajectory-position.scss" lang="scss"></style>
-
 <script>
 import _ from 'lodash';
 import db from '@/firebase';
@@ -11,7 +10,7 @@ import Bar from '@/components/charts/bar';
 import Sankey from '@/components/charts/sankey';
 import SearchBar from '@/components/search-bar/search-bar';
 
-export default{
+export default {
   name: 'trajectory-position',
   components: {
     Histogram,
@@ -126,6 +125,7 @@ export default{
             dict[internship.occupation] = 1;
           }
         }
+        delete dict['Non Applicable based on skip pattern'];
       }
       const result = [];
       for (const occupation in dict) {
@@ -240,8 +240,8 @@ export default{
 
         // continue conditions
         if (typeof entry !== 'object') continue;
-        if (this.sankey_filtered_majors !== null
-          && this.sankey_filtered_majors.indexOf(entry.major) === -1) continue;
+        if (this.sankey_filtered_majors !== null &&
+          this.sankey_filtered_majors.indexOf(entry.major) === -1) continue;
 
         if (this.sankey_filtered_majors === null) {
           init_majors.add(entry.major);
@@ -252,17 +252,17 @@ export default{
         const path_industry = String([entry.path, entry.industry]);
         // const path_industry = String([entry.path, entry.graduate_industry]);
 
-        sankey_map[major_path] = sankey_map[major_path]
-          ? sankey_map[major_path] + 1
-          : 1;
-        sankey_map[path_industry] = sankey_map[path_industry]
-          ? sankey_map[path_industry] + 1
-          : 1;
+        sankey_map[major_path] = sankey_map[major_path] ?
+          sankey_map[major_path] + 1 :
+          1;
+        sankey_map[path_industry] = sankey_map[path_industry] ?
+          sankey_map[path_industry] + 1 :
+          1;
       }
 
-      if (this.filtered_internships
-        && this.filtered_internships.length > 0
-        && this.sankey_filtered_majors === null) {
+      if (this.filtered_internships &&
+        this.filtered_internships.length > 0 &&
+        this.sankey_filtered_majors === null) {
         this.sankey_filtered_majors = Array.from(init_majors);
       }
 
@@ -293,4 +293,5 @@ export default{
     },
   },
 };
+
 </script>
