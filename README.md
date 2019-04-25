@@ -1,5 +1,5 @@
 # NUS Lighthouse
 
-- Please log in with the following information <br/>
-Username: anonymous <br/>
-Password: bt3103
+<h3> Please log in with the following information <br/>
+- Username: anonymous
+- Password: bt3103
