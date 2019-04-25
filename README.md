@@ -1,5 +1,3 @@
 # NUS Lighthouse
 
-<h3> Please log in with the following information </h3>
-- Username: anonymous
-- Password: bt3103
+Please contact tengda@u.nus.edu if you want to log in to our website
